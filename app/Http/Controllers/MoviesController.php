@@ -72,12 +72,17 @@ class MoviesController extends Controller
             ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=credits,videos,images')
             ->json();
 
-        // dump($movie);
+            // Запрос к videocdn title=$title
 
-        return view('show', [
-            'movie' => $movie,
-            // 'genres' => $genres
-        ]);
+           $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_title'].'&limit=10')
+           ->json()['data'];
+
+           dump($videos);
+   
+           return view('show', [
+               'movie' => $movie,
+               'videos' => $videos
+           ]);
     }
 
     /**

@@ -57,10 +57,13 @@
                         </div>
                     </div>
                 @endif
-
+                @if($videos)
+                    <iframe src="{{$videos[0]['preview_iframe_src']}}" width="640" height="480" frameborder="0" allowfullscreen></iframe>
+                @endif
             </div>
         </div>
     </div>
+
     <div class="momvie-cast border-b border-gray-800">
         <div class="container mx-auto px-4 py-16">
             <h2 class='text-4xl font-semibold'>Cast</h2>
