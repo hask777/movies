@@ -6,9 +6,12 @@
             <div class="">
                 <span class="font-bold">Категории</span>
                 <ul class="text-sm">
-                    <li>
-                        <a href="#">Боевики</a>
-                    </li>
+                    @foreach($genres as $key=>$value)
+                        <li>
+                            <a href="#">{{$value}}</a>
+                        </li>
+                    @endforeach
+
                 </ul>
             </div>
         </div>
