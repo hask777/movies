@@ -1,22 +1,26 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container mx-auto px-4 pt-16">
-        <div class="popular-movies">
-            <h2 class='uppercase tracking-wider text-orange-500 text-lg font-semibold'>Popular movies</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                @foreach($popularMovies as $movie)
-                    <x-movie-card :movie="$movie" :genres="$genres"/>
-                @endforeach
+    <div class="container flex mx-auto px-4 mt-6">
+        <div class="grid w-20% mr-8 p-4">
+            <div class="">
+                <span class="font-bold">Категории</span>
+                <ul class="text-sm">
+                    <li>
+                        <a href="#">Боевики</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="now-playing-movies py-24">
-            <h2 class='uppercase tracking-wider text-orange-500 text-lg font-semibold'>Now Playing</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                @foreach($nowPlayingMovies as $movie)
-                    <x-movie-card :movie="$movie" :genres="$genres"/>
-                @endforeach
+        <div class="popular-movies w-80%">
+            <h2 class='uppercase flex flex-row tracking-wider text-orange-500 text-lg font-semibold mt-4'>Популярное кино</h2>
 
+            <div class="flex mt-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    @foreach($popularMovies as $movie)
+                        <x-movie-card :movie="$movie" :genres="$genres"/>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

@@ -53,12 +53,12 @@
                             <span class="ml-2">Play Trailer</span>
                         </button>
                         <div class="">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$movie['videos']['results'][0]['key']}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe class="" src="https://www.youtube.com/embed/{{$movie['videos']['results'][0]['key']}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                 @endif
                 @if($videos)
-                    <iframe src="{{$videos[0]['preview_iframe_src']}}" width="640" height="480" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="{{$videos[0]['preview_iframe_src']}}"  frameborder="0" allowfullscreen></iframe>
                 @endif
             </div>
         </div>

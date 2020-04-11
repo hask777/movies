@@ -15,22 +15,22 @@ class MoviesController extends Controller
     public function index()
     {
         $popularMovies = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/popular')
+            ->get('https://api.themoviedb.org/3/movie/popular?append_to_response=&language=ru')
             ->json()['results'];
 
         $nowPlayingMovies = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/now_playing')
+            ->get('https://api.themoviedb.org/3/movie/now_playing?append_to_response=&language=ru')
             ->json()['results'];
 
         $genresArray = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/genre/movie/list')
+            ->get('https://api.themoviedb.org/3/genre/movie/list?append_to_response=&language=ru')
             ->json()['genres'];
 
         $genres = collect($genresArray)->mapWithKeys(function($genre){
             return [$genre['id'] => $genre['name']];
         });
 
-            // dump($nowPlayingMovies);
+            dump($genresArray);
 
         return view('index', [
             'popularMovies' => $popularMovies,
@@ -69,7 +69,7 @@ class MoviesController extends Controller
     public function show($id)
     {
         $movie = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=credits,videos,images')
+            ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=credits,videos,images&language=ru')
             ->json();
 
             // Запрос к videocdn title=$title
@@ -77,8 +77,11 @@ class MoviesController extends Controller
            $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_title'].'&limit=10')
            ->json()['data'];
 
-           dump($videos);
-   
+           // $kinopoisk = Http::get('https://www.kinopoisk.ru/handler_search.php?ajax=1&q=terminator&topsuggest=true')
+           // ->json();
+
+           // dump($kinopoisk);
+
            return view('show', [
                'movie' => $movie,
                'videos' => $videos
