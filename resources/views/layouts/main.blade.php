@@ -4,7 +4,7 @@
         <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <livewire:styles>
     </head>
     <body>
@@ -43,5 +43,11 @@
 
         @yield('content')
         <livewire:scripts>
+        <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'>
+
+        </script>
+        <script type="text/javascript" src="{{asset('js/main.js')}}">
+
+        </script>
     </body>
 </html>

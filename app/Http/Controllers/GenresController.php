@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class GenresController extends Controller
 {
@@ -13,7 +14,31 @@ class GenresController extends Controller
      */
     public function index()
     {
-        //
+        $popularMovies = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/movie/popular?append_to_response=&language=ru')
+            ->json()['results'];
+
+        $genresArray = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/genre/movie/list?append_to_response=&language=ru')
+            ->json()['genres'];
+
+        $genres = collect($genresArray)->mapWithKeys(function($genre){
+            return [$genre['id'] => $genre['name']];
+        });
+
+        $gueryArray = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/discover/movie?with_genres=28&append_to_response=&language=ru')
+            ->json()['results'];
+
+
+        dump($gueryArray);
+
+
+        return view('genre', [
+            'gueryArray' => $gueryArray,
+            'genres' => $genres,
+            'popularMovies' => $popularMovies
+        ]);
     }
 
     /**
