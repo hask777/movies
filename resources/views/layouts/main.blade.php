@@ -46,7 +46,7 @@
         <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'>
 
         </script>
-        <script type="text/javascript" src="{{asset('js/main.js')}}">
+        {{-- <script type="text/javascript" src="{{asset('js/main.js')}}"> --}}
 
         </script>
     </body>

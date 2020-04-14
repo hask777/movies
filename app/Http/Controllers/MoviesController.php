@@ -35,7 +35,7 @@ class MoviesController extends Controller
             ->json();
 
             // dump($genresArray);
-            
+        dump($genres);    
 
         return view('index', [
             'popularMovies' => $popularMovies,

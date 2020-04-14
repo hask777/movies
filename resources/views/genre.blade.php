@@ -7,12 +7,12 @@
                 <span class="font-bold text-orange-500">Жанр</span>
                 <ul class="text-sm">
                     @foreach($genres as $key=>$value)
-
-                        <label for=""><a href="{{route('genres.index')}}">{{$value}}</a>
+                        <form class="" action="{{route('genres.index')}}" method="get">
                             <input type="hidden" name="movie_genre" value="{{$key}}">
-                        </label>,
-
+                            <button type="submit">{{$value}}</button>
+                        </form>
                     @endforeach
+
                 </ul>
             </div>
         </div>

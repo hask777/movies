@@ -26,14 +26,13 @@ class GenresController extends Controller
             return [$genre['id'] => $genre['name']];
         });
 
+        $genre_id = $_GET['movie_genre'];
+
         $gueryArray = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/discover/movie?with_genres=28&append_to_response=&language=ru')
+            ->get('https://api.themoviedb.org/3/discover/movie?with_genres='. $genre_id .'&append_to_response=&language=ru')
             ->json()['results'];
 
-
-        dump($gueryArray);
-
-
+        // dump($genre_id);
         return view('genre', [
             'gueryArray' => $gueryArray,
             'genres' => $genres,
