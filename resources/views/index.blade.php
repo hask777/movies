@@ -9,7 +9,9 @@
 
                     @foreach($genres as $key=>$value)
                         <form class="" action="{{route('genres.index')}}" method="get">
-                            <input type="hidden" name="movie_genre" value="{{$key}}">
+                            @csrf
+                            <input type="hidden" name="movie_id" value="{{$key}}">
+                            <input type="hidden" name="movie_name" value="{{$value}}">
                             <button type="submit">{{$value}}</button>
                         </form>
                     @endforeach

@@ -8,7 +8,9 @@
                 <ul class="text-sm">
                     @foreach($genres as $key=>$value)
                         <form class="" action="{{route('genres.index')}}" method="get">
-                            <input type="hidden" name="movie_genre" value="{{$key}}">
+                            @csrf
+                            <input type="hidden" name="movie_id" value="{{$key}}">
+                            <input type="hidden" name="movie_name" value="{{$value}}">
                             <button type="submit">{{$value}}</button>
                         </form>
                     @endforeach
@@ -17,7 +19,7 @@
             </div>
         </div>
         <div class="popular-movies w-80%">
-            <h2 class='uppercase flex flex-row tracking-wider text-orange-500 text-lg font-semibold mt-4'>Жанр</h2>
+            <h2 class='uppercase flex flex-row tracking-wider text-orange-500 text-lg font-semibold mt-4'>{{$genre_name}}</h2>
 
             <div class="flex mt-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
