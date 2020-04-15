@@ -39,10 +39,7 @@ class MoviesController extends Controller
             ->get('https://api.themoviedb.org/3/collection/10')
             ->json();
 
-
         // dump($popularMovies);
-
-
 
         return view('index', [
             'popularMovies' => $popularMovies,

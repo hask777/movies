@@ -34,7 +34,6 @@ class YearController extends Controller
             ->get('https://api.themoviedb.org/3/discover/movie?year='.$year.'&append_to_response=&language=ru')
             ->json()['results'];
 
-
         return view('year', [
             'year_name' => $year,
             'yearsArray' => $yearsArray,
