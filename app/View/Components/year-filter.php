@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class genre-card extends Component
+class year-filter extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class genre-card extends Component
      */
     public function render()
     {
-        return view('components.genre-card');
+        return view('components.year-filter');
     }
 }

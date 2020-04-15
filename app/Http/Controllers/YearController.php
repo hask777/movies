@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class GenresController extends Controller
+class YearController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,6 @@ class GenresController extends Controller
      */
     public function index()
     {
-
         $genresArray = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/genre/movie/list?append_to_response=&language=ru')
             ->json()['genres'];
@@ -23,17 +22,24 @@ class GenresController extends Controller
             return [$genre['id'] => $genre['name']];
         });
 
-        $genre_id = $_GET['movie_id'];
-        $genre_name = $_GET['movie_name'];
+        $years = [
+            '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009',
+            '2008', '2007', '2007', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998'
+        ];
 
-        $gueryArray = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/discover/movie?with_genres='. $genre_id .'&append_to_response=&language=ru')
+        $year = $_GET['year'];
+        // dump($year);
+
+        $yearsArray = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/discover/movie?year='.$year.'&append_to_response=&language=ru')
             ->json()['results'];
 
 
-        return view('genre', [
-            'genre_name' => $genre_name,
-            'gueryArray' => $gueryArray,
+        return view('year', [
+            'year_name' => $year,
+            'yearsArray' => $yearsArray,
+            'years' => $years,
+            'gueryArray' => $yearsArray,
             'genres' => $genres,
         ]);
     }

@@ -3,21 +3,7 @@
 @section('content')
     <div class="container flex mx-auto px-4 mt-6">
         <div class="grid w-20% mr-8 p-4">
-            <div class="">
-                <span class="font-bold text-orange-500">Жанр боевик</span>
-                <ul class="text-sm">
-
-                    @foreach($genres as $key=>$value)
-                        <form class="" action="{{route('genres.index')}}" method="get">
-                            @csrf
-                            <input type="hidden" name="movie_id" value="{{$key}}">
-                            <input type="hidden" name="movie_name" value="{{$value}}">
-                            <button type="submit">{{$value}}</button>
-                        </form>
-                    @endforeach
-
-                </ul>
-            </div>
+            @include('partials.filter')            
         </div>
         <div class="popular-movies w-80%">
             <h2 class='uppercase flex flex-row tracking-wider text-orange-500 text-lg font-semibold mt-4'>Популярное кино</h2>

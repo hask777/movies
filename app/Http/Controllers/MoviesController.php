@@ -34,14 +34,17 @@ class MoviesController extends Controller
             ->get('https://api.themoviedb.org/3/collection/10')
             ->json();
 
-            // dump($genresArray);
-        dump($genres);    
+
+        // dump($popularMovies);
+
+
 
         return view('index', [
             'popularMovies' => $popularMovies,
             'genres' => $genres,
             'nowPlayingMovies' => $nowPlayingMovies,
-            'collection' => $collection
+            'collection' => $collection,
+                 
         ]);
     }
 
@@ -80,13 +83,13 @@ class MoviesController extends Controller
 
             // Запрос к videocdn title=$title
 
-           $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_title'].'&limit=10')
+           $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['title'].'&limit=1')
            ->json()['data'];
 
            // $kinopoisk = Http::get('https://www.kinopoisk.ru/handler_search.php?ajax=1&q=terminator&topsuggest=true')
            // ->json();
 
-           // dump($kinopoisk);
+           dump($videos);
 
            return view('show', [
                'movie' => $movie,

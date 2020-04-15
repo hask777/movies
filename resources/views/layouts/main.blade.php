@@ -20,13 +20,22 @@
                         </a>
                     </li>
                     <li class="md:ml-16 mt-3 md:mt-0">
-                        <a href="{{route('movies.index')}}" class="hover:text-gray-300">Movies</a>
+                        <a href="{{route('movies.index')}}" class="hover:text-gray-300">Гланая</a>
                     </li>
                     <li class="md:ml-6 mt-3 md:mt-0">
-                        <a href="#" class="hover:text-gray-300">TV Showsk</a>
+                        <a href="#" class="hover:text-gray-300">Популярные</a>
                     </li>
                     <li class="md:ml-6 mt-3 md:mt-0">
-                        <a href="#" class="hover:text-gray-300">Actors</a>
+                        <a href="#" class="hover:text-gray-300">Сейчас смотрят</a>
+                    </li>
+                    <li class="md:ml-6 mt-3 md:mt-0">
+                        <a href="#" class="hover:text-gray-300">Сериалы</a>
+                    </li>
+                    <li class="md:ml-6 mt-3 md:mt-0">
+                        <a href="#" class="hover:text-gray-300">Аниме</a>
+                    </li>
+                    <li class="md:ml-6 mt-3 md:mt-0">
+                        <a href="#" class="hover:text-gray-300">Мульт</a>
                     </li>
                 </ul>
                 <div class="flex flex-col md:flex-row items-center">
