@@ -14,8 +14,9 @@ class MoviesController extends Controller
      */
     public function index()
     {
+
         $popularMovies = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/popular?append_to_response=&language=ru')
+            ->get('https://api.themoviedb.org/3/movie/popular?page=1&language=ru-RU')
             ->json()['results'];
 
         $nowPlayingMovies = Http::withToken(config('services.tmdb.token'))
@@ -39,7 +40,19 @@ class MoviesController extends Controller
             ->get('https://api.themoviedb.org/3/collection/10')
             ->json();
 
-        // dump($popularMovies);
+        $i = 1;
+        $pages = [];
+
+        while($i< 5){
+            $page = Http::withToken(config('services.tmdb.token'))
+                ->get('https://api.themoviedb.org/3/movie/popular?page='.$i++.'&language=ru-RU')
+                ->json()['results'];
+
+            $pages[] = $page;
+        }
+        foreach ($pages as $page):
+            // dump($page);
+        endforeach;
 
         return view('index', [
             'popularMovies' => $popularMovies,
@@ -47,6 +60,7 @@ class MoviesController extends Controller
             'nowPlayingMovies' => $nowPlayingMovies,
             'collection' => $collection,
             'years' => $years,
+            'pages' => $pages
 
         ]);
     }
@@ -86,18 +100,26 @@ class MoviesController extends Controller
 
             // Запрос к videocdn title=$title
 
-           $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['title'].'&limit=1')
-           ->json()['data'];
+            $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['title'].'&limit=10')
+            ->json()['data'];
 
-           // $kinopoisk = Http::get('https://www.kinopoisk.ru/handler_search.php?ajax=1&q=terminator&topsuggest=true')
-           // ->json();
+            foreach($videos as $video_item):
 
-           dump($videos);
+                if($movie['imdb_id'] === $video_item['imdb_id'])
+                {
+                    // dump($video_item['imdb_id']);
+                    // dump($movie['imdb_id']);
 
-           return view('show', [
+                    $video = $video_item;
+                }
+
+            endforeach;
+            // dump($video_item);
+
+            return view('show', [
                'movie' => $movie,
-               'videos' => $videos
-           ]);
+               'videos' => $video
+            ]);
     }
 
     /**
