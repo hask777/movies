@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class MoviesController extends Controller
 {
@@ -14,7 +17,6 @@ class MoviesController extends Controller
      */
     public function index()
     {
-
         $popularMovies = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/popular?page=1&language=ru-RU')
             ->json()['results'];
@@ -44,26 +46,41 @@ class MoviesController extends Controller
         $pages = [];
 
         while($i< 5){
-            $page = Http::withToken(config('services.tmdb.token'))
+            $movie = Http::withToken(config('services.tmdb.token'))
                 ->get('https://api.themoviedb.org/3/movie/popular?page='.$i++.'&language=ru-RU')
                 ->json()['results'];
 
-            $pages[] = $page;
+            foreach ($movie as $page):
+                // dump($page['original_title']);
+                array_push($pages, $page);
+            endforeach;             
         }
-        foreach ($pages as $page):
-            // dump($page);
-        endforeach;
-
+       
+        $movies_paginate = $this->paginate($pages);
+        dump($movies_paginate);
+        
         return view('index', [
             'popularMovies' => $popularMovies,
             'genres' => $genres,
             'nowPlayingMovies' => $nowPlayingMovies,
             'collection' => $collection,
             'years' => $years,
-            'pages' => $pages
+            'movies_paginate' => $movies_paginate
 
         ]);
     }
+
+    /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
+    public function paginate($items, $perPage = 19, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+    }    
 
     /**
      * Show the form for creating a new resource.
