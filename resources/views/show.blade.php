@@ -57,9 +57,14 @@
                         </div>
                     </div>
                 @endif
-                @if($videos)
-                    <iframe src="{{$videos['preview_iframe_src']}}"  frameborder="0" allowfullscreen></iframe>
-                @endif
+                    @if($videos == 'NO')
+                        Нет фильма!
+                    @else
+                        <iframe src="{{$videos['preview_iframe_src']}}"  frameborder="0" allowfullscreen></iframe>
+                    @endif
+                    
+                
+
             </div>
         </div>
     </div>

@@ -42,22 +42,22 @@ class MoviesController extends Controller
             ->get('https://api.themoviedb.org/3/collection/10')
             ->json();
 
-        $i = 1;
-        $pages = [];
+        // $i = 1;
+        // $pages = [];
 
-        while($i< 5){
-            $movie = Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/3/movie/popular?page='.$i++.'&language=ru-RU')
-                ->json()['results'];
+        // while($i< 5){
+        //     $movie = Http::withToken(config('services.tmdb.token'))
+        //         ->get('https://api.themoviedb.org/3/movie/popular?page='.$i++.'&language=ru-RU')
+        //         ->json()['results'];
 
-            foreach ($movie as $page):
-                // dump($page['original_title']);
-                array_push($pages, $page);
-            endforeach;             
-        }
+        //     foreach ($movie as $page):
+        //         // dump($page['original_title']);
+        //         array_push($pages, $page);
+        //     endforeach;             
+        // }
        
-        $movies_paginate = $this->paginate($pages);
-        dump($movies_paginate);
+        // $movies_paginate = $this->paginate($pages);
+        // dump($movies_paginate);
         
         return view('index', [
             'popularMovies' => $popularMovies,
@@ -65,7 +65,7 @@ class MoviesController extends Controller
             'nowPlayingMovies' => $nowPlayingMovies,
             'collection' => $collection,
             'years' => $years,
-            'movies_paginate' => $movies_paginate
+            // 'movies_paginate' => $movies_paginate
 
         ]);
     }
@@ -75,7 +75,7 @@ class MoviesController extends Controller
     *
     * @var array
     */
-    public function paginate($items, $perPage = 19, $page = null, $options = [])
+    public function paginate($items, $perPage = 20, $page = null, $options = [])
     {
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
         $items = $items instanceof Collection ? $items : Collection::make($items);
@@ -120,23 +120,35 @@ class MoviesController extends Controller
             $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['title'].'&limit=10')
             ->json()['data'];
 
-            foreach($videos as $video_item):
-
-                if($movie['imdb_id'] === $video_item['imdb_id'])
-                {
-                    // dump($video_item['imdb_id']);
-                    // dump($movie['imdb_id']);
-
-                    $video = $video_item;
-                }
-
-            endforeach;
-            // dump($video_item);
-
-            return view('show', [
-               'movie' => $movie,
-               'videos' => $video
-            ]);
+            if(!$videos){
+                return view('show', [
+                    'movie' => $movie,
+                    'videos' => 'NO'
+                ]);
+            }
+            else
+            {
+                foreach($videos as $video):
+                    if(!empty($video_item))
+                    {
+                        if($movie['imdb_id'] === $video['imdb_id'])
+                        {
+                            return view('show', [
+                                'movie' => $movie,                
+                                'videos' => $video
+                             ]);
+                        }             
+                    }
+                    else
+                    {
+                        return view('show', [
+                            'movie' => $movie,                
+                            'videos' => "NO"
+                        ]);
+                    }                    
+                endforeach;
+                // dd($video);      
+            }
     }
 
     /**
