@@ -1,0 +1,34 @@
+.main_menu_md {
+  display: none;
+}
+
+/* Small (sm) */
+
+/* Medium (md) */
+
+/* Large (lg) */
+
+/* Extra Large (xl) */
+
+/* Small (sm) */
+
+/* Medium (md) */
+
+/* Large (lg) */
+
+@media (max-width: 1024px) {
+  .main_menu {
+    display: none;
+  }
+
+  .main_menu_md {
+    display: block;
+  }
+
+  .main_menu_md li {
+    color: #fff;
+  }
+}
+
+/* Extra Large (xl) */
+

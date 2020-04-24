@@ -42,21 +42,21 @@ class MoviesController extends Controller
             ->get('https://api.themoviedb.org/3/collection/10')
             ->json();
 
-        // $i = 1;
-        // $pages = [];
+        $i = 1;
+        $pages = [];
 
-        // while($i< 5){
-        //     $movie = Http::withToken(config('services.tmdb.token'))
-        //         ->get('https://api.themoviedb.org/3/movie/popular?page='.$i++.'&language=ru-RU')
-        //         ->json()['results'];
+        while($i< 5){
+            $movie = Http::withToken(config('services.tmdb.token'))
+                ->get('https://api.themoviedb.org/3/movie/popular?page='.$i++.'&language=ru-RU')
+                ->json()['results'];
 
-        //     foreach ($movie as $page):
-        //         // dump($page['original_title']);
-        //         array_push($pages, $page);
-        //     endforeach;             
-        // }
+            foreach ($movie as $page):
+                // dump($page['original_title']);
+                array_push($pages, $page);
+            endforeach;             
+        }
        
-        // $movies_paginate = $this->paginate($pages);
+        $movies_paginate = $this->paginate($pages);
         // dump($movies_paginate);
         
         return view('index', [
@@ -65,7 +65,7 @@ class MoviesController extends Controller
             'nowPlayingMovies' => $nowPlayingMovies,
             'collection' => $collection,
             'years' => $years,
-            // 'movies_paginate' => $movies_paginate
+            'movies_paginate' => $movies_paginate
 
         ]);
     }
