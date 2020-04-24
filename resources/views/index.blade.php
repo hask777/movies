@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="container flex mx-auto px-4 mt-6">
-        <div class="flex w-20% mr-8 ">
+        <div class="flex mr-8">
             @include('partials.filter')
         </div>
-        <div class="popular-movies w-80%">
-            <div class="flex">
-                <h2 class='capitalize  tracking-wider text-orange-500 text-2xl  text-center font-semibold'>Популярное кино</h2>
+        <div class="popular_movies w-80%">
+            <div class="flex movies_header justify-between">
+                <h2 class='movies_header_title capitalize tracking-wider text-orange-500 text-2xl  text-center font-semibold'>Популярное кино</h2>
             
                 {{ $movies_paginate->links() }}
             </div>

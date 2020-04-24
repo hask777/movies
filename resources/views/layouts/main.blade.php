@@ -6,35 +6,13 @@
 
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <livewire:styles>
     </head>
-    <body>
-        <body class="font-sans bg-gray-900 text-white">
-
-	<!-- header -->
-        {{-- <nav class='border-b border-gray-800'>
-            <div class="container mx-auto flex flex-col md:flex-row   px-4 py-6">
-                
-                <div class="search_dropdown  w-20%">
-                    @include('layouts.header-parts.logo')
-                </div>
-                <div class="">
-                    @include('layouts.header-parts.menu')
-                </div>
-                </div>
-               
-
-                <div class="">
-                    <livewire:search-dropdown>
-                </div>
-
-                
-            </div> --}}
-            
-        {{-- </nav> --}}
+    <body class="bg-gray-900 text-white">
 
         <header class="border-b border-gray-800 ">
-            <div class="container mx-auto px-4 py-6 flex">
+            <div class="header_wrapper container mx-auto px-4 py-6 flex">
                 
                 <div class="logo w-20% mr-8">
                     @include('layouts.header-parts.logo')
@@ -49,7 +27,8 @@
                 </div>
 
             </div>
-            <div class="main_menu_md container mx-auto px-4 py-6 ">
+            {{-- MD --}}
+            <div class="main_menu_md container mx-auto px-4 py-6">
                 @include('layouts.header-parts.menu')
             </div>
         </header>

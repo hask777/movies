@@ -1,23 +1,19 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 .main_menu_md {
   display: none;
 }
 
-/* Small (sm) */
-
-/* Medium (md) */
-
-/* Large (lg) */
-
-/* Extra Large (xl) */
-
-/* Small (sm) */
-
-/* Medium (md) */
-
 /* Large (lg) */
 
 @media (max-width: 1024px) {
-  .main_menu {
+  .header_wrapper {
+    justify-content: space-between;
+  }
+
+  .header_wrapper .main_menu {
     display: none;
   }
 
@@ -25,10 +21,21 @@
     display: block;
   }
 
-  .main_menu_md li {
-    color: #fff;
+  .main_menu_md ul {
+    justify-content: center;
   }
 }
 
 /* Extra Large (xl) */
+
+.popular_movies .movies_header nav .pagination li {
+  width: 10px;
+  border-radius: 10px;
+  margin-left: 5px;
+  background-color: #ed8936;
+}
+
+.popular_movies .movies_header nav .pagination li a {
+  color: #000;
+}
 

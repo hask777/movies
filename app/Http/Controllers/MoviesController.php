@@ -129,7 +129,7 @@ class MoviesController extends Controller
             else
             {
                 foreach($videos as $video):
-                    if(!empty($video_item))
+                    if(!empty($video))
                     {
                         if($movie['imdb_id'] === $video['imdb_id'])
                         {
@@ -147,7 +147,7 @@ class MoviesController extends Controller
                         ]);
                     }                    
                 endforeach;
-                // dd($video);      
+                // dd($video);     
             }
     }
 

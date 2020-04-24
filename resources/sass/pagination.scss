@@ -1,0 +1,17 @@
+.popular_movies{
+    .movies_header{
+        nav{
+            .pagination{
+                li{
+                    width: 10px;
+                    border-radius: 10px;
+                    margin-left: 5px;
+                    background-color: #ed8936;
+                    a{
+                        color:#000;
+                    }
+                }
+            }
+        }
+    }
+}
