@@ -13,7 +13,10 @@
         <h3 class="font-bold text-orange-500 mt-8">Страна:</h3>
         <ul class="text-sm mb-4 mt-2">
            <li class="inline">США
-               <img src="{{asset('public/img/flags/united-states.svg')}}" alt="" class="w-20% inline">
+                <a href="{{route('country.index')}}">
+                    <img src="{{asset('public/img/flags/united-states.svg')}}" alt="" class="w-20% inline">
+                </a>
+              
            </li>
         </ul>
         <h3 class="font-bold text-orange-500 mt-8">Год:</h3>

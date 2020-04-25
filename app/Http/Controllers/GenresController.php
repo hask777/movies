@@ -55,6 +55,7 @@ class GenresController extends Controller
             }
            
             $genres_paginate = $this->paginate($pages);
+            // dump($genresArray);
 
         return view('genre', [
             'genre_name' => $genre_name,

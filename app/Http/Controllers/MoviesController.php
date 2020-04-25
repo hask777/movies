@@ -51,14 +51,13 @@ class MoviesController extends Controller
                 ->json()['results'];
 
             foreach ($movie as $page):
-                // dump($page['original_title']);
                 array_push($pages, $page);
             endforeach;             
         }
        
         $movies_paginate = $this->paginate($pages);
         // dump($movies_paginate);
-        
+             
         return view('index', [
             'popularMovies' => $popularMovies,
             'genres' => $genres,
