@@ -8,9 +8,7 @@
         <div class="popular_movies w-80%">
             <div class="flex movies_header justify-between items-center">
                 <h2 class='movies_header_title capitalize tracking-wider text-orange-500 text-2xl  text-center font-semibold'>Популярные</h2>
-                <div class="movies_page_count">
-                    показывать по : 20
-                </div>
+               
                 <div class="movies_page_style">
                     выбрать стиль
                 </div>
@@ -23,11 +21,7 @@
                     @foreach($movies_paginate as $movie)
                         <x-movie-card :movie="$movie" :genres="$genres"/>
                     @endforeach
-                    <style>
-                        .pagination{
-                            display: flex;
-                        }
-                    </style>
+                    
                     <div class="movies_page_pagination">
                         {{ $movies_paginate->links() }}
                     </div>

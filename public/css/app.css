@@ -28,14 +28,22 @@ body {
 
 /* Extra Large (xl) */
 
-.popular_movies .movies_header nav .pagination li {
+nav .pagination {
+  display: flex;
+}
+
+nav .pagination li {
   width: 10px;
   border-radius: 10px;
   margin-left: 5px;
   background-color: #ed8936;
 }
 
-.popular_movies .movies_header nav .pagination li a {
+nav .pagination li a {
   color: #000;
+}
+
+.filter input {
+  max-width: 190px;
 }
 
