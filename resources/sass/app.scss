@@ -1,5 +1,8 @@
 body{
     font-family: 'Roboto', sans-serif;
 }
+@import 'vars';
 @import 'menu';
 @import 'pagination';
+@import 'filter';
+

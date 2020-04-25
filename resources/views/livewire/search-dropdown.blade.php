@@ -7,7 +7,7 @@
     <div wire:loading class="spinner top-0 right-0 mr-4 mt-4"></div>
 
     @if (strlen($search) >= 2)
-        <div class="absolute bg-gray-800 text-sm rounded w-64 mt-4">
+        <div class="absolute bg-gray-800 text-sm rounded  mt-4">
             @if ($searchResults->count() > 0)
                 <ul>
                     @foreach ($searchResults as $result)

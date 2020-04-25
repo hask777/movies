@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class GenresController extends Controller
 {
@@ -26,7 +29,7 @@ class GenresController extends Controller
         $genre_id = $_GET['movie_id'];
         $genre_name = $_GET['movie_name'];
 
-        $gueryArray = Http::withToken(config('services.tmdb.token'))
+        $genresArray = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/discover/movie?with_genres='. $genre_id .'&append_to_response=&language=ru')
             ->json()['results'];
 
@@ -36,13 +39,43 @@ class GenresController extends Controller
                 '2008', '2007', '2007', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998'
             ];
 
+            $i = 1;
+            $pages = [];
+    
+            while($i< 5){
+
+                $movie = Http::withToken(config('services.tmdb.token'))
+                    ->get('https://api.themoviedb.org/3/discover/movie?with_genres='. $genre_id .'&page='.$i++.'&append_to_response=&language=ru')
+                    ->json()['results'];
+    
+                foreach ($movie as $page):
+                    // dump($page['original_title']);
+                    array_push($pages, $page);
+                endforeach;             
+            }
+           
+            $genres_paginate = $this->paginate($pages);
+
         return view('genre', [
             'genre_name' => $genre_name,
-            'gueryArray' => $gueryArray,
+            'gueryArray' => $genresArray,
             'genres' => $genres,
             'years' => $years,
+            'movies_paginate' => $genres_paginate
         ]);
     }
+
+    /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
+    public function paginate($items, $perPage = 20, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+    }    
 
     /**
      * Show the form for creating a new resource.
