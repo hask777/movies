@@ -17,64 +17,23 @@ class GenresController extends Controller
      */
     public function index()
     {
-
-        $genresArray = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/genre/movie/list?append_to_response=&language=ru')
-            ->json()['genres'];
-
-        $genres = collect($genresArray)->mapWithKeys(function($genre){
-            return [$genre['id'] => $genre['name']];
-        });
+        include 'inc/genres.php';
+        include 'inc/years.php';
+        include 'inc/countries.php';
 
         $genre_id = $_GET['movie_id'];
         $genre_name = $_GET['movie_name'];
 
-        $genresArray = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/discover/movie?with_genres='. $genre_id .'&append_to_response=&language=ru')
-            ->json()['results'];
-
-
-            $years = [
-                '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009',
-                '2008', '2007', '2007', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998'
-            ];
-
-            $i = 1;
-            $pages = [];
+        include 'inc/movies/genres_pagination.php';
     
-            while($i< 5){
-
-                $movie = Http::withToken(config('services.tmdb.token'))
-                    ->get('https://api.themoviedb.org/3/discover/movie?with_genres='. $genre_id .'&page='.$i++.'&append_to_response=&language=ru')
-                    ->json()['results'];
-    
-                foreach ($movie as $page):
-                    // dump($page['original_title']);
-                    array_push($pages, $page);
-                endforeach;             
-            }
-           
-            $genres_paginate = $this->paginate($pages);
-            
-
-            $countries = [
-                'en' => 'США', 'ru' => "Россия"
-            ];
-    
-            // $country_id = $_GET['country_id'];
-            
-            $countryArray = Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/3//discover/movie?with_original_language=fr&primary_release_year=2020')
-                ->json()['results'];
-
+        dump($genres_paginate);
         return view('genre', [
             'genre_name' => $genre_name,
-            'gueryArray' => $genresArray,
+            // 'gueryArray' => $genresArray,
             'genres' => $genres,
-            'countryArray' => $countryArray,
             'countries' => $countries,
             'years' => $years,
-            'movies_paginate' => $genres_paginate
+            'genres_paginate' => $genres_paginate
         ]);
     }
 

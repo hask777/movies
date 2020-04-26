@@ -17,62 +17,16 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        $popularMovies = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/popular?page=1&language=ru-RU')
-            ->json()['results'];
-
-        $nowPlayingMovies = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/now_playing?append_to_response=&language=ru')
-            ->json()['results'];
-
-        $genresArray = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/genre/movie/list?append_to_response=&language=ru')
-            ->json()['genres'];
-
-        $genres = collect($genresArray)->mapWithKeys(function($genre){
-            return [$genre['id'] => $genre['name']];
-        });
-
-        $years = [
-            '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009',
-            '2008', '2007', '2007', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998'
-        ];
-
-        $collection = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/collection/10')
-            ->json();
-
-        $i = 1;
-        $pages = [];
-
-        while($i< 5){
-            $movie = Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/3/movie/popular?page='.$i++.'&language=ru-RU')
-                ->json()['results'];
-
-            foreach ($movie as $page):
-                array_push($pages, $page);
-            endforeach;             
-        }
-       
-        $movies_paginate = $this->paginate($pages);
-        // dump($movies_paginate);
-
-        $countries = [
-            'en' => 'США', 'ru' => 'Россия', 'fr' => 'Франция',
-        ];
-  
-        $countryArray = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3//discover/movie?with_original_language=fr&primary_release_year=2020')
-            ->json()['results'];
-             
+        include 'inc/popular.php';
+        include 'inc/genres.php';
+        include 'inc/years.php';
+        include 'inc/countries.php';
+        include 'inc/movies/movies_pagination.php';
+            
         return view('index', [
             'popularMovies' => $popularMovies,
             'genres' => $genres,
-            'countryArray' => $countryArray,
             'countries' => $countries,
-            'nowPlayingMovies' => $nowPlayingMovies,
-            'collection' => $collection,
             'years' => $years,
             'movies_paginate' => $movies_paginate
 

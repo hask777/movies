@@ -18,31 +18,11 @@ class CountryController extends Controller
     public function index()
     {
 
-        $popularMovies = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/popular?page=1&language=ru-RU')
-            ->json()['results'];
-
-        $nowPlayingMovies = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/now_playing?append_to_response=&language=ru')
-            ->json()['results'];
-
-        $genresArray = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/genre/movie/list?append_to_response=&language=ru')
-            ->json()['genres'];
-
-        $genres = collect($genresArray)->mapWithKeys(function($genre){
-            return [$genre['id'] => $genre['name']];
-        });
-
-        $years = [
-            '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009',
-            '2008', '2007', '2007', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998'
-        ];
-
-        $collection = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/collection/10')
-            ->json();
-
+        
+        include 'inc/years.php';
+        include 'inc/genres.php';
+        include 'inc/countries.php';
+    
         $i = 1;
         $pages = [];
 
@@ -59,26 +39,22 @@ class CountryController extends Controller
        
         $movies_paginate = $this->paginate($pages);
 
-        $countries = [
-            'en' => 'США', 'ru' => "Россия"
-        ];
-
         $country_id = $_GET['country_id'];
+        $country_name = $_GET['country_name'];
+        // dd($country_name);
+        
         
         $countryArray = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3//discover/movie?with_original_language='.$country_id.'')
             ->json()['results'];
 
-
-        dump($countryArray);
+        // dump($countryArray);
             
         return view('country', [
             'countryArray' => $countryArray,
             'countries' => $countries,
-            'popularMovies' => $popularMovies,
+            'country_name' => $country_name,
             'genres' => $genres,
-            'nowPlayingMovies' => $nowPlayingMovies,
-            'collection' => $collection,
             'years' => $years,
             'movies_paginate' => $movies_paginate
         ]);
@@ -91,9 +67,7 @@ class CountryController extends Controller
     */
     public function paginate($items, $perPage = 20, $page = null, $options = [])
     {
-        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
-        $items = $items instanceof Collection ? $items : Collection::make($items);
-        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+        require ('inc/pagination.php');
     } 
 
     /**

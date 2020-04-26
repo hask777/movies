@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class YearController extends Controller
 {
@@ -14,46 +17,35 @@ class YearController extends Controller
      */
     public function index()
     {
-        $genresArray = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/genre/movie/list?append_to_response=&language=ru')
-            ->json()['genres'];
-
-        $genres = collect($genresArray)->mapWithKeys(function($genre){
-            return [$genre['id'] => $genre['name']];
-        });
-
-        $years = [
-            '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009',
-            '2008', '2007', '2007', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998'
-        ];
+        include 'inc/genres.php';
+        include 'inc/years.php';
+        include 'inc/countries.php';
 
         $year = $_GET['year'];
-        // dump($year);
 
         $yearsArray = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/discover/movie?year='.$year.'&append_to_response=&language=ru')
             ->json()['results'];
-
-        $countries = [
-            'en' => 'США', 'ru' => "Россия"
-        ];
     
-            // $country_id = $_GET['country_id'];
-            
-        $countryArray = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3//discover/movie?with_original_language=fr&primary_release_year=2020')
-            ->json()['results'];
-
         return view('year', [
             'year_name' => $year,
             'yearsArray' => $yearsArray,
             'years' => $years,
-            'gueryArray' => $yearsArray,
-            'countryArray' => $countryArray,
             'countries' => $countries,
             'genres' => $genres,
         ]);
     }
+
+    /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
+    public function paginate($items, $perPage = 20, $page = null, $options = [])
+    {
+        require ('inc/pagination.php');
+    } 
+  
 
     /**
      * Show the form for creating a new resource.
