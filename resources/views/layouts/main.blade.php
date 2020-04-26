@@ -11,19 +11,19 @@
     </head>
     <body class="bg-gray-900 text-white">
 
-        <header class="border-b border-gray-800 ">
+        <header class="border-b border-gray-800">
             <div class="header_wrapper container mx-auto px-4 py-6 flex">
                 
-                <div class="logo w-20% mr-8">
+                <div class="logo w-20%">
                     @include('layouts.header-parts.logo')
                 </div>
 
-                <div class="main_menu lg:w-60%">
+                <div class="main_menu lg:w-60% mr-8 flex justify-center">
                     @include('layouts.header-parts.menu')
                 </div>
 
-                <div class="search">
-                    sign in 
+                <div class="flex justify-center">   
+                    Войти              
                 </div>
 
             </div>
@@ -36,6 +36,15 @@
 	<!-- end header -->
 
         @yield('content')
+        <footer class="border-t border-gray-800">
+            <div class="container mx-auto px-4 py-6 flex justify-center">
+                <img src="{{'img/flags/telegram.svg'}}" alt="" class="ml-1">
+                <img src="{{'img/flags/odnaklassniki.svg'}}" alt="" class="ml-1">
+                <img src="{{'img/flags/facebook.svg'}}" alt="" class="ml-1">
+                <img src="{{'img/flags/vkontakte.svg'}}" alt="" class="ml-1">
+            </div>     
+        </footer>
+
         <livewire:scripts>
         <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'>
 

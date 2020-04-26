@@ -4,19 +4,19 @@
     </div>
     <div class="bg-gray-800 p-4 mt-6">
         <livewire:search-dropdown>
-        <h3 class="font-bold text-orange-500  mt-8">Жанры:</h3>
+        <h3 class="font-bold text-orange-500  mt-6">Жанры:</h3>
         <ul class="text-sm mb-4 mt-2 ml-1">
             @foreach($genres as $key=>$value)
                 <x-genres-filter :key="$key" :value="$value"/>
             @endforeach
         </ul>
-        <h3 class="font-bold text-orange-500 mt-8">Страна:</h3>
-        <ul class="text-sm mb-4 mt-2">
+        <h3 class="font-bold text-orange-500 mt-6 ">Страна:</h3>
+        <ul class="text-sm mb-4 mt-2 ml-1">
             @foreach($countries as $key=>$value)
                 <x-country-filter :key="$key" :value="$value"/>
             @endforeach
         </ul>
-        <h3 class="font-bold text-orange-500 mt-8">Год:</h3>
+        <h3 class="font-bold text-orange-500 mt-6">Год:</h3>
         <ul class="text-sm mb-4 mt-2">
             @foreach($years as $key => $year)
                
