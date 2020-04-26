@@ -55,12 +55,24 @@ class GenresController extends Controller
             }
            
             $genres_paginate = $this->paginate($pages);
-            // dump($genresArray);
+            
+
+            $countries = [
+                'en' => 'США', 'ru' => "Россия"
+            ];
+    
+            // $country_id = $_GET['country_id'];
+            
+            $countryArray = Http::withToken(config('services.tmdb.token'))
+                ->get('https://api.themoviedb.org/3//discover/movie?with_original_language=fr&primary_release_year=2020')
+                ->json()['results'];
 
         return view('genre', [
             'genre_name' => $genre_name,
             'gueryArray' => $genresArray,
             'genres' => $genres,
+            'countryArray' => $countryArray,
+            'countries' => $countries,
             'years' => $years,
             'movies_paginate' => $genres_paginate
         ]);

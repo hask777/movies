@@ -58,16 +58,23 @@ class CountryController extends Controller
         }
        
         $movies_paginate = $this->paginate($pages);
-        
 
+        $countries = [
+            'en' => 'США', 'ru' => "Россия"
+        ];
+
+        $country_id = $_GET['country_id'];
+        
         $countryArray = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3//discover/movie?with_original_language=pl')
+            ->get('https://api.themoviedb.org/3//discover/movie?with_original_language='.$country_id.'')
             ->json()['results'];
 
-            dump($countryArray);
+
+        dump($countryArray);
             
         return view('country', [
             'countryArray' => $countryArray,
+            'countries' => $countries,
             'popularMovies' => $popularMovies,
             'genres' => $genres,
             'nowPlayingMovies' => $nowPlayingMovies,

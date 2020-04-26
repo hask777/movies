@@ -12,12 +12,9 @@
         </ul>
         <h3 class="font-bold text-orange-500 mt-8">Страна:</h3>
         <ul class="text-sm mb-4 mt-2">
-           <li class="inline">США
-                <a href="{{route('country.index')}}">
-                    <img src="{{asset('public/img/flags/united-states.svg')}}" alt="" class="w-20% inline">
-                </a>
-              
-           </li>
+            @foreach($countries as $key=>$value)
+                <x-country-filter :key="$key" :value="$value"/>
+            @endforeach
         </ul>
         <h3 class="font-bold text-orange-500 mt-8">Год:</h3>
         <ul class="text-sm mb-4 mt-2">

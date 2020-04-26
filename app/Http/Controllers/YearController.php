@@ -34,11 +34,23 @@ class YearController extends Controller
             ->get('https://api.themoviedb.org/3/discover/movie?year='.$year.'&append_to_response=&language=ru')
             ->json()['results'];
 
+        $countries = [
+            'en' => 'США', 'ru' => "Россия"
+        ];
+    
+            // $country_id = $_GET['country_id'];
+            
+        $countryArray = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3//discover/movie?with_original_language=fr&primary_release_year=2020')
+            ->json()['results'];
+
         return view('year', [
             'year_name' => $year,
             'yearsArray' => $yearsArray,
             'years' => $years,
             'gueryArray' => $yearsArray,
+            'countryArray' => $countryArray,
+            'countries' => $countries,
             'genres' => $genres,
         ]);
     }

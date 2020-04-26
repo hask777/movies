@@ -57,10 +57,20 @@ class MoviesController extends Controller
        
         $movies_paginate = $this->paginate($pages);
         // dump($movies_paginate);
+
+        $countries = [
+            'en' => 'США', 'ru' => 'Россия', 'fr' => 'Франция',
+        ];
+  
+        $countryArray = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3//discover/movie?with_original_language=fr&primary_release_year=2020')
+            ->json()['results'];
              
         return view('index', [
             'popularMovies' => $popularMovies,
             'genres' => $genres,
+            'countryArray' => $countryArray,
+            'countries' => $countries,
             'nowPlayingMovies' => $nowPlayingMovies,
             'collection' => $collection,
             'years' => $years,
@@ -116,7 +126,7 @@ class MoviesController extends Controller
 
             // Запрос к videocdn title=$title
 
-            $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['title'].'&limit=10')
+        $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['title'].'&limit=10')
             ->json()['data'];
 
             if(!$videos){
@@ -148,6 +158,10 @@ class MoviesController extends Controller
                 endforeach;
                 // dd($video);     
             }
+            return view('show', [
+                'movie' => $movie,                
+                'videos' => $video
+             ]);
     }
 
     /**

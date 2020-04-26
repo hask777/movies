@@ -15,7 +15,7 @@
                     выбрать стиль
                 </div>
             
-                {{-- {{ $movies_paginate->links() }} --}}
+                {{-- {{ $countryArray->links() }} --}}
             </div>
 
             <div class="flex mt-6">
@@ -25,7 +25,7 @@
                     @endforeach
                 
                     <div class="movies_page_pagination">
-                        {{-- {{ $movies_paginate->links() }} --}}
+                        {{-- {{ $countryArray->links() }} --}}
                     </div>
                    
                 </div>
