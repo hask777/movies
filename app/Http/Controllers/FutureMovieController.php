@@ -8,7 +8,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class YearController extends Controller
+class FutureMovieController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,37 +17,26 @@ class YearController extends Controller
      */
     public function index()
     {
+
+        include 'inc/popular.php';
         include 'inc/genres.php';
         include 'inc/years.php';
         include 'inc/countries.php';
         include 'inc/sidebar.php';
+        // include 'inc/movies/movies_pagination.php';
 
-        $year = $_GET['year'];
-
-        $yearsArray = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/discover/movie?year='.$year.'&append_to_response=&language=ru')
-            ->json()['results'];
-    
-        return view('year', [
-            'year_name' => $year,
-            'yearsArray' => $yearsArray,
+        
+            
+        return view('future', [
             'sidebarFutureMovies' => $sidebarFutureMovies,
-            'years' => $years,
-            'countries' => $countries,
+            'futureMovies' => $futureMovies,
+            'popularMovies' => $popularMovies,
             'genres' => $genres,
+            'countries' => $countries,
+            'years' => $years,
+            // 'movies_paginate' => $movies_paginate
         ]);
     }
-
-    /**
-    * The attributes that are mass assignable.
-    *
-    * @var array
-    */
-    public function paginate($items, $perPage = 20, $page = null, $options = [])
-    {
-        require ('inc/pagination.php');
-    } 
-  
 
     /**
      * Show the form for creating a new resource.

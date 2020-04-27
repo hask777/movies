@@ -22,6 +22,7 @@ class CountryController extends Controller
         include 'inc/years.php';
         include 'inc/genres.php';
         include 'inc/countries.php';
+        include 'inc/sidebar.php';
     
         $i = 1;
         $pages = [];
@@ -56,6 +57,7 @@ class CountryController extends Controller
             'country_name' => $country_name,
             'genres' => $genres,
             'years' => $years,
+            'sidebarFutureMovies' => $sidebarFutureMovies,
             'movies_paginate' => $movies_paginate
         ]);
     }

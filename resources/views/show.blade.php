@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="flex mx-auto px-16 py-16 momvie-info border-b border-gray-800">
-        <div class="">
+        <div class="movie_item">
             <img src="https://image.tmdb.org/t/p/w500/{{$movie['poster_path']}}" alt="parasite" class='w-64 lg:w-96'>
         </div>
         <div class="container  flex flex-col md:flex-row">

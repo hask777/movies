@@ -21,6 +21,7 @@ class MoviesController extends Controller
         include 'inc/genres.php';
         include 'inc/years.php';
         include 'inc/countries.php';
+        include 'inc/sidebar.php';
         include 'inc/movies/movies_pagination.php';
             
         return view('index', [
@@ -28,6 +29,7 @@ class MoviesController extends Controller
             'genres' => $genres,
             'countries' => $countries,
             'years' => $years,
+            'sidebarFutureMovies' => $sidebarFutureMovies,
             'movies_paginate' => $movies_paginate
 
         ]);

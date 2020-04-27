@@ -20,6 +20,7 @@ class GenresController extends Controller
         include 'inc/genres.php';
         include 'inc/years.php';
         include 'inc/countries.php';
+        include 'inc/sidebar.php';
 
         $genre_id = $_GET['movie_id'];
         $genre_name = $_GET['movie_name'];
@@ -30,6 +31,7 @@ class GenresController extends Controller
         return view('genre', [
             'genre_name' => $genre_name,
             // 'gueryArray' => $genresArray,
+            'sidebarFutureMovies' => $sidebarFutureMovies,
             'genres' => $genres,
             'countries' => $countries,
             'years' => $years,
