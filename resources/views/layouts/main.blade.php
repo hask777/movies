@@ -18,12 +18,19 @@
                     @include('layouts.header-parts.logo')
                 </div>
 
-                <div class="main_menu lg:w-60% mr-8 flex justify-center">
+                <div class="main_menu lg:w-60% mr-8 flex justify-center items-center">
                     @include('layouts.header-parts.menu')
                 </div>
 
-                <div class="flex justify-center">   
-                    Войти              
+                <div class="authetication flex items-center justify-center">   
+                    Войти  
+                    <img src="{{asset('img/flags/batman.svg')}}" alt="" class="authetication_icon">
+                    <style>
+                        .authetication .authetication_icon{
+                            width: 20px;
+                            margin-left: 10px;
+                        }
+                    </style>          
                 </div>
 
             </div>

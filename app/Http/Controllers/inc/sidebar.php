@@ -5,4 +5,4 @@ $futureMovies = Http::withToken(config('services.tmdb.token'))
             ->json()['results'];
 
         $sidebarFutureMovies = collect($futureMovies)->random(2);    
-        dump($futureMovies);
+        // dump($futureMovies);

@@ -27,7 +27,7 @@ class GenresController extends Controller
 
         include 'inc/movies/genres_pagination.php';
     
-        dump($genres_paginate);
+        // dump($genres_paginate);
         return view('genre', [
             'genre_name' => $genre_name,
             // 'gueryArray' => $genresArray,

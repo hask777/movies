@@ -9,17 +9,13 @@
         <div class="popular_movies w-80%">
             <div class="flex movies_header justify-between items-center">
                 <h2 class='movies_header_title tracking-wider text-orange-500 text-2xl  text-center font-semibold'>Год: {{$year_name}}</h2>
-                <div class="movies_page_count">
-                    показывать по : 20
-                </div>
-                <div class="movies_page_style">
-                    выбрать стиль
-                </div>
+                
+                @include('partials.styles')
             
                 {{-- {{ $movies_paginate->links() }} --}}
             </div>
 
-            <div class="flex mt-6">
+            <div class="flex mt-5">
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     @foreach($yearsArray as $movie)
                         <x-movie-card :movie="$movie" :genres="$genres"/>

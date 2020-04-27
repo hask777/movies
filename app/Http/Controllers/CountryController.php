@@ -33,7 +33,6 @@ class CountryController extends Controller
                 ->json()['results'];
 
             foreach ($movie as $page):
-                // dump($page['original_title']);
                 array_push($pages, $page);
             endforeach;             
         }
@@ -42,15 +41,11 @@ class CountryController extends Controller
 
         $country_id = $_GET['country_id'];
         $country_name = $_GET['country_name'];
-        // dd($country_name);
-        
-        
+     
         $countryArray = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3//discover/movie?with_original_language='.$country_id.'')
             ->json()['results'];
-
-        // dump($countryArray);
-            
+           
         return view('country', [
             'countryArray' => $countryArray,
             'countries' => $countries,

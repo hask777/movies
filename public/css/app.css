@@ -32,15 +32,37 @@ nav .pagination {
   display: flex;
 }
 
-nav .pagination li {
-  width: 10px;
+nav .pagination .page-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 40px;
   border-radius: 10px;
   margin-left: 5px;
-  background-color: #ed8936;
+  text-align: center;
+  vertical-align: auto;
+  background-color: #2D3748;
 }
 
-nav .pagination li a {
-  color: #000;
+nav .pagination .page-item.active {
+  background-color: #ED8936;
+  text-align: center;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+nav .pagination .page-item.disabled {
+  background-color: #2D3748;
+  text-align: center;
+  color: #ED8936;
+  font-size: 24px;
+}
+
+nav .pagination .page-item a {
+  text-align: center;
+  color: #ED8936;
+  font-size: 24px;
 }
 
 .filter input {
