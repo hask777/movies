@@ -81,12 +81,12 @@ class MoviesController extends Controller
 
             // Запрос к videocdn title=$title
 
-        $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['title'].'&limit=10')
+        $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_title'].'&limit=10')
             ->json()['data'];
 
 
 
-            // dump($videos);
+            dump($movie);
 
             if(!$videos){
                 return view('show', [
@@ -99,7 +99,7 @@ class MoviesController extends Controller
                 foreach($videos as $video):
                     if(!empty($video))
                     {
-                        if($movie['imdb_id'] === $video['imdb_id'] || $movie['title'] === $video['ru_title'] || $movie['original_title'] === $video['orig_title'])
+                        if($movie['imdb_id'] === $video['imdb_id'])
                         {
                             return view('show', [
                                 'movie' => $movie,                
