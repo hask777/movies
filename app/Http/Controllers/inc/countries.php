@@ -6,6 +6,5 @@ $countries = [
     'fr' => 'Франция'
 ];
 
-    // $country_id = $_GET['country_id'];
     
 

@@ -24,9 +24,7 @@ class FutureMovieController extends Controller
         include 'inc/countries.php';
         include 'inc/sidebar.php';
         // include 'inc/movies/movies_pagination.php';
-
-        
-            
+     
         return view('future', [
             'sidebarFutureMovies' => $sidebarFutureMovies,
             'futureMovies' => $futureMovies,

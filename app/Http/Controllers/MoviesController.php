@@ -31,7 +31,6 @@ class MoviesController extends Controller
             'years' => $years,
             'sidebarFutureMovies' => $sidebarFutureMovies,
             'movies_paginate' => $movies_paginate
-
         ]);
     }
 
@@ -85,6 +84,10 @@ class MoviesController extends Controller
         $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['title'].'&limit=10')
             ->json()['data'];
 
+
+
+            // dump($videos);
+
             if(!$videos){
                 return view('show', [
                     'movie' => $movie,
@@ -96,7 +99,7 @@ class MoviesController extends Controller
                 foreach($videos as $video):
                     if(!empty($video))
                     {
-                        if($movie['imdb_id'] === $video['imdb_id'])
+                        if($movie['imdb_id'] === $video['imdb_id'] || $movie['title'] === $video['ru_title'] || $movie['original_title'] === $video['orig_title'])
                         {
                             return view('show', [
                                 'movie' => $movie,                
@@ -108,7 +111,8 @@ class MoviesController extends Controller
                     {
                         return view('show', [
                             'movie' => $movie,                
-                            'videos' => "NO"
+                            'videos' => $video 
+                            // OR No
                         ]);
                     }                    
                 endforeach;
@@ -118,6 +122,27 @@ class MoviesController extends Controller
                 'movie' => $movie,                
                 'videos' => $video
              ]);
+
+             foreach($videos as $video):
+                if(!empty($video))
+                {
+                    if($movie['imdb_id'] === $video['imdb_id'])
+                    {
+                        return view('show', [
+                            'movie' => $movie,                
+                            'videos' => $video
+                         ]);
+                    }             
+                }
+                else
+                {
+                    return view('show', [
+                        'movie' => $movie,                
+                        'videos' => $video 
+                        // OR No
+                    ]);
+                }                    
+            endforeach;
     }
 
     /**

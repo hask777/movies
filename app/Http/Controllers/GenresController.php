@@ -21,22 +21,22 @@ class GenresController extends Controller
         include 'inc/years.php';
         include 'inc/countries.php';
         include 'inc/sidebar.php';
-
-        $genre_id = $_GET['movie_id'];
-        $genre_name = $_GET['movie_name'];
-
         include 'inc/movies/genres_pagination.php';
-    
-        // dump($genres_paginate);
+
+        if(!empty($_GET['genre_name'])){
+            $genre_name = $_GET['genre_name'];         
+        }
+
         return view('genre', [
             'genre_name' => $genre_name,
-            // 'gueryArray' => $genresArray,
+            'gueryArray' => $genresArray,
             'sidebarFutureMovies' => $sidebarFutureMovies,
             'genres' => $genres,
             'countries' => $countries,
             'years' => $years,
             'genres_paginate' => $genres_paginate
         ]);
+       
     }
 
     /**
@@ -48,7 +48,7 @@ class GenresController extends Controller
     {
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
         $items = $items instanceof Collection ? $items : Collection::make($items);
-        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);    
     }    
 
     /**

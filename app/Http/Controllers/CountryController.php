@@ -17,8 +17,7 @@ class CountryController extends Controller
      */
     public function index()
     {
-
-        
+    
         include 'inc/years.php';
         include 'inc/genres.php';
         include 'inc/countries.php';
@@ -64,7 +63,9 @@ class CountryController extends Controller
     */
     public function paginate($items, $perPage = 20, $page = null, $options = [])
     {
-        require ('inc/pagination.php');
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     } 
 
     /**

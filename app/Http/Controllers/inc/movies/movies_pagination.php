@@ -14,4 +14,3 @@ while($i< 5){
 }
 
 $movies_paginate = $this->paginate($pages);
-// dump($movies_paginate);
