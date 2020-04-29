@@ -23,6 +23,8 @@ class MoviesController extends Controller
         include 'inc/countries.php';
         include 'inc/sidebar.php';
         include 'inc/movies/movies_pagination.php';
+
+        // dump($popularMovies);
             
         return view('index', [
             'popularMovies' => $popularMovies,
