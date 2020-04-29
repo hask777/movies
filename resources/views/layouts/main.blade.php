@@ -43,12 +43,13 @@
 	<!-- end header -->
 
         @yield('content')
+
         <footer class="border-t border-gray-800">
             <div class="container mx-auto px-4 py-6 flex justify-center">
-                <img src="{{'img/flags/telegram.svg'}}" alt="" class="ml-1">
-                <img src="{{'img/flags/odnaklassniki.svg'}}" alt="" class="ml-1">
-                <img src="{{'img/flags/facebook.svg'}}" alt="" class="ml-1">
-                <img src="{{'img/flags/vkontakte.svg'}}" alt="" class="ml-1">
+                <img src="{{asset('img/flags/telegram.svg')}}" alt="" class="ml-1">
+                <img src="{{asset('img/flags/odnaklassniki.svg')}}" alt="" class="ml-1">
+                <img src="{{asset('img/flags/facebook.svg')}}" alt="" class="ml-1">
+                <img src="{{asset('img/flags/vkontakte.svg')}}" alt="" class="ml-1">
             </div>     
         </footer>
 
@@ -59,5 +60,7 @@
         {{-- <script type="text/javascript" src="{{asset('js/main.js')}}"> --}}
 
         </script>
+
+       
     </body>
 </html>

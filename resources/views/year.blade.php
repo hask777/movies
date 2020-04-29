@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container flex mx-auto px-4 mt-6">
+    <div class="container flex mx-auto px-4 mt-6 mb-8">
         <div class="mr-8">
             @include('partials.filter')
             @include('partials.sidebar')
@@ -11,18 +11,27 @@
                 <h2 class='movies_header_title tracking-wider text-orange-500 text-2xl  text-center font-semibold'>Год: {{$year_name}}</h2>
                 
                 @include('partials.styles')
-            
-                {{-- {{ $movies_paginate->links() }} --}}
+
+                @php
+                    if(!empty($_GET['year'])){
+                        $year = $_GET['year'];
+
+                        echo $years_paginate->appends([
+                            'year' => $year,])
+                            ->links();
+                    }
+                @endphp
+
             </div>
 
             <div class="flex mt-5">
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    @foreach($yearsArray as $movie)
+                    @foreach($years_paginate as $movie)
                         <x-movie-card :movie="$movie" :genres="$genres"/>
                     @endforeach
 
                     <div class="movies_page_pagination">
-                        {{-- {{ $movies_paginate->links() }} --}}
+                        {{ $years_paginate->links() }}
                     </div>
                    
                 </div>

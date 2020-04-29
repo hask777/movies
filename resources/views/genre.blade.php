@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container flex mx-auto px-4 mt-6">
+    <div class="container flex mx-auto px-4 mt-6 mb-8">
         <div class="mr-8">
             @include('partials.filter')
             @include('partials.sidebar')

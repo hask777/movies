@@ -17,42 +17,20 @@ class CountryController extends Controller
      */
     public function index()
     {
-    
         include 'inc/years.php';
         include 'inc/genres.php';
         include 'inc/countries.php';
         include 'inc/sidebar.php';
+        include 'inc/movies/countries_pagination.php';
     
-        $i = 1;
-        $pages = [];
-
-        while($i< 5){
-            $movie = Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/3/movie/popular?page='.$i++.'&language=ru-RU')
-                ->json()['results'];
-
-            foreach ($movie as $page):
-                array_push($pages, $page);
-            endforeach;             
-        }
-       
-        $movies_paginate = $this->paginate($pages);
-
-        $country_id = $_GET['country_id'];
-        $country_name = $_GET['country_name'];
-     
-        $countryArray = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3//discover/movie?with_original_language='.$country_id.'')
-            ->json()['results'];
-           
         return view('country', [
-            'countryArray' => $countryArray,
+            // 'countryArray' => $countryArray,
             'countries' => $countries,
             'country_name' => $country_name,
             'genres' => $genres,
             'years' => $years,
             'sidebarFutureMovies' => $sidebarFutureMovies,
-            'movies_paginate' => $movies_paginate
+            'country_paginate' => $country_paginate
         ]);
     }
 

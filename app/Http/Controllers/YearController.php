@@ -21,16 +21,12 @@ class YearController extends Controller
         include 'inc/years.php';
         include 'inc/countries.php';
         include 'inc/sidebar.php';
+        include 'inc/movies/years_pagination.php';
 
-        $year = $_GET['year'];
-
-        $yearsArray = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/discover/movie?year='.$year.'&append_to_response=&language=ru')
-            ->json()['results'];
-    
         return view('year', [
             'year_name' => $year,
-            'yearsArray' => $yearsArray,
+            // 'yearsArray' => $yearsArray,
+            'years_paginate' => $years_paginate,
             'sidebarFutureMovies' => $sidebarFutureMovies,
             'years' => $years,
             'countries' => $countries,
@@ -45,7 +41,9 @@ class YearController extends Controller
     */
     public function paginate($items, $perPage = 20, $page = null, $options = [])
     {
-        require ('inc/pagination.php');
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     } 
   
 
