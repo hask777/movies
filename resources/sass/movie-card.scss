@@ -1,0 +1,22 @@
+.movie_item{
+    &:hover{
+        .movie_item_overlay{
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            opacity: 0.8;
+            // span{
+            //     display: block;
+            // }
+        }
+    }
+    .movie_item_overlay{
+        position: absolute;
+        display: none;
+        bottom: 0;
+        left: 0;
+        
+    }
+}
