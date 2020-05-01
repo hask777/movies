@@ -1,5 +1,15 @@
 .filter{
+    max-width: 224px;
     input{
         max-width: 190px;  
+    }
+    .countries_list{
+        display: inline;
+        li{ 
+            display: inline;
+            form{
+                display: inline;
+            }
+        }
     }
 }

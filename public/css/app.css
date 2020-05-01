@@ -65,8 +65,24 @@ nav .pagination .page-item a {
   font-size: 24px;
 }
 
+.filter {
+  max-width: 224px;
+}
+
 .filter input {
   max-width: 190px;
+}
+
+.filter .countries_list {
+  display: inline;
+}
+
+.filter .countries_list li {
+  display: inline;
+}
+
+.filter .countries_list li form {
+  display: inline;
 }
 
 .movie_item:hover .movie_item_overlay {
