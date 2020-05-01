@@ -77,31 +77,38 @@ class MoviesController extends Controller
      */
     public function show($id)
     {
-        $movie = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=videos&language=ru')
-            ->json();
-
-        $credits = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=credits&language=ru')
-            ->json();
-
-            // Запрос к videocdn title=$title
-
-        $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['title'] .'&limit=10')
-            ->json()['data'];
-
-        if(empty($videos)){
-            $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_title'] .'&limit=10')
-            ->json()['data'];
-
-        }
+                
 
         include 'inc/genres.php';
         include 'inc/years.php';
         include 'inc/countries.php';
         include 'inc/sidebar.php';
 
-             dump($credits);
+        $movie = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=videos,images,credits&language=ru')
+            ->json();
+
+        // dump($movie);  
+
+        $credits = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=credits&language=ru')
+            ->json();
+
+        // Запрос к videocdn title=$title
+        // $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&field='.$movie['imdb_id'] .'&limit=10')
+        //     ->json()['data'];
+        //     dump($videos);
+        
+        $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_title'] .'&limit=10')
+            ->json()['data'];
+        // dump($videos);
+
+        if(empty($videos)){
+            $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['title'] .'&limit=10')
+                ->json()['data'];
+
+        }
+        // dump($videos);
 
             if(!$videos){
                 return view('show', [

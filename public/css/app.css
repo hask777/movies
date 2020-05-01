@@ -137,3 +137,37 @@ nav .pagination .page-item a {
   left: 0;
 }
 
+.videocdn {
+  position: relative;
+  padding: 0 0 56.25% 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.videocdn iframe,
+.videocdn .myvideo object,
+.videocdn .myvideo embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.youtube {
+  position: relative;
+  padding: 0 0 56.25% 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.youtube iframe,
+.youtube .myvideo object,
+.youtube .myvideo embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+

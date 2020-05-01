@@ -4,8 +4,10 @@
         <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="{{secure_asset('css/main.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('css/app.css')}}">
+    {{-- <link rel="stylesheet" href="{{secure_asset('css/main.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/app.css')}}"> --}}
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <livewire:styles>
@@ -40,10 +42,14 @@
 
         <footer class="border-t border-gray-800">
             <div class="container mx-auto px-4 py-6 flex justify-center">
-                <img src="{{secure_asset('img/flags/telegram.svg')}}" alt="" class="ml-1">
+                {{-- <img src="{{secure_asset('img/flags/telegram.svg')}}" alt="" class="ml-1">
                 <img src="{{secure_asset('img/flags/odnaklassniki.svg')}}" alt="" class="ml-1">
                 <img src="{{secure_asset('img/flags/facebook.svg')}}" alt="" class="ml-1">
-                <img src="{{secure_asset('img/flags/vkontakte.svg')}}" alt="" class="ml-1">
+                <img src="{{secure_asset('img/flags/vkontakte.svg')}}" alt="" class="ml-1"> --}}
+                <img src="{{asset('img/flags/telegram.svg')}}" alt="" class="ml-1">
+                <img src="{{asset('img/flags/odnaklassniki.svg')}}" alt="" class="ml-1">
+                <img src="{{asset('img/flags/facebook.svg')}}" alt="" class="ml-1">
+                <img src="{{asset('img/flags/vkontakte.svg')}}" alt="" class="ml-1">
             </div>     
         </footer>
 
@@ -52,17 +58,9 @@
 
         <livewire:scripts>
 
-        
-
-
-        
-        
-
        
-        {{-- <script type="text/javascript" src="{{secure_asset('js/main.js')}}"></script> --}}
-
-        
-
-       
+        <script type="text/javascript" src="{{secure_asset('js/main.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
+      
     </body>
 </html>
