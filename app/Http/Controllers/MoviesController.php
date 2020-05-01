@@ -87,7 +87,7 @@ class MoviesController extends Controller
 
             // Запрос к videocdn title=$title
 
-        $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_title'] .'&limit=10')
+        $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['orig_title'] .'&limit=10')
             ->json()['data'];
 
         if(empty($videos)){
