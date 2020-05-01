@@ -56,6 +56,7 @@
         
         <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'>
         <livewire:scripts>
+        <script src="https://arcane-sea-81760.herokuapp.com/vendor/livewire/livewire.js?id=8287851ee96a9e0ff120" data-turbolinks-eval="false"></script>
 
         </script>
         <script type="text/javascript" src="{{secure_asset('js/main.js')}}">
