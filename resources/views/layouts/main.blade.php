@@ -58,7 +58,7 @@
         <livewire:scripts>
 
         </script>
-        <script type="text/javascript" src="{{asset('js/main.js')}}">
+        <script type="text/javascript" src="{{secure_asset('js/main.js')}}">
 
         </script>
 
