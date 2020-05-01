@@ -12,7 +12,10 @@
         </ul>
         <h3 class="font-bold text-orange-500 mt-6 ">Страна:</h3>
         <ul class="countries_list text-sm mb-4 mt-2 ml-1 grid">
-            @foreach($countries as $key=>$value)           
+
+            @foreach($countries as $key=>$value) 
+            
+                {{-- {{count($countries)}} --}}
                 <x-country-filter :key="$key" :value="$value"/>
             @endforeach
         </ul>

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{secure_asset('css/main.css')}}">
     <link rel="stylesheet" href="{{secure_asset('css/app.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <livewire:styles>
     </head>
     <body class="bg-gray-900 text-white">
@@ -23,14 +24,7 @@
                 </div>
 
                 <div class="authetication flex items-center justify-center">   
-                    Войти  
-                    <img src="{{asset('img/flags/batman.svg')}}" alt="" class="authetication_icon">
-                    <style>
-                        .authetication .authetication_icon{
-                            width: 20px;
-                            margin-left: 10px;
-                        }
-                    </style>          
+                    <livewire:search-dropdown>     
                 </div>
 
             </div>
@@ -46,10 +40,10 @@
 
         <footer class="border-t border-gray-800">
             <div class="container mx-auto px-4 py-6 flex justify-center">
-                <img src="{{asset('img/flags/telegram.svg')}}" alt="" class="ml-1">
-                <img src="{{asset('img/flags/odnaklassniki.svg')}}" alt="" class="ml-1">
-                <img src="{{asset('img/flags/facebook.svg')}}" alt="" class="ml-1">
-                <img src="{{asset('img/flags/vkontakte.svg')}}" alt="" class="ml-1">
+                <img src="{{secure_asset('img/flags/telegram.svg')}}" alt="" class="ml-1">
+                <img src="{{secure_asset('img/flags/odnaklassniki.svg')}}" alt="" class="ml-1">
+                <img src="{{secure_asset('img/flags/facebook.svg')}}" alt="" class="ml-1">
+                <img src="{{secure_asset('img/flags/vkontakte.svg')}}" alt="" class="ml-1">
             </div>     
         </footer>
 

@@ -78,7 +78,11 @@ class MoviesController extends Controller
     public function show($id)
     {
         $movie = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=credits,videos,images&language=ru')
+            ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=videos&language=ru')
+            ->json();
+
+        $credits = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=credits&language=ru')
             ->json();
 
             // Запрос к videocdn title=$title
@@ -92,14 +96,21 @@ class MoviesController extends Controller
 
         }
 
-        
+        include 'inc/genres.php';
+        include 'inc/years.php';
+        include 'inc/countries.php';
+        include 'inc/sidebar.php';
 
-
-            dump($videos);
+             dump($credits);
 
             if(!$videos){
                 return view('show', [
                     'movie' => $movie,
+                    'credits' => $credits,
+                    'genres' => $genres,
+                    'countries' => $countries,
+                    'years' => $years,
+                    'sidebarFutureMovies' => $sidebarFutureMovies,
                     'videos' => 'NO'
                 ]);
             }
@@ -111,7 +122,12 @@ class MoviesController extends Controller
                         if($movie['imdb_id'] === $video['imdb_id'])
                         {
                             return view('show', [
-                                'movie' => $movie,                
+                                'movie' => $movie,
+                                'credits' => $credits,
+                                'genres' => $genres,
+                                'countries' => $countries,
+                                'years' => $years,
+                                'sidebarFutureMovies' => $sidebarFutureMovies,               
                                 'videos' => $video
                              ]);
                         }             
@@ -119,7 +135,12 @@ class MoviesController extends Controller
                     else
                     {
                         return view('show', [
-                            'movie' => $movie,                
+                            'movie' => $movie,
+                            'credits' => $credits,
+                            'genres' => $genres,
+                            'countries' => $countries,
+                            'years' => $years,
+                            'sidebarFutureMovies' => $sidebarFutureMovies,               
                             'videos' => $video 
                             // OR No
                         ]);
@@ -128,7 +149,12 @@ class MoviesController extends Controller
                 // dd($video);     
             }
             return view('show', [
-                'movie' => $movie,                
+                'movie' => $movie,
+                'credits' => $credits,
+                'genres' => $genres,
+                'countries' => $countries,
+                'years' => $years,
+                'sidebarFutureMovies' => $sidebarFutureMovies,                
                 'videos' => $video
              ]);
 
@@ -138,7 +164,12 @@ class MoviesController extends Controller
                     if($movie['imdb_id'] === $video['imdb_id'])
                     {
                         return view('show', [
-                            'movie' => $movie,                
+                            'movie' => $movie,
+                            'credits' => $credits,
+                            'genres' => $genres,
+                            'countries' => $countries,
+                            'years' => $years,
+                            'sidebarFutureMovies' => $sidebarFutureMovies,               
                             'videos' => $video
                          ]);
                     }             
@@ -146,7 +177,12 @@ class MoviesController extends Controller
                 else
                 {
                     return view('show', [
-                        'movie' => $movie,                
+                        'movie' => $movie,
+                        'credits' => $credits,
+                        'genres' => $genres,
+                        'countries' => $countries,
+                        'years' => $years,
+                        'sidebarFutureMovies' => $sidebarFutureMovies,               
                         'videos' => $video 
                         // OR No
                     ]);
