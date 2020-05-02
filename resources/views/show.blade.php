@@ -73,13 +73,14 @@
                             </div>
                             @else
                             <div class="youtube">
-                                <span> Нет трейлера</span>
-                               
+                                <span>Нет трейлера</span>         
                             </div>                
                         @endif
                             
                         @if($videos == 'NO')
-                            Нет фильма!
+                            <div class="videocdn">
+                                <span> Нет фильма!</span>                       
+                            </div>              
                         @else
                             <div class="videocdn">
                                 <iframe src="{{$videos['preview_iframe_src']}}"  frameborder="0" allowfullscreen></iframe>
