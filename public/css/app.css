@@ -64,16 +64,14 @@ body {
 
 /* Extra Large (xl) */
 
-nav .pagination {
+.movie_page_pagination nav .pagination {
   display: flex;
 }
 
-nav .pagination .page-item {
+.movie_page_pagination nav .pagination .page-item {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px;
-  height: 40px;
   border-radius: 10px;
   margin-left: 5px;
   text-align: center;
@@ -81,24 +79,27 @@ nav .pagination .page-item {
   background-color: #2D3748;
 }
 
-nav .pagination .page-item.active {
+.movie_page_pagination nav .pagination .page-item.active {
   background-color: #ED8936;
   text-align: center;
   color: #ffffff;
   font-size: 24px;
+  padding: 10px;
 }
 
-nav .pagination .page-item.disabled {
+.movie_page_pagination nav .pagination .page-item.disabled {
   background-color: #2D3748;
   text-align: center;
   color: #ED8936;
   font-size: 24px;
+  padding: 10px;
 }
 
-nav .pagination .page-item a {
+.movie_page_pagination nav .pagination .page-item a {
   text-align: center;
   color: #ED8936;
   font-size: 24px;
+  padding: 10px;
 }
 
 .filter {
@@ -121,20 +122,70 @@ nav .pagination .page-item a {
   display: inline;
 }
 
+.movie_item .movie_item_overlay {
+  display: none;
+}
+
 .movie_item:hover .movie_item_overlay {
   display: block;
+  overflow: hidden;
+  background-color: rgba(26, 32, 44, 0.9);
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
   height: 100%;
-  opacity: 0.8;
+  padding: 10px;
 }
 
-.movie_item .movie_item_overlay {
-  position: absolute;
-  display: none;
-  bottom: 0;
-  left: 0;
+.movie_item:hover .movie_item_overlay span {
+  display: flex;
+  color: #fff;
+  font-size: 14px;
+  padding-bottom: 2px;
+  margin-left: 2px;
+}
+
+.movie_item:hover .movie_item_overlay span .inner {
+  display: inline;
+  color: #ed8936;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.movie_item:hover .movie_item_overlay .genre {
+  font-size: 12px;
+}
+
+.movie_item:hover .movie_item_overlay .title {
+  font-weight: 500;
+  text-align: center;
+  font-size: 1.1rem;
+  padding-bottom: 10px;
+}
+
+.movie_item:hover .movie_item_overlay .orig_title {
+  font-size: 12px;
+}
+
+.movie_item:hover .movie_item_overlay .watch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.movie_item:hover .movie_item_overlay .watch span {
+  padding: 5px 15px;
+  background-color: #2d3748;
+  font-size: 1rem;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+.movie_item:hover .movie_item_overlay .watch span:hover {
+  background-color: #ed8936;
 }
 
 .videocdn {

@@ -24,10 +24,11 @@ class MoviesController extends Controller
         include 'inc/sidebar.php';
         include 'inc/movies/movies_pagination.php';
 
-        // dump($popularMovies);
+        dump($popularMovies);
             
         return view('index', [
             'popularMovies' => $popularMovies,
+            'genresArray' => $genresArray,
             'genres' => $genres,
             'countries' => $countries,
             'years' => $years,
@@ -88,7 +89,7 @@ class MoviesController extends Controller
             ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=videos,images,credits&language=ru')
             ->json();
 
-        // dump($movie);  
+        dump($movie);  
 
         $credits = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=credits&language=ru')
