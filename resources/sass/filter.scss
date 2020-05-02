@@ -13,3 +13,11 @@
         }
     }
 }
+
+
+/* Large (lg) */
+@media (max-width: 1024px) { 
+    .left_sidebar{
+        display: none;
+    }
+}

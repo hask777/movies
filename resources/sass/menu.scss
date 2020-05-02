@@ -68,12 +68,26 @@
 // }
 
 // /* Medium (md) */
-// @media (max-width: 768px) {
-
-// }
+@media (max-width: 768px) {
+    .main_menu_md{
+       ul{
+           display: block;
+           padding: 0;
+           li{
+               display: block;
+               text-align: center;
+           }
+       }
+    }
+}
 
 /* Large (lg) */
 @media (max-width: 1024px) { 
+    
+}
+
+/* Extra Large (xl) */
+@media (max-width: 1280px) {
     .header_wrapper{
         justify-content: space-between;
         .main_menu{
@@ -83,13 +97,12 @@
     
     .main_menu_md{
         display: block;
+        width:100%;
         ul{
             justify-content: center;
         }
     }
+    .popular_movies {
+        width: 100%;
+    }
 }
-
-/* Extra Large (xl) */
-// @media (max-width: 1280px) {
-
-// }
