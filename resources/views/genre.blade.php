@@ -16,18 +16,6 @@
                 
                 @include('partials.styles')
                 
-                @php
-                    if(!empty($_GET['genre_id']) && !empty($_GET['genre_name'])){
-                        $genre_id = $_GET['genre_id'];
-                        $genre_name = $_GET['genre_name'];
-
-                        echo $genres_paginate->appends([
-                                    'genre_id' => $genre_id,
-                                    'genre_name' => $genre_name
-                                ])->links();
-                    }
-                @endphp
-          
             </div>
 
             <div class="flex mt-5">
@@ -36,8 +24,18 @@
                         <x-movie-card :movie="$movie" :genres="$genres"/>
                     @endforeach
 
-                    <div class="movies_page_pagination">
-                        {{ $genres_paginate->links() }}
+                    <div class="movie_page_pagination">
+                        @php
+                            if(!empty($_GET['genre_id']) && !empty($_GET['genre_name'])){
+                                $genre_id = $_GET['genre_id'];
+                                $genre_name = $_GET['genre_name'];
+
+                                echo $genres_paginate->appends([
+                                            'genre_id' => $genre_id,
+                                            'genre_name' => $genre_name
+                                        ])->links();
+                            }
+                        @endphp
                     </div>
                    
                 </div>

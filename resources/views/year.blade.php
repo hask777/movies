@@ -12,16 +12,6 @@
                 
                 @include('partials.styles')
 
-                @php
-                    if(!empty($_GET['year'])){
-                        $year = $_GET['year'];
-
-                        echo $years_paginate->appends([
-                            'year' => $year,])
-                            ->links();
-                    }
-                @endphp
-
             </div>
 
             <div class="flex mt-5">
@@ -30,8 +20,16 @@
                         <x-movie-card :movie="$movie" :genres="$genres"/>
                     @endforeach
 
-                    <div class="movies_page_pagination">
-                        {{ $years_paginate->links() }}
+                    <div class="movie_page_pagination">
+                        @php
+                            if(!empty($_GET['year'])){
+                                $year = $_GET['year'];
+        
+                                echo $years_paginate->appends([
+                                    'year' => $year,])
+                                    ->links();
+                            }
+                        @endphp
                     </div>
                    
                 </div>

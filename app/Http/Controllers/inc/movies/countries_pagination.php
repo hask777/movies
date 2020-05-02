@@ -13,7 +13,7 @@ while($i< 5){
     }
     
     $movie = Http::withToken(config('services.tmdb.token'))
-        ->get('https://api.themoviedb.org/3//discover/movie?with_original_language='.$country_id.'&page='.$i++.'')
+        ->get('https://api.themoviedb.org/3//discover/movie?with_original_language='.$country_id.'&page='.$i++.'&append_to_response=&language=ru')
         ->json()['results'];
 
     foreach ($movie as $page):
