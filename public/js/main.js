@@ -38,4 +38,12 @@ jQuery(document).ready(function ($) {
 		$('.videocdn').hide();
 		$('.youtube').show();
 	});
+
+	$('.filter_trigger').on('click', function(){
+		$('.left_sidebar').css('display', 'block');
+		$('.left_sidebar').css('position', 'absolute');
+		$('.left_sidebar').css('z-index', '9999');
+		$('.left_sidebar').css('top', '0');
+		$('.left_sidebar').css('left', '0');
+	});
 });

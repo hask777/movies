@@ -27,6 +27,8 @@ class GenresController extends Controller
             $genre_name = $_GET['genre_name'];         
         }
 
+        
+
         return view('genre', [
             'genre_name' => $genre_name,
             'gueryArray' => $genresArray,

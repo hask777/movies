@@ -6,3 +6,9 @@
         <button type="submit" class="mt-1 text-sm capitalize font-light">{{$value}}</button>      
     </form>
 </li>,
+
+
+
+
+
+

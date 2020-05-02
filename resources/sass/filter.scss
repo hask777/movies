@@ -14,10 +14,18 @@
     }
 }
 
+.filter_trigger{
+    display: none;
+}
+
 
 /* Large (lg) */
 @media (max-width: 1024px) { 
     .left_sidebar{
         display: none;
+    }
+
+    .filter_trigger{
+        display: flex;
     }
 }
