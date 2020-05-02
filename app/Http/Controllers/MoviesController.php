@@ -102,14 +102,14 @@ class MoviesController extends Controller
         
         $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_title'] .'&limit=10')
             ->json()['data'];
-        // dump($videos);
+        dump($videos);
 
         if(empty($videos)){
             $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['title'] .'&limit=10')
                 ->json()['data'];
 
         }
-        // dump($videos);
+        dump($videos);
 
             if(!$videos){
                 return view('show', [

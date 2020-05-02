@@ -55,19 +55,29 @@
                         @endforeach
                     </div>
                 </div>
-                @if (count($movie['videos']['results']) > 0) 
+                
                     <div class="mt-12 pb-12">
+                      
                         <button id="play_trailer" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
                             <svg class="w-6 fill-current" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                            <span class="ml-2">Смотреть Трэйлер</span>
+                                <span class="ml-2">Смотреть Трэйлер</span>
                         </button>
                         <button id="play_movie" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
                             <svg class="w-6 fill-current" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
                             <span class="ml-2">Смотреть Фильм</span>
                         </button>
-                        <div class="youtube">
-                            <iframe class="" src="https://www.youtube.com/embed/{{$movie['videos']['results'][0]['key']}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
+
+                        @if (count($movie['videos']['results']) > 0)
+                            <div class="youtube">
+                                <iframe class="" src="https://www.youtube.com/embed/{{$movie['videos']['results'][0]['key']}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            @else
+                            <div class="youtube">
+                                <span> Нет трейлера</span>
+                               
+                            </div>                
+                        @endif
+                            
                         @if($videos == 'NO')
                             Нет фильма!
                         @else
@@ -75,8 +85,8 @@
                                 <iframe src="{{$videos['preview_iframe_src']}}"  frameborder="0" allowfullscreen></iframe>
                             </div>
                         @endif
-                            </div>
-                        @endif  
+                    </div>
+                        
             </div>
         </div>
     </div>
