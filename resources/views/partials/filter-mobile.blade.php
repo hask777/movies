@@ -6,7 +6,7 @@
         </div>
         <livewire:search-dropdown>
         <h3 class="font-bold text-orange-500  mt-6">Жанры:</h3>
-        <ul class="movies_list text-sm mb-4 mt-2 ml-1">
+        <ul class="movie_list text-sm mb-4 mt-1 ml-1">
             @foreach($genres as $key=>$value)
                 <x-genres-filter :key="$key" :value="$value"/>
             @endforeach

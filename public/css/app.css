@@ -187,6 +187,15 @@ body {
   max-width: 190px;
 }
 
+.filter .movie_list li:hover button {
+  display: block;
+  width: 100%;
+  color: #ed8936;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #1a202c;
+}
+
 .filter .countries_list {
   display: inline;
 }
@@ -201,6 +210,15 @@ body {
 
 .filter_trigger {
   display: none;
+}
+
+.active {
+  display: block;
+  width: 100%;
+  color: #ed8936;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #1a202c;
 }
 
 /* Large (lg) */
@@ -321,6 +339,15 @@ body {
 
 .filter_mobile input {
   max-width: 190px;
+}
+
+.filter_mobile .movie_list li:hover button {
+  display: block;
+  width: 100%;
+  color: #ed8936;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #1a202c;
 }
 
 .filter_mobile .countries_list {

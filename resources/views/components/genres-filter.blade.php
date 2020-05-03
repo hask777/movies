@@ -3,6 +3,8 @@
         @csrf
         <input type="hidden" name="genre_id" value="{{$key}}">
         <input type="hidden" name="genre_name" value="{{$value}}">
-        <button type="submit" class="mt-1 text-sm capitalize font-light">{{$value}}</button>
+        <button type="submit" class="{{request()->genre_name == $value ? 'active': ''}}
+        mt-1 text-sm capitalize font-light">{{$value}}</button>
     </form>
 </li>
+

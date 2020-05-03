@@ -1,6 +1,18 @@
 @extends('layouts.main')
 
 @section('content')
+@php
+    echo \Request::url().'<br>';
+    // echo url()->url();
+    echo url()->current().'<br>';
+    echo url()->full();
+
+    
+    if (request()->is(url()->full();)) {
+        echo 'true';
+    }
+
+@endphp
     <div class="container flex mx-auto px-4 mt-6 mb-8">
         @include('partials.left-sidebar')
         

@@ -3,6 +3,20 @@
     input{
         max-width: 190px;  
     }
+    .movie_list{
+        li:hover{
+            button{
+                display: block;
+                width: 100%;
+                color: $orange;
+                font-size: 1rem;
+                font-weight: bold;
+                background-color: $main_blue;
+            }
+           
+        }
+       
+    }
     .countries_list{
         display: inline;
         li{ 
@@ -16,6 +30,15 @@
 
 .filter_trigger{
     display: none;
+}
+
+.active{
+    display: block;
+    width: 100%;
+    color: $orange;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: $main_blue;
 }
 
 
