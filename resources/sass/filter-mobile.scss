@@ -1,0 +1,45 @@
+// Bigger than 1024px
+.filter_mobile{
+    max-width: 224px;
+    input{
+        max-width: 190px;  
+    }
+    .countries_list{
+        display: inline;
+        li{ 
+            display: inline;
+            form{
+                display: inline;
+            }
+        }
+    }
+}
+
+.left_sidebar_mobile{
+    display: none;
+}
+
+.mobile_sidebar_close_button{
+    display: none;
+}
+
+
+/* Large (lg) */
+@media (max-width: 1024px) { 
+    .left_sidebar_mobile{
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+
+    }
+    
+    .mobile_sidebar_close_button{
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 20px;
+        z-index: 9999;
+    }
+}

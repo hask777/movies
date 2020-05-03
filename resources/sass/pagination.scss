@@ -2,6 +2,11 @@
     nav{
         .pagination{
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            li{
+                margin-bottom: 1rem;
+            }
             .page-item{
                 display: flex;            
                 justify-content: center;
