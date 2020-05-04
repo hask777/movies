@@ -2,9 +2,9 @@
 
 @section('content')
 @php
-    // echo \Request::url();
+    echo \Request::url();
     // // echo url()->url();
-    // echo url()->current();
+    echo url()->current();
     // echo url()->full();
 @endphp
     <div class="container flex mx-auto px-4 mt-6 mb-8">

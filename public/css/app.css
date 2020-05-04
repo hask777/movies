@@ -212,7 +212,7 @@ body {
   display: none;
 }
 
-.active {
+.genre_active {
   display: block;
   width: 100%;
   color: #ed8936;
