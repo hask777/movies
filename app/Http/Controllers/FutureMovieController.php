@@ -24,8 +24,7 @@ class FutureMovieController extends Controller
         include 'inc/countries.php';
         include 'inc/sidebar.php';
         include 'inc/movies/future_pagination.php';
-        // dump($future_paginate);
-     
+        
         return view('future', [
             'sidebarFutureMovies' => $sidebarFutureMovies,
             'future_paginate' => $future_paginate,
@@ -34,7 +33,6 @@ class FutureMovieController extends Controller
             'genres' => $genres,
             'countries' => $countries,
             'years' => $years,
-            // 'movies_paginate' => $movies_paginate
         ]);
     }
 

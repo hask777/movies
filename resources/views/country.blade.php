@@ -33,7 +33,19 @@
             </div>
 
             <div class="movie_page_pagination">
-                {{ $country_paginate->links() }}
+
+                @php
+                    if( !empty($_GET['country_id'] || !empty($_GET['country_name']))){         
+                        $country_id = $_GET['country_id'];
+                        $country_name = $_GET['country_name'];
+                    
+                    }
+
+                    $params = ['country_id' => $country_id, 'country_name' => $country_name];
+                @endphp
+
+                {{ $country_paginate->appends($params)->links() }}
+
             </div>
         </div>
     </div>

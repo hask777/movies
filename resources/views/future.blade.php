@@ -20,7 +20,9 @@
             </div>
 
             <div class="movie_page_pagination">
+
                 {{ $future_paginate->links() }}
+                
             </div>
 
         </div>

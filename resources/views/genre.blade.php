@@ -29,7 +29,19 @@
             </div>
 
             <div class="movie_page_pagination">
-                {{ $genres_paginate->links() }}
+
+                @php
+                if(!empty($_GET['genre_id']) || !empty($_GET['genre_name'])){         
+                    $genre_id = $_GET['genre_id'];
+                    $genre_name = $_GET['genre_name'];
+                }
+
+                    $params = ['genre_id' => $genre_id, 'genre_name' => $genre_name,];
+                @endphp
+
+                {{ $genres_paginate->appends($params)->links() }}
+
+
             </div>
         </div>
     </div>

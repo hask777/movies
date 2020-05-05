@@ -6,14 +6,15 @@ $pages = [];
 while($i< 25){
 
     $movie = Http::withToken(config('services.tmdb.token'))
-        ->get('https://api.themoviedb.org/3/movie/upcoming?&page='.$i++.'append_to_response=&language=ru')
-        ->json()['results'];
-    
+    ->get('https://api.themoviedb.org/3/movie/upcoming?page='.$i++.'&append_to_response=&language=ru')
+    ->json()['results'];
+
     foreach ($movie as $page):
         array_push($pages, $page);
-    endforeach;                 
+    endforeach;  
+    
 }
 
 $future_paginate = $this->paginate($pages);       
-$future_paginate->setPath('movies');  
+$future_paginate->setPath('list');  
 

@@ -20,7 +20,15 @@
             </div>
 
             <div class="movie_page_pagination">
-                {{ $years_paginate->links() }}
+                @php
+                    if(!empty($_GET['year'])){         
+                        $year = $_GET['year'];
+                    }
+
+                    $params = ['year' => $year];
+                @endphp
+
+                {{ $years_paginate->appends($params)->links() }}
             </div>
         </div>
     </div>

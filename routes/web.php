@@ -7,4 +7,4 @@ Route::get('/genres/genre', 'GenresController@index')->name('genres.index');
 
 Route::get('/years/year', 'YearController@index')->name('year.index');
 Route::get('/countries/country', 'CountryController@index')->name('country.index');
-Route::get('/future/movies', 'FutureMovieController@index')->name('future.index');
+Route::get('/future/list', 'FutureMovieController@index')->name('future.index');
