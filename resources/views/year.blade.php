@@ -11,25 +11,16 @@
 
             </div>
 
-            <div class="flex mt-5">
+            <div class="flex mt-5 mb-5">
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     @foreach($years_paginate as $movie)
                         <x-movie-card :movie="$movie" :genres="$genres"/>
-                    @endforeach
-
-                    <div class="movie_page_pagination">
-                        @php
-                            if(!empty($_GET['year'])){
-                                $year = $_GET['year'];
-        
-                                echo $years_paginate->appends([
-                                    'year' => $year,])
-                                    ->links();
-                            }
-                        @endphp
-                    </div>
-                   
+                    @endforeach     
                 </div>
+            </div>
+
+            <div class="movie_page_pagination">
+                {{ $years_paginate->links() }}
             </div>
         </div>
     </div>

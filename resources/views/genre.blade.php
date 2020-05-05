@@ -20,27 +20,16 @@
                 
             </div>
 
-            <div class="flex mt-5">
+            <div class="flex mt-5 mb-5">
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     @foreach($genres_paginate as $movie)
                         <x-movie-card :movie="$movie" :genres="$genres"/>
                     @endforeach
-
-                    <div class="movie_page_pagination">
-                        @php
-                            if(!empty($_GET['genre_id']) && !empty($_GET['genre_name'])){
-                                $genre_id = $_GET['genre_id'];
-                                $genre_name = $_GET['genre_name'];
-
-                                echo $genres_paginate->appends([
-                                            'genre_id' => $genre_id,
-                                            'genre_name' => $genre_name
-                                        ])->links();
-                            }
-                        @endphp
-                    </div>
-                   
                 </div>
+            </div>
+
+            <div class="movie_page_pagination">
+                {{ $genres_paginate->links() }}
             </div>
         </div>
     </div>

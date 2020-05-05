@@ -23,10 +23,12 @@ class FutureMovieController extends Controller
         include 'inc/years.php';
         include 'inc/countries.php';
         include 'inc/sidebar.php';
-        // include 'inc/movies/movies_pagination.php';
+        include 'inc/movies/future_pagination.php';
+        // dump($future_paginate);
      
         return view('future', [
             'sidebarFutureMovies' => $sidebarFutureMovies,
+            'future_paginate' => $future_paginate,
             'futureMovies' => $futureMovies,
             'popularMovies' => $popularMovies,
             'genres' => $genres,
@@ -35,6 +37,19 @@ class FutureMovieController extends Controller
             // 'movies_paginate' => $movies_paginate
         ]);
     }
+
+     /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
+    public function paginate($items, $perPage = 20, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);    
+    }    
+
 
     /**
      * Show the form for creating a new resource.

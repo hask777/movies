@@ -24,27 +24,16 @@
 
             </div>
 
-            <div class="flex mt-5">
+            <div class="fflex mt-5 mb-5">
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     @foreach($country_paginate as $movie)
                         <x-movie-card :movie="$movie" :genres="$genres"/>
-                    @endforeach
-                
-                    <div class="movie_page_pagination">
-                        @php
-                            if(!empty($_GET['country_id']) && !empty($_GET['country_name'])){
-                                $country_id = $_GET['country_id'];
-                                $country_name = $_GET['country_name'];
-        
-                                echo $country_paginate->appends([
-                                            'country_id' => $country_id,
-                                            'country_name' => $country_name
-                                        ])->links();
-                            }
-                        @endphp
-                    </div>
-                   
+                    @endforeach                  
                 </div>
+            </div>
+
+            <div class="movie_page_pagination">
+                {{ $country_paginate->links() }}
             </div>
         </div>
     </div>

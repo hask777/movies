@@ -8,7 +8,7 @@
         </h3>
         <div class="future_movie">
             @foreach($sidebarFutureMovies as $movie)
-                <x-movie-card :movie="$movie" :genres="$genres"/>
+                <x-future-movie-card :movie="$movie" :genres="$genres"/>
             @endforeach
             <a href="{{route('future.index')}}" class="block text-center">Смотреть все</a>
         </div>
