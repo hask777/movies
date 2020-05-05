@@ -46,10 +46,10 @@
                 <img src="{{secure_asset('img/flags/odnaklassniki.svg')}}" alt="" class="ml-1">
                 <img src="{{secure_asset('img/flags/facebook.svg')}}" alt="" class="ml-1">
                 <img src="{{secure_asset('img/flags/vkontakte.svg')}}" alt="" class="ml-1">
-                <img src="{{asset('img/flags/telegram.svg')}}" alt="" class="ml-1">
+                {{-- <img src="{{asset('img/flags/telegram.svg')}}" alt="" class="ml-1">
                 <img src="{{asset('img/flags/odnaklassniki.svg')}}" alt="" class="ml-1">
                 <img src="{{asset('img/flags/facebook.svg')}}" alt="" class="ml-1">
-                <img src="{{asset('img/flags/vkontakte.svg')}}" alt="" class="ml-1">
+                <img src="{{asset('img/flags/vkontakte.svg')}}" alt="" class="ml-1"> --}}
             </div>     
         </footer>
 
