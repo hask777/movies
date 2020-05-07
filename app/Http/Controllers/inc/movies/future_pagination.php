@@ -3,7 +3,7 @@
 $i = 1;
 $pages = [];
 
-while($i< 25){
+while($i< 5){
 
     $movie = Http::withToken(config('services.tmdb.token'))
     ->get('https://api.themoviedb.org/3/movie/upcoming?page='.$i++.'&append_to_response=&language=ru')

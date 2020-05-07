@@ -7,6 +7,7 @@ pr-2">
         </a>
         <ul class="sub_menu">
             <li><a href="">Популярные</a></li>
+            <li><a href="">Сейчас смотрят</a></li>
         </ul>
     </li>
     <li class="main_menu_item pl-3 pr-3">
@@ -16,12 +17,6 @@ pr-2">
         <a href="#" class="hover:text-gray-300">Примьеры</a>
     </li>
     <li class="main_menu_item pl-3 pr-3">
-        <a href="#" class="hover:text-gray-300">Сериалы</a>
-    </li>
-    <li class="main_menu_item pl-3 pr-3">
-        <a href="#" class="hover:text-gray-300">Аниме</a>
-    </li>
-    <li class="main_menu_item pl-3 pr-3">
-        <a href="#" class="hover:text-gray-300">Мультфильмы</a>
+        <a href="{{route('tv.index')}}" class="hover:text-gray-300">Сериалы</a>
     </li>
 </ul>

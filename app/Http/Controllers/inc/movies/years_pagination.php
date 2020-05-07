@@ -3,7 +3,7 @@
 $i = 1;
 $pages = [];
 
-while($i< 25){
+while($i< 5){
 
     if(!empty($_GET['year'])){         
         $year = $_GET['year'];

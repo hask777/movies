@@ -3,7 +3,7 @@
 $i = 1;
 $pages = [];
 
-while($i<= 50){
+while($i<= 5){
 
     if(!empty($_GET['genre_id'])){         
         $genre_id = $_GET['genre_id']; 

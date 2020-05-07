@@ -3,7 +3,7 @@
 $i = 1;
 $pages = [];
 
-while($i< 25){
+while($i< 5){
 
     if(!empty($_GET['country_id'])){         
         $country_id = $_GET['country_id'];

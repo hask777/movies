@@ -9,20 +9,29 @@
         </div>
 
         <div class="sm:flex mx-auto mt-6 momvie-info border-b border-gray-800">
-            <div class="movie_item">
+            {{-- Poster --}}
+            <div class="movie_item_poster">
                 <img src="https://image.tmdb.org/t/p/w500/{{$movie['poster_path']}}" alt="parasite" class='w-100 sm:w-64 lg:w-96'>
             </div>
+            
+            {{-- End Poster --}}
+            {{-- Movie --}}
             <div class="container flex flex-col md:flex-row">
-
                 <div class="sm:ml-8 md:ml-8">
+                    {{-- Movie Title --}}
                     <h2 class='text-4xl font-semibold'>{{ $movie['title'] }}</h2>
+                    {{-- End Movie Title --}}
                     <div class="flex flex-wrap items-center text-gray-400 text-sm">
-                        <svg class="fill-current text-orange-500 w-4" viewBox="0 0 24 24"><g data-name="Layer 2"><path d="M17.56 21a1 1 0 01-.46-.11L12 18.22l-5.1 2.67a1 1 0 01-1.45-1.06l1-5.63-4.12-4a1 1 0 01-.25-1 1 1 0 01.81-.68l5.7-.83 2.51-5.13a1 1 0 011.8 0l2.54 5.12 5.7.83a1 1 0 01.81.68 1 1 0 01-.25 1l-4.12 4 1 5.63a1 1 0 01-.4 1 1 1 0 01-.62.18z" data-name="star"/></g></svg>
-
+                        {{-- Movie raiting --}}
+                        <svg class="fill-current text-orange-500 w-4" viewBox="0 0 24 24"><g data-name="Layer 2"><path d="M17.56 21a1 1 0 01-.46-.11L12 18.22l-5.1 2.67a1 1 0 01-1.45-1.06l1-5.63-4.12-4a1 1 0 01-.25-1 1 1 0 01.81-.68l5.7-.83 2.51-5.13a1 1 0 011.8 0l2.54 5.12 5.7.83a1 1 0 01.81.68 1 1 0 01-.25 1l-4.12 4 1 5.63a1 1 0 01-.4 1 1 1 0 01-.62.18z" data-name="star"/></g></svg>          
                         <span class="ml-1">{{ $movie['vote_average'] * 10 . '%' }}</span>
+                        {{-- end raiting --}}
                         <span class="mx-2">|</span>
+                        {{-- movie date --}}
                         <span>{{ \Carbon\Carbon::parse($movie['release_date'])->format('M d, Y') }}</span>
+                        {{-- end movie date --}}
                         <span class="mx-2">|</span>
+                        {{-- movie genres --}}
                         <span>
                             @foreach ($movie['genres'] as $genre)
                                 {{ $genre['name'] }}
@@ -31,10 +40,14 @@
                                 @endif
                             @endforeach
                         </span>
+                        {{-- end movie genres --}}
                     </div>
-                    <p class="text-gray-300 mt-8">
-                        {{ $movie['overview'] }}
-                    </p>
+                    {{-- movie overview --}}
+                        <p class="text-gray-300 mt-8">
+                            {{ $movie['overview'] }}
+                        </p>
+                    {{-- end movie overview --}}
+                    {{-- casts --}}
                     <div class="mt-12">
                         <h4 class="text-white font-semibold">В главных ролях</h4>
                         <div class="flex mt-4">
@@ -52,39 +65,38 @@
                             @endforeach
                         </div>
                     </div>
-                    
-                        <div class="mt-12 pb-12">
-                        
-                            <button id="play_trailer" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
-                                <svg class="w-6 fill-current" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                                    <span class="ml-2">Смотреть Трэйлер</span>
-                            </button>
-                            <button id="play_movie" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
-                                <svg class="w-6 fill-current" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                                <span class="ml-2">Смотреть Фильм</span>
-                            </button>
+                    {{-- end casts --}}
+                    <div class="mt-12 pb-12">
+                        <button id="play_trailer" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
+                            <svg class="w-6 fill-current" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                                <span class="ml-2">Смотреть Трэйлер</span>
+                        </button>
+                        <button id="play_movie" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
+                            <svg class="w-6 fill-current" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                            <span class="ml-2">Смотреть Фильм</span>
+                        </button>
 
-                            @if (count($movie['videos']['results']) > 0)
-                                <div class="youtube">
-                                    <iframe class="" src="https://www.youtube.com/embed/{{$movie['videos']['results'][0]['key']}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                                @else
-                                <div class="youtube">
-                                    <span>Нет трейлера</span>         
-                                </div>                
-                            @endif
-                                
-                            @if($videos == 'NO')
-                                <div class="videocdn">
-                                    <span> Нет фильма!</span>                       
-                                </div>              
+                        @if (count($movie['videos']['results']) > 0)
+                            <div class="youtube">
+                                <iframe class="" src="https://www.youtube.com/embed/{{$movie['videos']['results'][0]['key']}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
                             @else
-                                <div class="videocdn">
-                                    <iframe src="{{$videos['preview_iframe_src']}}"  frameborder="0" allowfullscreen></iframe>
-                                </div>
-                            @endif
-                        </div>
+                            <div class="youtube">
+                                <span>Нет трейлера</span>         
+                            </div>                
+                        @endif
                             
+                        @if($videos == 'NO')
+                            <div class="videocdn">
+                                <span> Нет фильма!</span>                       
+                            </div>              
+                        @else
+                            <div class="videocdn">
+                                <iframe src="{{$videos['preview_iframe_src']}}"  frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        @endif        
+                    </div>
+                    {{-- end casts --}}
                 </div>
             </div>
         </div>
