@@ -1,7 +1,8 @@
-<div class="main_search relative mt-3 md:mt-0" x-data="{ isOpen: true }" @click.away=" isOpen= false ">
+<div class="main_search relative mt-3 md:mt-0" x-data="{ isOpen: true }" @click.away=" isOpen = false ">
     <input
         wire:model.debounce.500ms ="search"
         type="text"
+        value="{{$this->search}}"
         class="flex bg-gray-900 rounded-full  px-4 pl-8 py-1 focus:outline-none focus:shadow-outline" 
         placeholder="Поиск"
         @focus="isOpen = true"

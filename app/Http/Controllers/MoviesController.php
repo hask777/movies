@@ -22,7 +22,7 @@ class MoviesController extends Controller
         include 'inc/years.php';
         include 'inc/countries.php';
         include 'inc/sidebar.php';
-        include 'inc/movies/movies_pagination.php';
+        include 'inc/movies/popular_pagination.php';
 
         // dump($popularMovies);
             
@@ -33,7 +33,7 @@ class MoviesController extends Controller
             'countries' => $countries,
             'years' => $years,
             'sidebarFutureMovies' => $sidebarFutureMovies,
-            'movies_paginate' => $movies_paginate
+            'popular_paginate' => $popular_paginate
         ]);
     }
 

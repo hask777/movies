@@ -6,7 +6,7 @@ pr-2">
             <i class="fa fa-sort-desc" aria-hidden="true"></i>        
         </a>
         <ul class="sub_menu">
-            <li><a href="">Популярные</a></li>
+        <li><a href="{{route('popular.index')}}">Популярные</a></li>
             <li><a href="">Сейчас смотрят</a></li>
         </ul>
     </li>

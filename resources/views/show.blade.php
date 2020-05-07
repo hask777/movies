@@ -10,10 +10,9 @@
 
         <div class="sm:flex mx-auto mt-6 momvie-info border-b border-gray-800">
             {{-- Poster --}}
-            <div class="movie_item_poster">
-                <img src="https://image.tmdb.org/t/p/w500/{{$movie['poster_path']}}" alt="parasite" class='w-100 sm:w-64 lg:w-96'>
-            </div>
-            
+                <div class="movie_item_poster">
+                    <img src="https://image.tmdb.org/t/p/w500/{{$movie['poster_path']}}" alt="parasite" class='w-100 sm:w-64 lg:w-96' >                     
+                </div>
             {{-- End Poster --}}
             {{-- Movie --}}
             <div class="container flex flex-col md:flex-row">

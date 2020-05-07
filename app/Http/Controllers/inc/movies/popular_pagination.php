@@ -13,4 +13,4 @@ while($i< 5){
     endforeach;             
 }
 
-$movies_paginate = $this->paginate($pages);
+$popular_paginate = $this->paginate($pages);

@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <livewire:styles>
 
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+        
+    <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     
     </head>
@@ -64,6 +70,33 @@
        
         <script type="text/javascript" src="{{secure_asset('js/main.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
+
+        <script>
+            var mySwiper = new Swiper ('.swiper-container', {
+              // Optional parameters
+              direction: 'horizontal',
+              loop: true,
+            //   slidesPerView: 2
+            //   initialSlide: 3
+            //   spaceBetween: 100
+          
+              // If we need pagination
+            //   pagination: {
+            //     el: '.swiper-pagination',
+            //   },
+          
+              // Navigation arrows
+              navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              },
+          
+              // And if we need scrollbar
+            //   scrollbar: {
+            //     el: '.swiper-scrollbar',
+            //   },
+            })
+            </script>
       
     </body>
 </html>

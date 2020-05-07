@@ -3,6 +3,8 @@
 // Movies
 Route::get('/', 'MoviesController@index')->name('movies.index');
 Route::get('/movies/{id}', 'MoviesController@show')->name('movies.show');
+Route::get('/popular', 'PopularController@index')->name('popular.index');
+
 
 Route::get('/genres/genre', 'GenresController@index')->name('genres.index');
 
