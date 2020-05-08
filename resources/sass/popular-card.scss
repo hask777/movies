@@ -1,4 +1,4 @@
-.swiper-container {
+.swiper-container, .swiper-container-mobile{
     width: 100%;
     height: 100%;
 } 
@@ -7,7 +7,7 @@
     display: flex;
     .popular_movie_item{
         // display: flex;
-        max-width: 200px;
+        max-width: 300px;
         .movie_item_overlay{
             display: none;
         }
@@ -72,6 +72,19 @@
     }
 }
 
+.mobile_popular{
+    display: none;
+}
 
+// /* Small (sm) */
+@media (max-width: 640px) {
+    .popular{
+        display: none;
+    }
+
+    .mobile_popular{
+        display: block;
+    }
+}
 
 

@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <livewire:styles>
-
+    <!-- Swiper JS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
         
@@ -88,6 +88,24 @@
                     prevEl: '.swiper-button-prev',
                 },
             });
+
+            var swiper_mobile = new Swiper('.swiper-container-mobile', {
+                slidesPerView: 2,
+                spaceBetween: 20,
+                slidesOffsetBefore: 20,
+                // slidesPerGroup: 3,
+                // loop: true,
+                loopFillGroupWithBlank: true,
+                // pagination: {
+                //     el: '.swiper-pagination',
+                //     clickable: true,
+                // },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
         </script>
       
     </body>

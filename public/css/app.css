@@ -239,7 +239,7 @@ body {
 
 .movie_item:hover .movie_item_overlay {
   display: block;
-  overflow: scroll;
+  overflow-y: scroll;
   background-color: rgba(26, 32, 44, 0.9);
   position: absolute;
   top: 0;
@@ -299,7 +299,8 @@ body {
   background-color: #ed8936;
 }
 
-.swiper-container {
+.swiper-container,
+.swiper-container-mobile {
   width: 100%;
   height: 100%;
 }
@@ -309,7 +310,7 @@ body {
 }
 
 .swiper-slide .popular_movie_item {
-  max-width: 200px;
+  max-width: 300px;
 }
 
 .swiper-slide .popular_movie_item .movie_item_overlay {
@@ -376,6 +377,20 @@ body {
 
 .swiper-slide .popular_movie_item:hover .movie_item_overlay .watch span:hover {
   background-color: #ed8936;
+}
+
+.mobile_popular {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .popular {
+    display: none;
+  }
+
+  .mobile_popular {
+    display: block;
+  }
 }
 
 .videocdn {
