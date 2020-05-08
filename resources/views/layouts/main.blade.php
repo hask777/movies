@@ -72,31 +72,23 @@
         <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
 
         <script>
-            var mySwiper = new Swiper ('.swiper-container', {
-              // Optional parameters
-              direction: 'horizontal',
-              loop: true,
-            //   slidesPerView: 2
-            //   initialSlide: 3
-            //   spaceBetween: 100
-          
-              // If we need pagination
-            //   pagination: {
-            //     el: '.swiper-pagination',
-            //   },
-          
-              // Navigation arrows
-              navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-              },
-          
-              // And if we need scrollbar
-            //   scrollbar: {
-            //     el: '.swiper-scrollbar',
-            //   },
-            })
-            </script>
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 5,
+                spaceBetween: 20,
+                slidesOffsetBefore: 50,
+                // slidesPerGroup: 3,
+                // loop: true,
+                loopFillGroupWithBlank: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        </script>
       
     </body>
 </html>

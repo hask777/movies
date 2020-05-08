@@ -18,6 +18,9 @@ class MoviesController extends Controller
     public function index()
     {
         include 'inc/popular.php';
+        include 'inc/nowplaying.php';
+        include 'inc/top_rated.php';
+        include 'inc/upcoming.php';
         include 'inc/genres.php';
         include 'inc/years.php';
         include 'inc/countries.php';
@@ -28,6 +31,9 @@ class MoviesController extends Controller
             
         return view('index', [
             'popularMovies' => $popularMovies,
+            'nowPlayingMovies' => $nowPlayingMovies,
+            'top_rated' => $top_rated,
+            'upcoming' => $upcoming,
             'genresArray' => $genresArray,
             'genres' => $genres,
             'countries' => $countries,
