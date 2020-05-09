@@ -1,4 +1,6 @@
+html,
 body {
+  overflow-x: hidden;
   font-family: "Roboto", sans-serif;
 }
 
@@ -303,6 +305,68 @@ body {
 .swiper-container-mobile {
   width: 100%;
   height: 100%;
+}
+
+.swiper-container .swiper-button-next,
+.swiper-container .swiper-button-prev,
+.swiper-container-mobile .swiper-button-next,
+.swiper-container-mobile .swiper-button-prev {
+  display: none;
+}
+
+.swiper-container:hover .swiper-button-prev,
+.swiper-container-mobile:hover .swiper-button-prev {
+  display: flex;
+  top: 22px;
+  left: 0;
+  height: 100%;
+  color: #fff;
+  background-color: #1a202c;
+  opacity: 0.9;
+}
+
+.swiper-container:hover .swiper-button-next,
+.swiper-container-mobile:hover .swiper-button-next {
+  display: flex;
+  top: 22px;
+  right: 0;
+  height: 100%;
+  color: #fff;
+  background-color: #1a202c;
+  opacity: 0.9;
+}
+
+.swiper-container .swiper-pagination,
+.swiper-container .swiper-pagination-clickable,
+.swiper-container .swiper-pagination-bullets,
+.swiper-container-mobile .swiper-pagination,
+.swiper-container-mobile .swiper-pagination-clickable,
+.swiper-container-mobile .swiper-pagination-bullets {
+  display: none;
+}
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: #1a202c;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #2d3748;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fff;
 }
 
 .swiper-slide {
