@@ -8,7 +8,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class Popularcontroller extends Controller
+class PopularController extends Controller
 {
     /**
      * Display a listing of the resource.
