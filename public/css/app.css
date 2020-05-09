@@ -181,60 +181,6 @@ body {
   padding: 10px;
 }
 
-.filter {
-  max-width: 224px;
-}
-
-.filter input {
-  max-width: 190px;
-}
-
-.filter .movie_list li:hover button {
-  display: block;
-  width: 100%;
-  color: #ed8936;
-  font-size: 1rem;
-  font-weight: bold;
-  background-color: #1a202c;
-}
-
-.filter .countries_list {
-  display: inline;
-}
-
-.filter .countries_list li {
-  display: inline;
-}
-
-.filter .countries_list li form {
-  display: inline;
-}
-
-.filter_trigger {
-  display: none;
-}
-
-.genre_active {
-  display: block;
-  width: 100%;
-  color: #ed8936;
-  font-size: 1rem;
-  font-weight: bold;
-  background-color: #1a202c;
-}
-
-/* Large (lg) */
-
-@media (max-width: 1024px) {
-  .left_sidebar {
-    display: none;
-  }
-
-  .filter_trigger {
-    display: flex;
-  }
-}
-
 .movie_item .movie_item_overlay {
   display: none;
 }
@@ -489,6 +435,153 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.filter {
+  max-width: 224px;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.filter ::-webkit-scrollbar {
+  width: 4px;
+}
+
+.filter ::-webkit-scrollbar-track {
+  background: #1a202c;
+}
+
+.filter ::-webkit-scrollbar-thumb {
+  background: #ed8936;
+}
+
+.filter ::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+
+.filter input {
+  max-width: 190px;
+}
+
+.filter .movie_list {
+  max-height: 100px;
+  margin-bottom: 40px;
+  overflow-y: scroll;
+  background-color: #2d3748;
+  padding: 0 10px;
+  border: 1px solid #2d3748;
+}
+
+.filter .movie_list:hover {
+  box-sizing: border-box;
+  border: 1px solid #4299e1;
+}
+
+.filter .movie_list li button {
+  font-size: 1rem;
+}
+
+.filter .movie_list li:hover button {
+  display: block;
+  width: 100%;
+  color: #ed8936;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #1a202c;
+}
+
+.filter .movie_list .genre_active {
+  background-color: #2d3748;
+}
+
+.filter .countries_list {
+  max-height: 100px;
+  margin-bottom: 40px;
+  overflow-y: scroll;
+  background-color: #2d3748;
+  padding: 0 10px;
+  border: 1px solid #2d3748;
+}
+
+.filter .countries_list:hover {
+  box-sizing: border-box;
+  border: 1px solid #4299e1;
+}
+
+.filter .countries_list li button {
+  font-size: 1rem;
+}
+
+.filter .countries_list li:hover button {
+  display: block;
+  width: 100%;
+  color: #ed8936;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #1a202c;
+}
+
+.filter .countries_list .country_active {
+  background-color: #2d3748;
+}
+
+.filter .years_list {
+  max-height: 70px;
+  margin-bottom: 40px;
+  overflow-y: scroll;
+  background-color: #2d3748;
+  padding: 0 10px;
+  border: 1px solid #2d3748;
+}
+
+.filter .years_list:hover {
+  box-sizing: border-box;
+  border: 1px solid #4299e1;
+}
+
+.filter .years_list li button {
+  font-size: 1rem;
+}
+
+.filter .years_list li:hover button {
+  display: block;
+  width: 100%;
+  color: #ed8936;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #2d3748;
+}
+
+.filter .years_list .country_active {
+  background-color: #2d3748;
+}
+
+.filter_trigger {
+  display: none;
+}
+
+.genre_active,
+.country_active {
+  display: block;
+  width: 100%;
+  color: #ed8936;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #1a202c;
+}
+
+/* Large (lg) */
+
+@media (max-width: 1024px) {
+  .left_sidebar {
+    display: none;
+  }
+
+  .filter_trigger {
+    display: flex;
+  }
 }
 
 .filter_mobile {
