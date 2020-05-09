@@ -23,7 +23,7 @@ class YearController extends Controller
         include 'inc/sidebar.php';
         include 'inc/movies/years_pagination.php';
 
-        return view('year', [
+        return view('movies.year', [
             'year_name' => $year,
             // 'yearsArray' => $yearsArray,
             'years_paginate' => $years_paginate,

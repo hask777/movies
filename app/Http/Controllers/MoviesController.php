@@ -29,7 +29,7 @@ class MoviesController extends Controller
 
         // dump($popularMovies);
             
-        return view('index', [
+        return view('movies.index', [
             'popularMovies' => $popularMovies,
             'nowPlayingMovies' => $nowPlayingMovies,
             'top_rated' => $top_rated,
@@ -117,7 +117,7 @@ class MoviesController extends Controller
         // dump($videos);
 
             if(!$videos){
-                return view('show', [
+                return view('movies.show', [
                     'movie' => $movie,
                     'credits' => $credits,
                     'genres' => $genres,
@@ -134,7 +134,7 @@ class MoviesController extends Controller
                     {
                         if($movie['imdb_id'] === $video['imdb_id'])
                         {
-                            return view('show', [
+                            return view('movies.show', [
                                 'movie' => $movie,
                                 'credits' => $credits,
                                 'genres' => $genres,
@@ -147,7 +147,7 @@ class MoviesController extends Controller
                     }
                     else
                     {
-                        return view('show', [
+                        return view('movies.show', [
                             'movie' => $movie,
                             'credits' => $credits,
                             'genres' => $genres,
@@ -161,7 +161,7 @@ class MoviesController extends Controller
                 endforeach;
                 // dd($video);     
             }
-            return view('show', [
+            return view('movies.show', [
                 'movie' => $movie,
                 'credits' => $credits,
                 'genres' => $genres,
@@ -176,7 +176,7 @@ class MoviesController extends Controller
                 {
                     if($movie['imdb_id'] === $video['imdb_id'])
                     {
-                        return view('show', [
+                        return view('movies.show', [
                             'movie' => $movie,
                             'credits' => $credits,
                             'genres' => $genres,
@@ -189,7 +189,7 @@ class MoviesController extends Controller
                 }
                 else
                 {
-                    return view('show', [
+                    return view('movies.show', [
                         'movie' => $movie,
                         'credits' => $credits,
                         'genres' => $genres,

@@ -548,3 +548,45 @@ body {
   }
 }
 
+.now_playing_mobile {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .now_playing {
+    display: none;
+  }
+
+  .now_playing_mobile {
+    display: block;
+  }
+}
+
+.mobile_top_rated {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .top_rated {
+    display: none;
+  }
+
+  .mobile_top_rated {
+    display: block;
+  }
+}
+
+.upcoming_mobile {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .upcoming {
+    display: none;
+  }
+
+  .upcoming_mobile {
+    display: block;
+  }
+}
+

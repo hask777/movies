@@ -23,7 +23,7 @@ class CountryController extends Controller
         include 'inc/sidebar.php';
         include 'inc/movies/countries_pagination.php';
     
-        return view('country', [
+        return view('movies.country', [
             // 'countryArray' => $countryArray,
             'countries' => $countries,
             'country_name' => $country_name,

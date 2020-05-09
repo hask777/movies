@@ -26,7 +26,7 @@ class PopularController extends Controller
 
         // dump($popularMovies);
             
-        return view('popular', [
+        return view('movies.popular', [
             'popularMovies' => $popularMovies,
             'genresArray' => $genresArray,
             'genres' => $genres,

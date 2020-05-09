@@ -21,7 +21,7 @@ while($i<= 5){
         array_push($pages, $genre_page);
     endforeach;                 
 }
-dump($data);
+// dump($data);
 $genres_paginate = $this->paginate($pages);       
 $genres_paginate->setPath('genre');  
 

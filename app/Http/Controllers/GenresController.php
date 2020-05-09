@@ -29,7 +29,7 @@ class GenresController extends Controller
 
         // dump(request());
 
-        return view('genre', [
+        return view('movies.genre', [
             'genre_name' => $genre_name,
             'gueryArray' => $genresArray,
             'sidebarFutureMovies' => $sidebarFutureMovies,
