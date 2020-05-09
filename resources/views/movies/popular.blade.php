@@ -11,6 +11,7 @@
         <div class="mobile_sidebar_close_button">
             <span>Закрыть</span>
         </div>
+        
         @include('partials.left-sidebar')
         @include('partials.left-sidebar-mobile')
         <div class="popular_movies w-80%">

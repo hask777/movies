@@ -39,15 +39,17 @@ jQuery(document).ready(function ($) {
 		$('.youtube').show();
 	});
 
-	$('.left_sidebar_mobile').hide();
-	$('.mobile_sidebar_close_button').hide();
-	$('.filter_trigger').on('click', function(){
-		$('.left_sidebar_mobile').show();
-		$('.mobile_sidebar_close_button').show();
+
+
+	$('.filter_show_button').on('click', function(){
+		$('.filter_mobile_overlay').css('display', 'block');
+		$('.mobile_sidebar_close_button').css('display', 'block');
 	});
 
 	$('.mobile_sidebar_close_button').on('click', function(){
-		$('.left_sidebar_mobile').hide();
-		$('.mobile_sidebar_close_button').hide();
+		$('.filter_mobile_overlay').css('display', 'none');
+		$('.mobile_sidebar_close_button').css('display', 'none');
 	});
+
+	
 });

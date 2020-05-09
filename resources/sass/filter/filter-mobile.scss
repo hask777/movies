@@ -1,59 +1,168 @@
-// Bigger than 1024px
 .filter_mobile{
     max-width: 224px;
+    height: 100%;
+    /* width */
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: $main_blue;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background:  $orange;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #fff;
+    }
+
     input{
         max-width: 190px;  
     }
     .movie_list{
-        li:hover{
-            button{
-                display: block;
-                width: 100%;
-                color: $orange;
-                font-size: 1rem;
-                font-weight: bold;
-                background-color: $main_blue;
-            }
-           
+        max-height: 100px;
+        margin-bottom: 40px;
+        overflow-y: scroll;
+        background-color: $second_blue;
+        padding: 0 10px;
+        border: 1px solid $second_blue;
+        &:hover{
+            box-sizing: border-box;
+            border: 1px solid rgba(66, 153, 225);
         }
-       
+        li{
+            button{
+                font-size: 1rem;
+            }
+            
+            &:hover{
+                button{
+                    display: block;
+                    width: 100%;
+                    color: $orange;
+                    font-size: 1rem;  
+                    font-weight: bold;
+                    background-color: $main_blue;
+                }
+               
+            }
+        } 
+        .genre_active{
+            background-color: $second_blue;
+        }   
     }
     .countries_list{
-        display: inline;
-        li{ 
-            display: inline;
-            form{
-                display: inline;
-            }
+        max-height: 100px;
+        margin-bottom: 40px;
+        overflow-y: scroll;
+        background-color: $second_blue;
+        padding: 0 10px;
+        border: 1px solid $second_blue;
+        &:hover{
+            box-sizing: border-box;
+            border: 1px solid rgba(66, 153, 225);
         }
+        li{
+            button{
+                font-size: 1rem;
+            }
+            
+            &:hover{
+                button{
+                    display: block;
+                    width: 100%;
+                    color: $orange;
+                    font-size: 1rem;  
+                    font-weight: bold;
+                    background-color: $main_blue;
+                }
+               
+            }
+        } 
+        .country_active{
+            background-color: $second_blue;
+        }  
+    }
+    .years_list{
+        max-height: 70px;
+        margin-bottom: 40px;
+        overflow-y: scroll;
+        background-color: $second_blue;
+        padding: 0 10px;
+        border: 1px solid $second_blue;
+        &:hover{
+            box-sizing: border-box;
+            border: 1px solid rgba(66, 153, 225);
+        }
+        li{
+            button{
+                font-size: 1rem;
+            }
+            
+            &:hover{
+                button{
+                    display: block;
+                    width: 100%;
+                    color: $orange;
+                    font-size: 1rem;  
+                    font-weight: bold;
+                    background-color: $second_blue;
+                }
+               
+            }
+        } 
+        .country_active{
+            background-color: $second_blue;
+        }  
     }
 }
 
-.left_sidebar_mobile{
-    display: none;
+.genre_active, .country_active{
+    display: block;
+    width: 100%;
+    color: $orange;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: $main_blue;
 }
 
 .mobile_sidebar_close_button{
     display: none;
 }
 
+.filter_mobile_overlay{
+    display: none;
+    position: fixed;
+    overflow-x: hidden;
+    top:0;
+    z-index: 9998;
+    width: 100%;
+    min-height: 100%;
+    background-color: $second_blue;
+    // opacity: 0.9;
+}
+
 
 /* Large (lg) */
 @media (max-width: 1024px) { 
     .left_sidebar_mobile{
-        display: block;
-        position: absolute;
-        top: 0;
+        position: absolute; 
+        top:0;
         left: 0;
         z-index: 9999;
-
+        width: 100%;    
     }
     
     .mobile_sidebar_close_button{
-        display: block;
-        position: absolute;
+        display: none;
+        position: fixed;
         right: 0;
-        top: 20px;
+        top: 80px;
         z-index: 9999;
     }
 }

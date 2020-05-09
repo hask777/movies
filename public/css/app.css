@@ -558,8 +558,161 @@ body {
   background-color: #2d3748;
 }
 
-.filter_trigger {
+.genre_active,
+.country_active {
+  display: block;
+  width: 100%;
+  color: #ed8936;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #1a202c;
+}
+
+.filter_show_button {
   display: none;
+}
+
+/* Large (lg) */
+
+@media (max-width: 1024px) {
+  .left_sidebar {
+    display: none;
+  }
+
+  .filter_show_button {
+    display: flex;
+    position: fixed;
+    top: 30px;
+    right: 0;
+    margin-right: 16px;
+    z-index: 9999;
+    background-color: #2d3748;
+    padding: 10px;
+    border-radius: 25px;
+    border: 2px solid #4299e1;
+  }
+}
+
+.filter_mobile {
+  max-width: 224px;
+  height: 100%;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.filter_mobile ::-webkit-scrollbar {
+  width: 4px;
+}
+
+.filter_mobile ::-webkit-scrollbar-track {
+  background: #1a202c;
+}
+
+.filter_mobile ::-webkit-scrollbar-thumb {
+  background: #ed8936;
+}
+
+.filter_mobile ::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+
+.filter_mobile input {
+  max-width: 190px;
+}
+
+.filter_mobile .movie_list {
+  max-height: 100px;
+  margin-bottom: 40px;
+  overflow-y: scroll;
+  background-color: #2d3748;
+  padding: 0 10px;
+  border: 1px solid #2d3748;
+}
+
+.filter_mobile .movie_list:hover {
+  box-sizing: border-box;
+  border: 1px solid #4299e1;
+}
+
+.filter_mobile .movie_list li button {
+  font-size: 1rem;
+}
+
+.filter_mobile .movie_list li:hover button {
+  display: block;
+  width: 100%;
+  color: #ed8936;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #1a202c;
+}
+
+.filter_mobile .movie_list .genre_active {
+  background-color: #2d3748;
+}
+
+.filter_mobile .countries_list {
+  max-height: 100px;
+  margin-bottom: 40px;
+  overflow-y: scroll;
+  background-color: #2d3748;
+  padding: 0 10px;
+  border: 1px solid #2d3748;
+}
+
+.filter_mobile .countries_list:hover {
+  box-sizing: border-box;
+  border: 1px solid #4299e1;
+}
+
+.filter_mobile .countries_list li button {
+  font-size: 1rem;
+}
+
+.filter_mobile .countries_list li:hover button {
+  display: block;
+  width: 100%;
+  color: #ed8936;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #1a202c;
+}
+
+.filter_mobile .countries_list .country_active {
+  background-color: #2d3748;
+}
+
+.filter_mobile .years_list {
+  max-height: 70px;
+  margin-bottom: 40px;
+  overflow-y: scroll;
+  background-color: #2d3748;
+  padding: 0 10px;
+  border: 1px solid #2d3748;
+}
+
+.filter_mobile .years_list:hover {
+  box-sizing: border-box;
+  border: 1px solid #4299e1;
+}
+
+.filter_mobile .years_list li button {
+  font-size: 1rem;
+}
+
+.filter_mobile .years_list li:hover button {
+  display: block;
+  width: 100%;
+  color: #ed8936;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #2d3748;
+}
+
+.filter_mobile .years_list .country_active {
+  background-color: #2d3748;
 }
 
 .genre_active,
@@ -572,71 +725,37 @@ body {
   background-color: #1a202c;
 }
 
-/* Large (lg) */
-
-@media (max-width: 1024px) {
-  .left_sidebar {
-    display: none;
-  }
-
-  .filter_trigger {
-    display: flex;
-  }
-}
-
-.filter_mobile {
-  max-width: 224px;
-}
-
-.filter_mobile input {
-  max-width: 190px;
-}
-
-.filter_mobile .movie_list li:hover button {
-  display: block;
-  width: 100%;
-  color: #ed8936;
-  font-size: 1rem;
-  font-weight: bold;
-  background-color: #1a202c;
-}
-
-.filter_mobile .countries_list {
-  display: inline;
-}
-
-.filter_mobile .countries_list li {
-  display: inline;
-}
-
-.filter_mobile .countries_list li form {
-  display: inline;
-}
-
-.left_sidebar_mobile {
-  display: none;
-}
-
 .mobile_sidebar_close_button {
   display: none;
+}
+
+.filter_mobile_overlay {
+  display: none;
+  position: fixed;
+  overflow-x: hidden;
+  top: 0;
+  z-index: 9998;
+  width: 100%;
+  min-height: 100%;
+  background-color: #2d3748;
 }
 
 /* Large (lg) */
 
 @media (max-width: 1024px) {
   .left_sidebar_mobile {
-    display: block;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 9999;
+    width: 100%;
   }
 
   .mobile_sidebar_close_button {
-    display: block;
-    position: absolute;
+    display: none;
+    position: fixed;
     right: 0;
-    top: 20px;
+    top: 80px;
     z-index: 9999;
   }
 }

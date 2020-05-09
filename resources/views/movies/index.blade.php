@@ -11,9 +11,11 @@
         <div class="mobile_sidebar_close_button">
             <span>Закрыть</span>
         </div>
+        <div class="filter_show_button">Filter</div>
+        
         {{-- Filter --}}
             @include('partials.left-sidebar-index')
-            @include('partials.left-sidebar-mobile')
+            {{-- @include('partials.left-sidebar-mobile') --}}
 
             <div class="popular_movies w-80%">
                 {{-- Popular --}}
@@ -32,7 +34,6 @@
                 @include('movies.index.upcoming.lg')
                 @include('movies.index.upcoming.sm')
             
-
         </div>
     </div>
 @endsection

@@ -120,10 +120,6 @@
     }
 }
 
-.filter_trigger{
-    display: none;
-}
-
 .genre_active, .country_active{
     display: block;
     width: 100%;
@@ -133,6 +129,9 @@
     background-color: $main_blue;
 }
 
+.filter_show_button{
+    display: none;
+}
 
 /* Large (lg) */
 @media (max-width: 1024px) { 
@@ -140,7 +139,17 @@
         display: none;
     }
 
-    .filter_trigger{
+    .filter_show_button{
         display: flex;
+        position: fixed;
+        top: 30px;
+        right: 0;
+        margin-right: 16px;
+        z-index: 9999;
+        background-color: $second_blue;
+        padding: 10px;
+        border-radius: 25px;
+
+        border: 2px solid rgba(66, 153, 225);
     }
 }
