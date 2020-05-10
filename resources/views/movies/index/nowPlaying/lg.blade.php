@@ -5,7 +5,13 @@
                 Сейчас смотрят
             </a> 
             
-        </h2>     
+        </h2>
+
+        <div class="more">
+            <a href="{{route('movies.nowplaying')}}">
+                Еще...
+            </a>    
+        </div>    
     </div>
 
     <div class="flex mt-5 mb-5">

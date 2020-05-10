@@ -5,7 +5,7 @@
     @include('partials.left-sidebar')
     <div class="popular_movies w-100 md:w-80%">
         <div class="md:flex movies_header justify-between items-center">
-            <h2 class='movies_header_title capitalize tracking-wider text-orange-500 text-2xl  text-center font-semibold'>Популярные</h2>        
+            <h2 class='movies_header_title capitalize tracking-wider text-orange-500 text-2xl  text-center font-semibold'>{{ $movie['title'] }}</h2>        
         </div>
 
         <div class="sm:flex mx-auto mt-6 momvie-info border-b border-gray-800">
@@ -67,11 +67,13 @@
                     {{-- end casts --}}
                     <div class="mt-12 pb-12">
                         <button id="play_trailer" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
-                            <svg class="w-6 fill-current" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                          
+                            <i class="fa fa-youtube" aria-hidden="true"></i>
                                 <span class="ml-2">Смотреть Трэйлер</span>
                         </button>
                         <button id="play_movie" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
-                            <svg class="w-6 fill-current" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+
+                            <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                             <span class="ml-2">Смотреть Фильм</span>
                         </button>
 

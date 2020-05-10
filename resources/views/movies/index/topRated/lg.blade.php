@@ -5,7 +5,12 @@
                 По рейтингу
             </a>  
            
-        </h2>     
+        </h2> 
+        <div class="more">
+            <a href="{{route('movies.toprated')}}">
+                Еще...
+            </a>    
+        </div>        
     </div>
 
     <div class="flex mt-5 mb-5">
