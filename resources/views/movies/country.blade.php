@@ -2,15 +2,15 @@
 
 @section('content')
 @php
-    echo \Request::url().'<br>';
-    // // echo url()->url();
-    // echo url()->current().'<br>';
-    // echo url()->full();
-    if (request()->is('countries/country')) {
-        echo 'eee';
-    }else{
-        echo 'rrr';
-    }
+    // echo \Request::url().'<br>';
+    // // // echo url()->url();
+    // // echo url()->current().'<br>';
+    // // echo url()->full();
+    // if (request()->is('countries/country')) {
+    //     echo 'eee';
+    // }else{
+    //     echo 'rrr';
+    // }
 @endphp
    
     <div class="container flex mx-auto px-4 mt-6 mb-8">

@@ -1,5 +1,7 @@
 .filter_mobile{
-    max-width: 224px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     height: 100%;
     /* width */
     ::-webkit-scrollbar {
@@ -22,7 +24,8 @@
     }
 
     input{
-        max-width: 190px;  
+        // max-width: 190px;
+        width: 100%;
     }
     .movie_list{
         max-height: 100px;
@@ -161,8 +164,16 @@
     .mobile_sidebar_close_button{
         display: none;
         position: fixed;
-        right: 0;
-        top: 80px;
+        right: 10px;
+        top: 20px;
         z-index: 9999;
+        background-color: $main_blue;
+        border-radius: 25px;
+        border: 2px solid rgba(66, 153, 225);
+        padding: 10px;
+        cursor: pointer;
+        span{
+            font-size: 12px;
+        }
     }
 }

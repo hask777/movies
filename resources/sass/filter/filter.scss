@@ -130,8 +130,19 @@
 }
 
 .filter_show_button{
-    display: none;
-}
+    cursor: pointer;
+    &:hover{
+        background-color: orange;
+        img{
+            width: 30px;
+            height: 30px;
+        }
+    }
+    img{
+        width: 20px;
+        height: 20px;
+    }
+ }
 
 /* Large (lg) */
 @media (max-width: 1024px) { 
@@ -149,7 +160,21 @@
         background-color: $second_blue;
         padding: 10px;
         border-radius: 25px;
-
         border: 2px solid rgba(66, 153, 225);
+    }
+}
+
+/* Large (lg) */
+@media (min-width: 1024px) { 
+    .filter_mobile_overlay{
+        display: none !important;
+    }
+
+    .filter_show_button{
+       display: none;
+       img{
+           width: 20px;
+           height: 20px;
+       }
     }
 }

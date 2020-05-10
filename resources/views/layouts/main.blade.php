@@ -47,13 +47,14 @@
 
         <footer class="border-t border-gray-800">
             <div class="container mx-auto px-4 py-6 flex justify-center">
-                <img src="{{secure_asset('img/flags/telegram.svg')}}" alt="" class="ml-1">
-                <img src="{{secure_asset('img/flags/odnaklassniki.svg')}}" alt="" class="ml-1">
-                <img src="{{secure_asset('img/flags/facebook.svg')}}" alt="" class="ml-1">
-                <img src="{{secure_asset('img/flags/vkontakte.svg')}}" alt="" class="ml-1">
+                <img src="{{secure_asset('img/icons/telegram.svg')}}" alt="" class="ml-1">
+                <img src="{{secure_asset('img/icons/odnaklassniki.svg')}}" alt="" class="ml-1">
+                <img src="{{secure_asset('img/icons/facebook.svg')}}" alt="" class="ml-1">
+                <img src="{{secure_asset('img/icons/vkontakte.svg')}}" alt="" class="ml-1">
             </div>     
         </footer>
-        <div class="filter_mobile_overlay">
+        @include('partials.settings')
+        <div class="filter_mobile_overlay"> 
             @include('partials.left-sidebar-mobile')
         </div>
 

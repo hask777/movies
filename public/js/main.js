@@ -44,11 +44,13 @@ jQuery(document).ready(function ($) {
 	$('.filter_show_button').on('click', function(){
 		$('.filter_mobile_overlay').css('display', 'block');
 		$('.mobile_sidebar_close_button').css('display', 'block');
+		$('.filter_show_button').css('display', 'none');
 	});
 
 	$('.mobile_sidebar_close_button').on('click', function(){
 		$('.filter_mobile_overlay').css('display', 'none');
 		$('.mobile_sidebar_close_button').css('display', 'none');
+		$('.filter_show_button').css('display', 'block');
 	});
 
 	

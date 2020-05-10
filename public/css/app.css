@@ -580,7 +580,21 @@ body {
 }
 
 .filter_show_button {
-  display: none;
+  cursor: pointer;
+}
+
+.filter_show_button:hover {
+  background-color: orange;
+}
+
+.filter_show_button:hover img {
+  width: 30px;
+  height: 30px;
+}
+
+.filter_show_button img {
+  width: 20px;
+  height: 20px;
 }
 
 /* Large (lg) */
@@ -604,8 +618,27 @@ body {
   }
 }
 
+/* Large (lg) */
+
+@media (min-width: 1024px) {
+  .filter_mobile_overlay {
+    display: none !important;
+  }
+
+  .filter_show_button {
+    display: none;
+  }
+
+  .filter_show_button img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 .filter_mobile {
-  max-width: 224px;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
   height: 100%;
   /* width */
   /* Track */
@@ -630,7 +663,7 @@ body {
 }
 
 .filter_mobile input {
-  max-width: 190px;
+  width: 100%;
 }
 
 .filter_mobile .movie_list {
@@ -765,9 +798,18 @@ body {
   .mobile_sidebar_close_button {
     display: none;
     position: fixed;
-    right: 0;
-    top: 80px;
+    right: 10px;
+    top: 20px;
     z-index: 9999;
+    background-color: #1a202c;
+    border-radius: 25px;
+    border: 2px solid #4299e1;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .mobile_sidebar_close_button span {
+    font-size: 12px;
   }
 }
 
