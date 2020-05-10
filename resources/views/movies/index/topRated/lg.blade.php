@@ -1,6 +1,11 @@
 <div class="top_rated">
     <div class="flex movies_header justify-between items-center">
-        <h2 class='movies_header_title capitalize tracking-wider text-orange-500 text-2xl  text-center font-semibold'>По рейтингу</h2>     
+        <h2 class='movies_header_title capitalize tracking-wider text-orange-500 text-2xl  text-center font-semibold'>
+            <a href="{{route('movies.toprated')}}">
+                По рейтингу
+            </a>  
+           
+        </h2>     
     </div>
 
     <div class="flex mt-5 mb-5">

@@ -1,6 +1,11 @@
 <div class="upcoming">
     <div class="flex movies_header justify-between items-center">
-        <h2 class='movies_header_title capitalize tracking-wider text-orange-500 text-2xl  text-center font-semibold'>Скоро на экранах</h2>     
+        <h2 class='movies_header_title capitalize tracking-wider text-orange-500 text-2xl  text-center font-semibold'>
+            <a href="{{route('future.index')}}">
+                Скоро на экранах
+            </a>   
+           
+        </h2>     
     </div>
 
     <div class="flex mt-5 mb-5">

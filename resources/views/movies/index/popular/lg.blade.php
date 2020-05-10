@@ -5,8 +5,12 @@
                 Популярные
             </a>       
         </h2>     
-        {{-- @include('partials.styles') --}}
-        <span class="filter_trigger">Filter</span>
+
+        <div class="more">
+            <a href="{{route('popular.index')}}">
+                Еще...
+            </a>    
+        </div>
     </div>
 
     <div class="flex mt-5 mb-5">
