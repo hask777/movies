@@ -18,22 +18,46 @@ class TvController extends Controller
     public function index()
     {
         include 'inc/tv/popular.php';
-        include 'inc/tv/top_rated.php';
-        include 'inc/tv/genres.php';
+        include 'inc/popular.php';
+        include 'inc/nowplaying.php';
+        include 'inc/top_rated.php';
+        include 'inc/upcoming.php';
+        include 'inc/genres.php';
+        include 'inc/years.php';
+        include 'inc/countries.php';
+        include 'inc/sidebar.php';
+        include 'inc/movies/popular_pagination.php';
 
-        // $viewModel = new TvViewModel(
-        //     $popularTv,
-        //     $topratedTv,
-        //     $genres
+        dump($popularTv);
 
-        // );
-
+        // dump($popularMovies);
+            
         return view('tv.index', [
             'popularTv' => $popularTv,
-            'topRatedTv' => $topRatedTv,
-            'genres' => $genres
+            'popularMovies' => $popularMovies,
+            'nowPlayingMovies' => $nowPlayingMovies,
+            'top_rated' => $top_rated,
+            'upcoming' => $upcoming,
+            'genresArray' => $genresArray,
+            'genres' => $genres,
+            'countries' => $countries,
+            'years' => $years,
+            'sidebarFutureMovies' => $sidebarFutureMovies,
+            'popular_paginate' => $popular_paginate
         ]);
     }
+
+    /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
+    public function paginate($items, $perPage = 20, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+    }   
 
     /**
      * Show the form for creating a new resource.
