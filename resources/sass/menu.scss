@@ -1,6 +1,3 @@
-.main_menu_md{
-    display: none;
-}
 
 .main_menu{
     ul{
@@ -42,20 +39,42 @@
     }
 }
 
+.mobile_menu_button{
+    position: absolute;
+
+    cursor: pointer;
+    i{
+        font-size: 24px;
+    }
+}
+
+.mobile_menu_overlay{
+    display: none;
+    position: fixed;
+    overflow-x: hidden;
+    top:0;
+    z-index: 9998;
+    width: 100%;
+    min-height: 100%;
+    background-color: $second_blue;
+    // opacity: 0.9;
+}
 // /* Small (sm) */
 // @media (min-width: 640px) {
 
 // }
 
 // /* Medium (md) */
-// @media (min-width: 768px) {
+@media (min-width: 768px) {
 
-// }
+}
 
 // /* Large (lg) */
-// @media (min-width: 1024px) { 
-    
-// }
+@media (min-width: 1024px) { 
+    .mobile_menu_button{
+        display: none;
+    } 
+}
 
 // /* Extra Large (xl) */
 // @media (max-width: 1280px) {
@@ -76,6 +95,10 @@
 
 // /* Medium (md) */
 @media (max-width: 768px) {
+}
+
+/* Large (lg) */
+@media (max-width: 1024px) { 
     header{
         .main_menu_md{
             padding-top: 0;
@@ -126,15 +149,7 @@
             }
         }
     } 
-}
 
-/* Large (lg) */
-@media (max-width: 1024px) { 
-    
-}
-
-/* Extra Large (xl) */
-@media (max-width: 1280px) {
     .header_wrapper{
         justify-content: space-between;
         .main_menu{
@@ -152,4 +167,8 @@
     .popular_movies {
         width: 100%;
     }
+}
+
+/* Extra Large (xl) */
+@media (max-width: 1280px) {
 }

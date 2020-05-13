@@ -21,11 +21,14 @@
 
         <header class="border-b border-gray-800">
             <div class="header_wrapper container mx-auto px-4 py-6 flex">
-                
+                <div class="mobile_menu_button">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+
                 <div class="logo w-20%">
                     @include('layouts.header-parts.logo')
                 </div>
-
+  
                 <div class="main_menu lg:w-60% mr-8 flex justify-center items-center">
                     @include('layouts.header-parts.menu')
                 </div>
@@ -34,11 +37,11 @@
                     <livewire:search-dropdown>     
                 </div>
 
+                
+
             </div>
-            {{-- MD --}}
-            <div class="main_menu_md container mx-auto px-4 py-6">
-                @include('layouts.header-parts.menu')
-            </div>
+            
+            
         </header>
 
 	<!-- end header -->
@@ -53,7 +56,17 @@
                 <img src="{{secure_asset('img/icons/vkontakte.svg')}}" alt="" class="ml-1">
             </div>     
         </footer>
+
+        <div class="mobile_menu_overlay">
+            {{-- MD --}}
+            <div class="main_menu_md container mx-auto px-4 py-6">
+                @include('layouts.header-parts.menu')
+            </div>
+        </div>
+
+        {{-- Mobile filter button --}}
         @include('partials.settings')
+
         <div class="filter_mobile_overlay"> 
             @include('partials.left-sidebar-mobile')
         </div>
