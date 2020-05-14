@@ -88,7 +88,30 @@ class TvController extends Controller
      */
     public function show($id)
     {
-        //
+        include 'inc/genres.php';
+        include 'inc/years.php';
+        include 'inc/countries.php';
+        include 'inc/sidebar.php';
+
+        $movie = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/tv/'. $id . '')
+            ->json();
+
+        // dump($movie);  
+   
+        $video = Http::get('https://videocdn.tv/api/tv-series?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_name'] .'&limit=10')
+            ->json()['data'];
+        dump($video);
+        return view('tv.show', [
+            'movie' => $movie,
+            
+            'genres' => $genres,
+            'countries' => $countries,
+            'years' => $years,
+            'sidebarFutureMovies' => $sidebarFutureMovies,                
+            'videos' => $video
+        ]);
+
     }
 
     /**

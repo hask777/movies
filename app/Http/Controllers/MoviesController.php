@@ -84,8 +84,6 @@ class MoviesController extends Controller
      */
     public function show($id)
     {
-                
-
         include 'inc/genres.php';
         include 'inc/years.php';
         include 'inc/countries.php';
