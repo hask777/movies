@@ -22,7 +22,11 @@
             <div class="flex mt-5 mb-5">
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     @foreach($popularTv as $movie)
-                        {{$movie['name']}}
+                       
+                        <a href="{{ route('movies.show', $movie['id']) }}">
+                            <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
+                            {{$movie['name']}}
+                        </a>
                     @endforeach              
                 </div>        
             </div>
