@@ -66,11 +66,7 @@
                     </div>
                     {{-- end casts --}}
                     <div class="mt-12 pb-12">
-                        <button id="play_trailer" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
-                          
-                            <i class="fa fa-youtube" aria-hidden="true"></i>
-                                <span class="ml-2">Смотреть Трэйлер</span>
-                        </button>
+                       
                         <button id="play_movie" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
 
                             <i class="fa fa-play-circle-o" aria-hidden="true"></i>

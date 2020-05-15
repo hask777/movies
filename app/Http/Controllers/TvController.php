@@ -18,6 +18,10 @@ class TvController extends Controller
     public function index()
     {
         include 'inc/tv/popular.php';
+        include 'inc/genres.php';
+        include 'inc/years.php';
+        include 'inc/countries.php';
+        include 'inc/sidebar.php';
 
         // dump($popularTv);
 
@@ -25,6 +29,10 @@ class TvController extends Controller
             
         return view('tv.index', [
             'popularTv' => $popularTv,
+            'genres' => $genres,
+            'countries' => $countries,
+            'years' => $years,
+            'sidebarFutureMovies' => $sidebarFutureMovies,
         ]);
     }
 
@@ -59,6 +67,11 @@ class TvController extends Controller
      */
     public function show($id)
     {
+
+        include 'inc/genres.php';
+        include 'inc/years.php';
+        include 'inc/countries.php';
+        include 'inc/sidebar.php';
        
 
         $movie = Http::withToken(config('services.tmdb.token'))
@@ -79,6 +92,10 @@ class TvController extends Controller
         // dump($video);
 
         return view('tv.show', [
+            'genres' => $genres,
+            'countries' => $countries,
+            'years' => $years,
+            'sidebarFutureMovies' => $sidebarFutureMovies,
             'movie' => $movie,                  
             'videos' => $video
         ]);

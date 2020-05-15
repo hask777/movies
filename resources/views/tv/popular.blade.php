@@ -23,7 +23,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     @foreach($popularTv as $movie)
                        
-                    <x-tv-card :movie="$movie"/>
+                    <x-tv-card :movie="$movie" :genres="$genres"/>
                     @endforeach              
                 </div>        
             </div>
