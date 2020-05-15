@@ -76,17 +76,7 @@
                             <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                             <span class="ml-2">Смотреть Фильм</span>
                         </button>
-
-                        {{-- @if (count($movie['videos']['results']) > 0)
-                            <div class="youtube">
-                                <iframe class="" src="https://www.youtube.com/embed/{{$movie['videos']['results'][0]['key']}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            @else
-                            <div class="youtube">
-                                <span>Нет трейлера</span>         
-                            </div>                
-                        @endif
-                            
+                          
                         @if($videos == 'NO')
                             <div class="videocdn">
                                 <span> Нет фильма!</span>                       
@@ -95,7 +85,7 @@
                             <div class="videocdn">
                                 <iframe src="{{$videos['preview_iframe_src']}}"  frameborder="0" allowfullscreen></iframe>
                             </div>
-                        @endif         --}}
+                        @endif        
                     </div>
                     {{-- end casts --}}
                 </div>

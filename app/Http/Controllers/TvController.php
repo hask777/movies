@@ -28,7 +28,7 @@ class TvController extends Controller
         include 'inc/sidebar.php';
         include 'inc/movies/popular_pagination.php';
 
-        dump($popularTv);
+        // dump($popularTv);
 
         // dump($popularMovies);
             
@@ -94,17 +94,24 @@ class TvController extends Controller
         include 'inc/sidebar.php';
 
         $movie = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/tv/'. $id . '')
+            ->get('https://api.themoviedb.org/3/tv/'. $id . '?language=ru')
             ->json();
 
         // dump($movie);  
-   
-        $video = Http::get('https://videocdn.tv/api/tv-series?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_name'] .'&limit=10')
+
+        $tvs = Http::get('https://videocdn.tv/api/tv-series?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_name'] .'&limit=10')
             ->json()['data'];
-        dump($video);
+
+        foreach($tvs as $tv){
+            if($tv['orig_title'] === $movie['original_name']){
+                $video = $tv;
+            }
+        }
+  
+        // dump($video);
+
         return view('tv.show', [
-            'movie' => $movie,
-            
+            'movie' => $movie,   
             'genres' => $genres,
             'countries' => $countries,
             'years' => $years,
