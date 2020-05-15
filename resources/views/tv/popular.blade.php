@@ -9,7 +9,7 @@
 @endphp
     <div class="container flex mx-auto px-4 mt-6 mb-8">
 
-        @include('partials.tv.left-sidebar-index')
+
 
         <div class="popular_movies w-80%">
             <div class="flex movies_header justify-between items-center">
@@ -23,13 +23,13 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     @foreach($popularTv as $movie)
                        
-                    <x-tv-card :movie="$movie" :genres="$genres"/>
+                    <x-tv-card :movie="$movie"/>
                     @endforeach              
                 </div>        
             </div>
 
             <div class="movie_page_pagination">
-                {{ $popular_paginate->links() }}
+               
             </div>
         </div>
     </div>

@@ -10,25 +10,21 @@
     <div class="container flex mx-auto px-4 mt-6 mb-8">
 
         {{-- Filter --}}
-        @include('partials.tv.left-sidebar-index')
-        {{-- @include('partials.left-sidebar-mobile') --}}
+
 
         <div class="popular_movies w-80%">
             {{-- Popular --}}
             @include('tv.popular')            
-            @include('movies.index.popular.sm')
+            
                 
             {{-- No playing --}}
-            @include('movies.index.nowPlaying.lg')
-            @include('movies.index.nowPlaying.sm')
+           
            
             {{-- Top rated --}}
-            @include('movies.index.topRated.lg')
-            @include('movies.index.topRated.sm')
+            
 
             {{-- Upcoming--}}
-            @include('movies.index.upcoming.lg')
-            @include('movies.index.upcoming.sm')
+            
             
         </div>
     </div>

@@ -27,20 +27,7 @@
                     {{$movie['original_language']}}
                 </span>
     
-                <span class="genre">
-                    <span class="inner">Жанры: </span>
-                    @foreach ($movie['genre_ids'] as $genre)
-                
-                        @foreach($genres as $key => $value) 
-                            @if($key === $genre)
-                                {{$value}}
-                            @endif
-                        @endforeach
-                        @if (!$loop->last)
-                            ,
-                        @endif
-                    @endforeach
-                </span>
+          
                
                 {{-- <span class="p-2 block text-orange-500">{{$movie['overview']}}</span> --}}
                 <div class="watch">

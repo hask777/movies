@@ -18,15 +18,6 @@ class TvController extends Controller
     public function index()
     {
         include 'inc/tv/popular.php';
-        include 'inc/popular.php';
-        include 'inc/nowplaying.php';
-        include 'inc/top_rated.php';
-        include 'inc/upcoming.php';
-        include 'inc/genres.php';
-        include 'inc/years.php';
-        include 'inc/countries.php';
-        include 'inc/sidebar.php';
-        include 'inc/movies/popular_pagination.php';
 
         // dump($popularTv);
 
@@ -34,30 +25,10 @@ class TvController extends Controller
             
         return view('tv.index', [
             'popularTv' => $popularTv,
-            'popularMovies' => $popularMovies,
-            'nowPlayingMovies' => $nowPlayingMovies,
-            'top_rated' => $top_rated,
-            'upcoming' => $upcoming,
-            'genresArray' => $genresArray,
-            'genres' => $genres,
-            'countries' => $countries,
-            'years' => $years,
-            'sidebarFutureMovies' => $sidebarFutureMovies,
-            'popular_paginate' => $popular_paginate
         ]);
     }
 
-    /**
-    * The attributes that are mass assignable.
-    *
-    * @var array
-    */
-    public function paginate($items, $perPage = 20, $page = null, $options = [])
-    {
-        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
-        $items = $items instanceof Collection ? $items : Collection::make($items);
-        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
-    }   
+   
 
     /**
      * Show the form for creating a new resource.
@@ -88,10 +59,7 @@ class TvController extends Controller
      */
     public function show($id)
     {
-        include 'inc/genres.php';
-        include 'inc/years.php';
-        include 'inc/countries.php';
-        include 'inc/sidebar.php';
+       
 
         $movie = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/tv/'. $id . '?language=ru')
@@ -111,11 +79,7 @@ class TvController extends Controller
         // dump($video);
 
         return view('tv.show', [
-            'movie' => $movie,   
-            'genres' => $genres,
-            'countries' => $countries,
-            'years' => $years,
-            'sidebarFutureMovies' => $sidebarFutureMovies,                
+            'movie' => $movie,                  
             'videos' => $video
         ]);
 

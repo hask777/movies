@@ -15,5 +15,5 @@ Route::get('/countries/country', 'CountryController@index')->name('country.index
 
 
 // TVs
-Route::get('/tv', 'TvController@index')->name('tv.index');
+Route::get('/tv-series', 'TvController@index')->name('tv.index');
 Route::get('/tv/{id}', 'TvController@show')->name('tv.show');
