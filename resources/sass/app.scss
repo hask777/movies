@@ -2,6 +2,7 @@ html,body{
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
 }
+// MOVIES
 @import 'vars';
 @import 'menu';
 @import 'pagination';
@@ -16,3 +17,7 @@ html,body{
 @import 'index/popular/sm';
 @import 'index/topRated/sm';
 @import 'index/upcoming/sm';
+
+// TV
+
+@import 'tv/show';

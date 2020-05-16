@@ -67,18 +67,18 @@
                     {{-- end casts --}}
                     <div class="mt-12 pb-12">
                        
-                        <button id="play_movie" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
+                        {{-- <button id="play_movie" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
 
                             <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                             <span class="ml-2">Смотреть Фильм</span>
-                        </button>
+                        </button> --}}
                           
                         @if($videos == 'NO')
-                            <div class="videocdn">
+                            <div class="videocdn_tv">
                                 <span> Нет фильма!</span>                       
                             </div>              
                         @else
-                            <div class="videocdn">
+                            <div class="videocdn_tv">
                                 <iframe src="{{$videos['preview_iframe_src']}}"  frameborder="0" allowfullscreen></iframe>
                             </div>
                         @endif        

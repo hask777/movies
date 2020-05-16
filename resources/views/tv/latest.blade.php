@@ -2,7 +2,7 @@
     <div class="flex movies_header justify-between items-center">
         <h2 class='movies_header_title capitalize tracking-wider text-orange-500 text-2xl  text-center font-semibold'>
             <a href="{{route('tv.index')}}">
-                Популярные
+                Последние
             </a>       
         </h2>     
 
@@ -20,12 +20,12 @@
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
-                    @foreach($popularTv as $movie)
+                    {{-- @foreach($latest as $movie)
                         <div class="swiper-slide">
                             <x-tv-card :movie="$movie" :genres="$genres"/>
                         </div>
                         
-                    @endforeach 
+                    @endforeach  --}}
                 </div>
                 <!-- If we need pagination -->
                 <div class="swiper-pagination"></div>

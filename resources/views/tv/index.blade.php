@@ -18,12 +18,14 @@
             
                 
             {{-- No playing --}}
-           
+            @include('tv.today')      
            
             {{-- Top rated --}}
+            @include('tv.thisWeek')
             
 
             {{-- Upcoming--}}
+            @include('tv.toprated')
             
             
         </div>

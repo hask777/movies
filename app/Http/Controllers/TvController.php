@@ -18,6 +18,10 @@ class TvController extends Controller
     public function index()
     {
         include 'inc/tv/popular.php';
+        include 'inc/tv/today.php';
+        include 'inc/tv/thisWeek.php';
+        include 'inc/tv/latest.php';
+        include 'inc/tv/top_rated.php';
         include 'inc/genres.php';
         include 'inc/years.php';
         include 'inc/countries.php';
@@ -29,6 +33,10 @@ class TvController extends Controller
             
         return view('tv.index', [
             'popularTv' => $popularTv,
+            'toDay' => $toDay,
+            'thisWeek' => $thisWeek,
+            'topRatedTv' => $topRatedTv,
+            'latest' => $latest,
             'genres' => $genres,
             'countries' => $countries,
             'years' => $years,
