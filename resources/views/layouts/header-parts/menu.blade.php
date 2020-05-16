@@ -17,6 +17,6 @@ pr-2">
         <a href="#" class="hover:text-gray-300">Примьеры</a>
     </li>
     <li class="main_menu_item pl-3 pr-3">
-        <a href="#" class="hover:text-gray-300">Сериалы</a>
+        <a href="{{route('tv.index')}}" class="hover:text-gray-300">Сериалы</a>
     </li>
 </ul>
