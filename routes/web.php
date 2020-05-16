@@ -14,3 +14,9 @@ Route::get('/years/year', 'YearController@index')->name('year.index');
 Route::get('/countries/country', 'CountryController@index')->name('country.index');
 
 
+<<<<<<< HEAD
+=======
+// TVs
+Route::get('/tv-series', 'TvController@index')->name('tv.index');
+Route::get('/tv/{id}', 'TvController@show')->name('tv.show');
+>>>>>>> tv-series
