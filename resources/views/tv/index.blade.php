@@ -10,6 +10,7 @@
     <div class="container flex mx-auto px-4 mt-6 mb-8">
 
         {{-- Filter --}}
+        @include('partials.tv-left-sidebar-index')
 
 
         <div class="popular_movies w-80%">

@@ -9,7 +9,7 @@
     
                 <span class="year">
                     <span class="inner">Год: </span>
-                    {{-- {{\Carbon\Carbon::parse($movie['release_date'])->format('Y') }} --}}
+                    {{\Carbon\Carbon::parse($movie['first_air_date'])->format('Y') }}
                 </span>
     
                 <span class="rate">
@@ -19,7 +19,7 @@
     
                 <span class="orig_title">
                     <span class="inner">Назвнаие: </span>
-                    {{-- {{$movie['original_title']}} --}}
+                    {{$movie['original_name']}}
                 </span>
     
                 <span class="lang">
@@ -29,7 +29,7 @@
     
           
                
-                {{-- <span class="p-2 block text-orange-500">{{$movie['overview']}}</span> --}}
+                <span class="p-2 block text-orange-500">{{$movie['overview']}}</span>
                 <div class="watch">
                     <span>Смотреть</span>
                 </div>     

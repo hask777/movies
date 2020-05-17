@@ -8,7 +8,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class TvController extends Controller
+class TvGenresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,34 +17,39 @@ class TvController extends Controller
      */
     public function index()
     {
-        include 'inc/tv/popular.php';
-        include 'inc/tv/today.php';
-        include 'inc/tv/thisWeek.php';
-        include 'inc/tv/latest.php';
-        include 'inc/tv/top_rated.php';
         include 'inc/tv/genres.php';
         include 'inc/years.php';
         include 'inc/countries.php';
-        include 'inc/sidebar.php';
+        include 'inc/tv/genres.php';
+       
 
-        // dump($popularTv);
+        if(!empty($_GET['genre_name'])){
+            $genre_name = $_GET['genre_name'];         
+        }
 
-        // dump($popularMovies);
-            
-        return view('tv.index', [
-            'popularTv' => $popularTv,
-            'toDay' => $toDay,
-            'thisWeek' => $thisWeek,
-            'topRatedTv' => $topRatedTv,
-            'latest' => $latest,
+        // dump($genres_paginate);
+
+        return view('tv.genre', [
+            'genre_name' => $genre_name,
+            'genres_paginate' => $genres_paginate,
             'genres' => $genres,
             'countries' => $countries,
             'years' => $years,
-            'sidebarFutureMovies' => $sidebarFutureMovies,
+            
         ]);
     }
 
-   
+    /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
+    public function paginate($items, $perPage = 20, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);    
+    }    
 
     /**
      * Show the form for creating a new resource.
@@ -75,39 +80,7 @@ class TvController extends Controller
      */
     public function show($id)
     {
-
-        include 'inc/genres.php';
-        include 'inc/years.php';
-        include 'inc/countries.php';
-        include 'inc/sidebar.php';
-       
-
-        $movie = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/tv/'. $id . '?language=ru')
-            ->json();
-
-        // dump($movie);  
-
-        $tvs = Http::get('https://videocdn.tv/api/tv-series?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_name'] .'&limit=10')
-            ->json()['data'];
-
-        foreach($tvs as $tv){
-            if($tv['orig_title'] === $movie['original_name']){
-                $video = $tv;
-            }
-        }
-  
-        // dump($video);
-
-        return view('tv.show', [
-            'genres' => $genres,
-            'countries' => $countries,
-            'years' => $years,
-            'sidebarFutureMovies' => $sidebarFutureMovies,
-            'movie' => $movie,                  
-            'videos' => $video
-        ]);
-
+        //
     }
 
     /**
