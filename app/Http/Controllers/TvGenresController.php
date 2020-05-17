@@ -20,7 +20,7 @@ class TvGenresController extends Controller
         include 'inc/tv/genres.php';
         include 'inc/years.php';
         include 'inc/countries.php';
-        include 'inc/tv/genres.php';
+        include 'inc/tv/genres_pagination.php';
        
 
         if(!empty($_GET['genre_name'])){
