@@ -20,5 +20,5 @@ Route::get('/tv/{id}', 'TvController@show')->name('tv.show');
 Route::get('/tv-genres/genre', 'TvGenresController@index')->name('tv-genres.index');
 Route::get('/tv-today', 'TvTodayController@index')->name('tv.today');
 Route::get('/tv-thisweek', 'TvThisweekController@index')->name('tv.thisweek');
-Route::get('/tv-toprated', 'TvTopratedController@index')->name('tv.toprated');
+Route::get('/tv-toprated', 'TvTopRatedController@index')->name('tv.toprated');
 
