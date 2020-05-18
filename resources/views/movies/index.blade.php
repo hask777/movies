@@ -15,20 +15,22 @@
 
         <div class="popular_movies w-80%">
             {{-- Popular --}}
-            @include('movies.index.popular.lg')            
-            @include('movies.index.popular.sm')
+            {{-- @include('movies.index.popular.lg')            
+            @include('movies.index.popular.sm') --}}
                 
             {{-- No playing --}}
-            @include('movies.index.nowPlaying.lg')
-            @include('movies.index.nowPlaying.sm')
+            {{-- @include('movies.index.nowPlaying.lg')
+            @include('movies.index.nowPlaying.sm') --}}
            
             {{-- Top rated --}}
-            @include('movies.index.topRated.lg')
-            @include('movies.index.topRated.sm')
+            {{-- @include('movies.index.topRated.lg')
+            @include('movies.index.topRated.sm') --}}
 
             {{-- Upcoming--}}
-            @include('movies.index.upcoming.lg')
-            @include('movies.index.upcoming.sm')
+            {{-- @include('movies.index.upcoming.lg')
+            @include('movies.index.upcoming.sm') --}}
+
+            @include('movies.popular') 
             
         </div>
     </div>

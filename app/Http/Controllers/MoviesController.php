@@ -88,6 +88,8 @@ class MoviesController extends Controller
         include 'inc/years.php';
         include 'inc/countries.php';
         include 'inc/sidebar.php';
+        include 'inc/popular.php';
+        include 'inc/movies/popular_pagination.php';
 
         $movie = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=videos,images,credits&language=ru')
