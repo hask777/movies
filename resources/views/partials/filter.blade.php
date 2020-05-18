@@ -29,7 +29,7 @@
                     <x-year-filter :year="$year"/>
                 @endif --}}
 
-                <x-year-filter :year="$year"/><br>
+                <x-year-filter :year="$year"/>
                
             @endforeach
         </ul>

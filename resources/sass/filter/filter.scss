@@ -23,7 +23,7 @@
         max-width: 190px;  
     }
     .movie_list{
-        max-height: 100px;
+        max-height: 200px;
         margin-bottom: 40px;
         overflow-y: scroll;
         background-color: $second_blue;
@@ -36,6 +36,10 @@
         li{
             button{
                 font-size: 1rem;
+                text-align: left;
+                text-transform: capitalize;
+                font-weight: 500;
+                padding: 0 4px;
             }
             
             &:hover{
@@ -44,7 +48,7 @@
                     width: 100%;
                     color: $orange;
                     font-size: 1rem;  
-                    font-weight: bold;
+                    font-weight: 500;
                     background-color: $main_blue;
                 }
                
@@ -55,7 +59,7 @@
         }   
     }
     .countries_list{
-        max-height: 100px;
+        max-height: 200px;
         margin-bottom: 40px;
         overflow-y: scroll;
         background-color: $second_blue;
@@ -68,15 +72,19 @@
         li{
             button{
                 font-size: 1rem;
+                text-align: left;
+                font-weight: 500;
+                padding: 0 4px;
             }
             
             &:hover{
                 button{
                     display: block;
                     width: 100%;
+                    text-align: left;
                     color: $orange;
                     font-size: 1rem;  
-                    font-weight: bold;
+                    font-weight: 500;
                     background-color: $main_blue;
                 }
                
@@ -87,8 +95,8 @@
         }  
     }
     .years_list{
-        max-height: 70px;
-        margin-bottom: 40px;
+        max-height: 200px;
+        // margin-bottom: 40px;
         overflow-y: scroll;
         background-color: $second_blue;
         padding: 0 10px;
@@ -100,16 +108,20 @@
         li{
             button{
                 font-size: 1rem;
+                text-align: left;
+                font-weight: 500;
+                padding: 0 4px;
             }
             
             &:hover{
                 button{
                     display: block;
                     width: 100%;
+                    text-align: left;
                     color: $orange;
                     font-size: 1rem;  
-                    font-weight: bold;
-                    background-color: $second_blue;
+                    font-weight: 500;
+                    background-color: $main_blue;
                 }
                
             }

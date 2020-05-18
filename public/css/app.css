@@ -497,7 +497,7 @@ body {
 }
 
 .filter .movie_list {
-  max-height: 100px;
+  max-height: 200px;
   margin-bottom: 40px;
   overflow-y: scroll;
   background-color: #2d3748;
@@ -512,6 +512,10 @@ body {
 
 .filter .movie_list li button {
   font-size: 1rem;
+  text-align: left;
+  text-transform: capitalize;
+  font-weight: 500;
+  padding: 0 4px;
 }
 
 .filter .movie_list li:hover button {
@@ -519,7 +523,7 @@ body {
   width: 100%;
   color: #ed8936;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 500;
   background-color: #1a202c;
 }
 
@@ -528,7 +532,7 @@ body {
 }
 
 .filter .countries_list {
-  max-height: 100px;
+  max-height: 200px;
   margin-bottom: 40px;
   overflow-y: scroll;
   background-color: #2d3748;
@@ -543,14 +547,18 @@ body {
 
 .filter .countries_list li button {
   font-size: 1rem;
+  text-align: left;
+  font-weight: 500;
+  padding: 0 4px;
 }
 
 .filter .countries_list li:hover button {
   display: block;
   width: 100%;
+  text-align: left;
   color: #ed8936;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 500;
   background-color: #1a202c;
 }
 
@@ -559,8 +567,7 @@ body {
 }
 
 .filter .years_list {
-  max-height: 70px;
-  margin-bottom: 40px;
+  max-height: 200px;
   overflow-y: scroll;
   background-color: #2d3748;
   padding: 0 10px;
@@ -574,15 +581,19 @@ body {
 
 .filter .years_list li button {
   font-size: 1rem;
+  text-align: left;
+  font-weight: 500;
+  padding: 0 4px;
 }
 
 .filter .years_list li:hover button {
   display: block;
   width: 100%;
+  text-align: left;
   color: #ed8936;
   font-size: 1rem;
-  font-weight: bold;
-  background-color: #2d3748;
+  font-weight: 500;
+  background-color: #1a202c;
 }
 
 .filter .years_list .country_active {
