@@ -37,6 +37,10 @@
                     <livewire:search-dropdown>     
                 </div>
 
+                <div class="mobile_menu">
+                    @include('layouts.header-parts.mobile-menu')
+                </div>
+
                 
 
             </div>

@@ -157,6 +157,24 @@ body {
 
 /* Extra Large (xl) */
 
+.mobile_menu {
+  margin-top: 20px;
+}
+
+.mobile_menu ul {
+  width: 100%;
+  padding: 0;
+}
+
+.mobile_menu ul .mobile_menu_item {
+  width: 50%;
+  text-align: center;
+}
+
+.mobile_menu ul .mobile_menu_item .tv-series a {
+  color: #ed8936;
+}
+
 .movie_page_pagination nav .pagination {
   display: flex;
   flex-wrap: wrap;
