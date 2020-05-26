@@ -19,26 +19,6 @@
     </head>
     <body class="bg-gray-900 text-white">
        
-        @php
-        $result = request()->path();
-        $url = request()->url();
-        $root = request()->root();
-        $current = url()->current();
-        $current_uri = request()->segments();
-       
-        // $path = preg_match('^s?/[A-Za-z0-9]/', $result);
-        dump($current_uri);
-
-        if($current_uri == NULL){
-            echo 'null';
-        }
-        else if($current_uri != NULL && $current_uri[0] == 'tvs'){
-            echo 'tvs';
-        }
-        else if($current_uri != NULL && $current_uri[0] == 'movies'){
-            echo 'movies';
-        }
-        @endphp
 
         <header class="border-b border-gray-800">
             <div class="header_wrapper container mx-auto px-4 py-6 flex">
@@ -89,15 +69,19 @@
         @include('partials.settings')
 
         <div class="filter_mobile_overlay">
-            @include('partials.left-sidebar-mobile') 
-            @php
-                // if(request()->path() == 'tv-countries'){
-                //     echo 'rr';
-                // }else{
-                //     @include('partials.left-sidebar-mobile');
-                // }  
-            @endphp
             
+            @php
+                $current_uri = request()->segments();
+                dump($current_uri);    
+            @endphp
+
+            @if($current_uri != NULL && $current_uri[0] == 'tvs')
+                @include('partials.tv-left-sidebar-mobile')
+            @else
+                @include('partials.left-sidebar-mobile')
+            @endif
+            
+  
         </div>
 
         
