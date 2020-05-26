@@ -16,5 +16,5 @@ while($i< 5){
 }
 
 $future_paginate = $this->paginate($pages);       
-$future_paginate->setPath('list');  
+$future_paginate->setPath('future');  
 

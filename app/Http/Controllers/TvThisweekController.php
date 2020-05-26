@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class TvThisweekController extends Controller
 {
@@ -17,14 +21,30 @@ class TvThisweekController extends Controller
         include 'inc/years.php';
         include 'inc/countries.php';
         include 'inc/tv/thisWeek.php';
+        include 'inc/tv/thisWeek_pagination.php';
         
         return view('tv.thisWeek', [
             'genres' => $genres,
             'countries' => $countries,
             'years' => $years,
-            'thisWeek' => $thisWeek
+            'thisWeek' => $thisWeek,
+            'thisWeek_paginate' => $thisWeek_paginate,
+            
         ]);
     }
+
+    /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
+    public function paginate($items, $perPage = 20, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);    
+    }    
+
 
     /**
      * Show the form for creating a new resource.

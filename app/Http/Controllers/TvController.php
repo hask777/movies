@@ -91,6 +91,8 @@ class TvController extends Controller
         $tvs = Http::get('https://videocdn.tv/api/tv-series?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_name'] .'&limit=10')
             ->json()['data'];
 
+        // dd($movie);
+
         foreach($tvs as $tv){
             if($tv['orig_title'] === $movie['original_name']){
                 $video = $tv;

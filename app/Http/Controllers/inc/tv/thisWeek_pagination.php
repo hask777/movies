@@ -10,7 +10,7 @@ while($i<= 5){
     }
 
     $movie = Http::withToken(config('services.tmdb.token'))
-        ->get('https://api.themoviedb.org/3/discover/tv?with_genres='. $genre_id .'&page='.$i++.'&append_to_response=&language=ru')
+        ->get('https://api.themoviedb.org/3/tv/on_the_air?page='.$i++.'&append_to_response=&language=ru')
         ->json()['results'];
 
 
@@ -19,5 +19,5 @@ while($i<= 5){
     endforeach;                 
 }
 // dump($data);
-$genres_paginate = $this->paginate($pages);       
-$genres_paginate->setPath('genre');  
+$thisWeek_paginate = $this->paginate($pages);       
+$thisWeek_paginate->setPath('thisweek'); 

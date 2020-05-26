@@ -21,8 +21,8 @@
             </div>
 
             <div class="flex mt-5 mb-5">
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    @foreach($topRatedTv as $movie)
+                <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    @foreach($topRatedTv_paginate as $movie)
                     <div class="swiper-slide">
                         <x-tv-card :movie="$movie" :genres="$genres"/>
                     </div>
@@ -32,7 +32,7 @@
             </div>
 
             <div class="movie_page_pagination">
-                {{-- {{ $popular_paginate->links() }} --}}
+                {{ $topRatedTv_paginate->links() }}
             </div>
         </div>
     </div>

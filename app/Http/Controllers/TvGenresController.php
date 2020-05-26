@@ -18,7 +18,7 @@ class TvGenresController extends Controller
     public function index()
     {
         include 'inc/tv/genres.php';
-        include 'inc/tv/years.php';
+        include 'inc/years.php';
         include 'inc/countries.php';
         include 'inc/tv/genres_pagination.php';
        

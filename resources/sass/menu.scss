@@ -70,7 +70,11 @@
 }
 
 // /* Large (lg) */
-@media (min-width: 1024px) { 
+@media (min-width: 1024px) {
+    
+    .mobile_menu{
+        display: none;
+    } 
     .mobile_menu_button{
         display: none;
     } 

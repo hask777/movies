@@ -24,4 +24,4 @@ while($i< 5){
   
 $country_paginate = $this->paginate($pages); 
 // dump($country_paginate);
-$country_paginate->setPath('country');
+$country_paginate->setPath('countries');
