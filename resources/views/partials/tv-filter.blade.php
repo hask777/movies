@@ -32,7 +32,7 @@
             @foreach($countries as $key=>$value) 
             
                 {{-- {{count($countries)}} --}}
-                <x-country-filter :key="$key" :value="$value"/>
+                <x-tv-country :key="$key" :value="$value"/>
             @endforeach
         </ul>
         <h3 class="font-bold text-orange-500 mt-6">Год:</h3>

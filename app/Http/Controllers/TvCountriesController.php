@@ -8,7 +8,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class TvGenresController extends Controller
+class TvCountriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,23 +18,17 @@ class TvGenresController extends Controller
     public function index()
     {
         include 'inc/tv/genres.php';
-        include 'inc/tv/years.php';
+        include 'inc/years.php';
         include 'inc/countries.php';
-        include 'inc/tv/genres_pagination.php';
-       
+        include 'inc/tv/contries_pagination.php';
 
-        if(!empty($_GET['genre_name'])){
-            $genre_name = $_GET['genre_name'];         
-        }
-
-        // dump($genres_paginate);
-
-        return view('tv.genre', [
-            'genre_name' => $genre_name,
-            'genres_paginate' => $genres_paginate,
+        return view('tv.countries',[
             'genres' => $genres,
             'countries' => $countries,
             'years' => $years,
+            'countries' => $countries,
+            'country_name' => $country_name,
+            'country_paginate' => $country_paginate,
             
         ]);
     }

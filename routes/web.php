@@ -21,4 +21,5 @@ Route::get('/tv-genres/genre', 'TvGenresController@index')->name('tv-genres.inde
 Route::get('/tv-today', 'TvTodayController@index')->name('tv.today');
 Route::get('/tv-thisweek', 'TvThisweekController@index')->name('tv.thisweek');
 Route::get('/tv-toprated', 'TvTopRatedController@index')->name('tv.toprated');
+Route::get('/tv-countries', 'TvCountriesController@index')->name('tv.countries');
 
