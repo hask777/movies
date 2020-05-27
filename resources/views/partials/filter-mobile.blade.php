@@ -7,6 +7,7 @@
             <h2 class='capitalize  tracking-wider text-center text-orange-500 text-2xl  text-center font-semibold'>Фильмы</h2>
         </div>
         <livewire:search-dropdown>
+            @include('partials.buttons')
         <h3 class="font-bold text-orange-500  mt-6">Жанры:</h3>
         <ul class="movie_list text-sm mb-4 mt-1 ml-1">
             @foreach($genres as $key=>$value)

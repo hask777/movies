@@ -1,8 +1,10 @@
 <div class="filter_mobile"> 
-
+    <div class="mobile_sidebar_close_button">
+        <span>Закрыть</span>
+    </div> 
     <div class="bg-gray-800 p-4">
         <div class="mb-4">
-            <h2 class='capitalize  tracking-wider text-center text-orange-500 text-2xl  text-center font-semibold'>Фильмы</h2>
+            <h2 class='capitalize  tracking-wider text-center text-orange-500 text-2xl  text-center font-semibold'>Сериалы</h2>
         </div>
         <livewire:search-dropdown>
             <h3  class="font-bold text-orange-500  mt-6">

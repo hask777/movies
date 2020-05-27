@@ -4,6 +4,7 @@
     </div>
     <div class="bg-gray-800 p-4 mt-5">
         <livewire:search-dropdown>
+            @include('partials.buttons')
         <h3 class="font-bold text-orange-500  mt-6">Жанры:</h3>
         <ul class="movie_list mb-4 mt-2 ml-1">
             @foreach($genres as $key=>$value)

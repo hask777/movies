@@ -14,23 +14,8 @@
 
         <div class="popular_movies w-80%">
             <div class="flex movies_header items-center">
-                <h2 class='movies_header_title capitalize tracking-wider text-orange-500 text-2xl  text-center font-semibold'>Популярные</h2> 
-                    
-                    <a href="{{route('tv.today')}}" class="ml-2">
-                        Сейчас мотрят
-                    </a>
-                    
-                   
-                    <a href="{{route('tv.thisweek')}}" class="ml-2">
-                        На этой неделе
-                    </a>
-                    
-                  
-                    <a href="{{route('tv.toprated')}}" class="ml-2">
-                        По рэйтингу
-                    </a>
-                   
-                   
+                <h2 class='movies_header_title capitalize tracking-wider text-orange-500 text-2xl  text-center font-semibold'>Популярные:</h2> 
+                          
                 @include('partials.styles')
                 
             </div>

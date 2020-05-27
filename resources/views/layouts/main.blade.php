@@ -72,7 +72,7 @@
             
             @php
                 $current_uri = request()->segments();
-                dump($current_uri);    
+                // dump($current_uri);    
             @endphp
 
             @if($current_uri != NULL && $current_uri[0] == 'tvs')
