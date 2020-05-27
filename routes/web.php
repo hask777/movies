@@ -12,7 +12,8 @@ Route::get('/movies/year', 'YearController@index')->name('year.index');
 Route::get('/movies/countries', 'CountryController@index')->name('country.index');
 
 // TVs
-Route::get('/tvs', 'TvController@index')->name('tv.index');
+Route::get('/tvs/popular', 'TvController@index')->name('tv.index');
+// Route::get('/tvs/popular', 'TvController@index')->name('tv.popular');
 Route::get('/tv/{id}', 'TvController@show')->name('tv.show');
 Route::get('/tvs/genre', 'TvGenresController@index')->name('tv-genres.index');
 Route::get('/tvs/today', 'TvTodayController@index')->name('tv.today');

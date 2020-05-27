@@ -26,6 +26,8 @@ class TvController extends Controller
         include 'inc/years.php';
         include 'inc/countries.php';
         include 'inc/sidebar.php';
+        include 'inc/tv/popular_pagination.php';
+
 
         // dump($popularTv);
 
@@ -41,8 +43,21 @@ class TvController extends Controller
             'countries' => $countries,
             'years' => $years,
             'sidebarFutureMovies' => $sidebarFutureMovies,
+            'popular_paginate' => $popular_paginate
         ]);
     }
+
+     /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
+    public function paginate($items, $perPage = 20, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);    
+    }    
 
    
 
