@@ -33,7 +33,7 @@ class TvController extends Controller
 
         // dump($popularMovies);
             
-        return view('tv.index', [
+        return view('tv.popular', [
             'popularTv' => $popularTv,
             'toDay' => $toDay,
             'thisWeek' => $thisWeek,

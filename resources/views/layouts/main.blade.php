@@ -76,7 +76,7 @@
             @endphp
 
             @if($current_uri != NULL && $current_uri[0] == 'tvs')
-                @include('partials.tv-left-sidebar-mobile')
+                @include('partials.tv.mobile.left-sidebar')
             @else
                 @include('partials.left-sidebar-mobile')
             @endif

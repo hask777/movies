@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container flex mx-auto px-4 mt-6 mb-8">
-    @include('partials.tv-left-sidebar-index')
+    @include('partials.tv.left-sidebar-index')
    
     <div class="popular_movies w-100 md:w-80%">
         <div class="md:flex movies_header justify-between items-center">
