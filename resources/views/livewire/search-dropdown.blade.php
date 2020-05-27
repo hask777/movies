@@ -4,7 +4,7 @@
         type="text"
         value="{{$this->search}}"
         class="flex bg-gray-800 rounded-full  px-4 pl-8 py-1 focus:outline-none focus:shadow-outline" 
-        placeholder="Поиск"
+        placeholder="Найти"
         @focus="isOpen = true"
         @keydown="isOpen = true"
         @keydown.escape.window="isOpen = false"

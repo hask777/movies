@@ -3,7 +3,7 @@
         <h2 class='capitalize  tracking-wider text-center text-orange-500 text-2xl  text-center font-semibold'>Сериалы</h2>
     </div>
     <div class="bg-gray-800 p-4 mt-5">
-        <livewire:search-dropdown>
+        <livewire:tv-search-dropdown>
             <h3  class="font-bold text-orange-500  mt-6">
                 <a href="{{route('tv.today')}}">
                     Сейчас мотрят
@@ -50,6 +50,15 @@
                
             @endforeach
         </ul>
+        <form action="">
+            <input
+            type="text"
+            name="tv_year_search"
+            value=""
+            class="flex bg-gray-900 rounded-full  px-4 pl-8 py-1 focus:outline-none focus:shadow-outline" 
+            placeholder="Введите год"   
+        >
+        </form>
     </div>
 </div>
 
