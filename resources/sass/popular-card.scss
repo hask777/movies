@@ -108,10 +108,11 @@
                     margin-top: 10px;
                     span{
                         padding: 5px 15px;
-                        background-color: $second_blue;
+                        // background-color: $second_blue;
                         font-size: 1rem;
                         border-radius: 25px;
                         font-weight: bold;
+                        border: 1px solid rgba(66, 153, 225);
                         &:hover{
                             background-color: $orange;
                         }

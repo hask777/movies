@@ -249,7 +249,7 @@ body {
 
 .movie_item:hover .movie_item_overlay span .inner {
   display: inline;
-  color: #ed8936;
+  color: #4299e1;
   margin-right: 10px;
   font-size: 14px;
 }
@@ -270,6 +270,7 @@ body {
 }
 
 .movie_item:hover .movie_item_overlay .watch {
+  position: obsalute;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -279,14 +280,10 @@ body {
 
 .movie_item:hover .movie_item_overlay .watch span {
   padding: 5px 15px;
-  background-color: #2d3748;
   font-size: 1rem;
   border-radius: 25px;
   font-weight: bold;
-}
-
-.movie_item:hover .movie_item_overlay .watch span:hover {
-  background-color: #ed8936;
+  border: 1px solid #4299e1;
 }
 
 .swiper-container,
@@ -432,10 +429,10 @@ body {
 
 .swiper-slide .popular_movie_item:hover .movie_item_overlay .watch span {
   padding: 5px 15px;
-  background-color: #2d3748;
   font-size: 1rem;
   border-radius: 25px;
   font-weight: bold;
+  border: 1px solid #4299e1;
 }
 
 .swiper-slide .popular_movie_item:hover .movie_item_overlay .watch span:hover {
@@ -507,7 +504,7 @@ body {
 }
 
 .filter ::-webkit-scrollbar-thumb {
-  background: #ed8936;
+  background: #4299e1;
 }
 
 .filter ::-webkit-scrollbar-thumb:hover {

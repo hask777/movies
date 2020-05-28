@@ -27,7 +27,7 @@ class MoviesController extends Controller
         include 'inc/sidebar.php';
         include 'inc/movies/popular_pagination.php';
 
-        dump($popularMovies);
+        // dump($popularMovies);
             
         return view('movies.index', [
             'popularMovies' => $popularMovies,
