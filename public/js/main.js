@@ -21,24 +21,30 @@ jQuery(document).ready(function ($) {
 		})
 	});
 
-	$('.videocdn').hide();
-	$('#play_movie').css('backgroundColor', 'blue');
+	// Show movie and trailer buttons
+
+	// $('.videocdn').hide();
+		// $('#play_movie').css('backgroundColor', 'blue');
 	$('#play_movie').on('click', function(e){
 		e.preventDefault();
-		$('#play_movie').css('backgroundColor', '#ed8936');
-		$('#play_trailer').css('backgroundColor', 'blue');
+		// $('#play_movie').css('backgroundColor', '#ed8936');
+		// $('#play_trailer').css('backgroundColor', 'blue');
 		$('.youtube').hide();
 		$('.videocdn').show();
 	});
-
+	
+	
+	
 	$('#play_trailer').on('click', function(e){
 		e.preventDefault();
-		$('#play_trailer').css('backgroundColor', '#ed8936');
-		$('#play_movie').css('backgroundColor', 'blue');
-		$('.videocdn').hide();
-		$('.youtube').show();
+			// $('#play_trailer').css('backgroundColor', '#ed8936');
+			// $('#play_movie').css('backgroundColor', 'blue');
+			$('.youtube').show();
+			$('.videocdn').hide();
 	});
+	
 
+	
 
 
 	$('.filter_show_button').on('click', function(){

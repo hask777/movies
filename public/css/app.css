@@ -286,6 +286,10 @@ body {
   border: 1px solid #4299e1;
 }
 
+.hide {
+  display: none;
+}
+
 .swiper-container,
 .swiper-container-mobile {
   width: 100%;
@@ -379,7 +383,6 @@ body {
 
 .swiper-slide .popular_movie_item:hover .movie_item_overlay {
   display: block;
-  overflow-y: scroll;
   background-color: rgba(26, 32, 44, 0.9);
   position: absolute;
   top: 0;
@@ -411,7 +414,7 @@ body {
 .swiper-slide .popular_movie_item:hover .movie_item_overlay .title {
   font-weight: 500;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   padding-bottom: 10px;
 }
 
@@ -433,10 +436,6 @@ body {
   border-radius: 25px;
   font-weight: bold;
   border: 1px solid #4299e1;
-}
-
-.swiper-slide .popular_movie_item:hover .movie_item_overlay .watch span:hover {
-  background-color: #ed8936;
 }
 
 .mobile_popular {
@@ -540,7 +539,7 @@ body {
 .filter .movie_list li:hover button {
   display: block;
   width: 100%;
-  color: #ed8936;
+  color: #4299e1;
   font-size: 1rem;
   font-weight: 500;
   background-color: #1a202c;
@@ -575,7 +574,7 @@ body {
   display: block;
   width: 100%;
   text-align: left;
-  color: #ed8936;
+  color: #4299e1;
   font-size: 1rem;
   font-weight: 500;
   background-color: #1a202c;
@@ -609,7 +608,7 @@ body {
   display: block;
   width: 100%;
   text-align: left;
-  color: #ed8936;
+  color: #4299e1;
   font-size: 1rem;
   font-weight: 500;
   background-color: #1a202c;

@@ -1,7 +1,7 @@
 <div class="filter">
 
     <div class=" bg-gray-800 p-4 mt-6">
-        <h3 class="font-bold text-orange-500 text-center mb-4">
+        <h3 class="font-bold text-gray-500 text-center mb-4">
             <a href="{{route('future.index')}}">
                 Скоро на экранах
             </a>

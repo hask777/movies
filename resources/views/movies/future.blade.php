@@ -6,9 +6,9 @@
         <div class="popular_movies w-80%">
             <div class="flex movies_header items-center">
                  
-                <h2 class='movies_header_title capitalize tracking-wider text-orange-500 text-2xl  text-center font-semibold'>
+                <h2 class='movies_header_title capitalize tracking-wider text-gray-500 text-2xl  text-center font-semibold'>
                     <a href="">
-                        Cкоро на экранах:
+                        Cкоро:
                     </a>    
                 </h2>
                 

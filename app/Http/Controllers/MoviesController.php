@@ -99,7 +99,7 @@ class MoviesController extends Controller
             ->get('https://api.themoviedb.org/3/movie/'. $id . '/recommendations?append_to_response=videos,images,credits&language=ru')
             ->json()['results'];
 
-        dump($recomend);  
+        // dump($recomend);  
 
         $credits = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=credits&language=ru')
