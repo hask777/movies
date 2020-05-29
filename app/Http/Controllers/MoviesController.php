@@ -94,6 +94,7 @@ class MoviesController extends Controller
         $movie = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=videos,images,credits&language=ru')
             ->json();
+            // dump($movie);
 
         $recomend = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/'. $id . '/recommendations?append_to_response=videos,images,credits&language=ru')
@@ -102,6 +103,7 @@ class MoviesController extends Controller
         $similar = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/'. $id . '/similar?append_to_response=videos,images,credits&language=ru')
             ->json()['results'];
+            // dump($similar);
         
         if(!empty($movie['belongs_to_collection'])){
             $collection = Http::withToken(config('services.tmdb.token'))
@@ -109,10 +111,16 @@ class MoviesController extends Controller
             ->json();
             // dump($collection);
         }
+
+        $reviews = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/movie/'. $id . '/reviews?append_to_response=credits&language=ru')
+            ->json()['results'];
+        // dump($reviews);
         
         $credits = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=credits&language=ru')
             ->json();
+            // dump($credits);
 
         // Запрос к videocdn title=$title
         // $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&field='.$movie['imdb_id'] .'&limit=10')
@@ -130,18 +138,33 @@ class MoviesController extends Controller
         // dump($videos);
 
             if(!$videos){
-                return view('movies.show', [
-                    'collection' => $collection,
-                    'similar' => $similar,
-                    'recomend' => $recomend,
-                    'movie' => $movie,
-                    'credits' => $credits,
-                    'genres' => $genres,
-                    'countries' => $countries,
-                    'years' => $years,
-                    'sidebarFutureMovies' => $sidebarFutureMovies,
-                    'videos' => 'NO'
-                ]);
+                if(!empty($collection)){
+                    return view('movies.show', [
+                        'collection' => $collection,
+                        'similar' => $similar,
+                        'recomend' => $recomend,
+                        'movie' => $movie,
+                        'credits' => $credits,
+                        'genres' => $genres,
+                        'countries' => $countries,
+                        'years' => $years,
+                        'sidebarFutureMovies' => $sidebarFutureMovies,
+                        'videos' => 'NO'
+                    ]);
+                }else{
+                    return view('movies.show', [
+                        'collection' => 'NO',
+                        'similar' => $similar,
+                        'recomend' => $recomend,
+                        'movie' => $movie,
+                        'credits' => $credits,
+                        'genres' => $genres,
+                        'countries' => $countries,
+                        'years' => $years,
+                        'sidebarFutureMovies' => $sidebarFutureMovies,               
+                        'videos' => 'NO'
+                     ]);
+                }
             }
             else
             {
@@ -198,20 +221,34 @@ class MoviesController extends Controller
                 endforeach;
                 // dd($video);     
             }
-            return view('movies.show', [
-                'collection' => $collection,
-                'similar' => $similar,
-                'recomend' => $recomend,
-                'movie' => $movie,
-                'credits' => $credits,
-                'genres' => $genres,
-                'countries' => $countries,
-                'years' => $years,
-                'sidebarFutureMovies' => $sidebarFutureMovies,                
-                'videos' => $video
-             ]);
-
-             foreach($videos as $video):
+            if(!empty($collection)){
+                return view('movies.show', [
+                    'collection' => $collection,
+                    'similar' => $similar,
+                    'recomend' => $recomend,
+                    'movie' => $movie,
+                    'credits' => $credits,
+                    'genres' => $genres,
+                    'countries' => $countries,
+                    'years' => $years,
+                    'sidebarFutureMovies' => $sidebarFutureMovies,                
+                    'videos' => $video
+                ]); 
+            }else{
+                return view('movies.show', [
+                    'collection' => 'NO',
+                    'similar' => $similar,
+                    'recomend' => $recomend,
+                    'movie' => $movie,
+                    'credits' => $credits,
+                    'genres' => $genres,
+                    'countries' => $countries,
+                    'years' => $years,
+                    'sidebarFutureMovies' => $sidebarFutureMovies,               
+                    'videos' => $video
+                ]);  
+            }
+            foreach($videos as $video):
                 if(!empty($video))
                 {
                     if($movie['imdb_id'] === $video['imdb_id'])

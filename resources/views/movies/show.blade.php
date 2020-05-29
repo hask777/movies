@@ -51,7 +51,7 @@
                         <h4 class="text-white font-semibold text-gray-500">В главных ролях</h4>
                         <div class="flex mt-4">
                             @foreach ($movie['credits']['crew'] as $crew)
-                                @if ($loop->index < 2)
+                                @if ($loop->index < 5)
                                     <div class="mr-8">
                                         <div class="">
                                             {{$crew['name']}}
@@ -68,13 +68,13 @@
                     <div class="mt-12 pb-12">
 
                         @if(count($movie['videos']['results']) > 0 && $videos != 'NO')
-                            <button id="play_trailer" class="flex inline-flex items-center  rounded font-semibold px-3 py-2">
+                            <button id="play_trailer" class="flex inline-flex items-center  rounded font-semibold px-2 py-4">
                             
                                 <i class="fa fa-youtube" aria-hidden="true"></i>
                                     <span class="ml-2">Смотреть Трэйлер</span>
                             </button>
 
-                            <button id="play_movie" class="flex inline-flex items-center  rounded font-semibold px-3 py-2">
+                            <button id="play_movie" class="flex inline-flex items-center  rounded font-semibold px-2 py-4">
 
                                 <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                                 <span class="ml-2">Смотреть Фильм</span>
@@ -90,7 +90,7 @@
                         @endif
 
                         @if(count($movie['videos']['results']) == 0 && $videos != 'NO')
-                            <button id="play_movie" class="flex inline-flex items-center  rounded font-semibold px-3 py-2">
+                            <button id="play_movie" class="flex inline-flex items-center  rounded font-semibold px-2 py-4">
                                 <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                                 <span class="ml-2">Смотреть Фильм</span>
                             </button>
@@ -101,7 +101,7 @@
                         @endif
 
                         @if(count($movie['videos']['results']) > 0 && $videos == 'NO')
-                            <button id="play_trailer" class="flex inline-flex items-center  rounded font-semibold px-3 py-2">         
+                            <button id="play_trailer" class="flex inline-flex items-center  rounded font-semibold px-6 py-4">         
                                 <i class="fa fa-youtube" aria-hidden="true"></i>
                                     <span class="ml-2">Смотреть Трэйлер</span>
                             </button>
@@ -117,6 +117,7 @@
             </div>
         </div>
         {{-- end  --}}
+        @if(!empty($recomend))
         {{-- Recomindations --}}
         <div class="recomended_title mt-4">
             <h2 class='movies_header_title capitalize tracking-wider text-gray-500 text-2xl   font-semibold'>Рекомендованные</h2>    
@@ -148,8 +149,10 @@
                              
             </div>        
         </div>
+        @endif
         {{-- end --}}
         {{-- Similar --}}
+        @if(!empty($similar))
         <div class="recomended_title mt-4">
             <h2 class='movies_header_title capitalize tracking-wider text-gray-500 text-2xl   font-semibold'>Похожие</h2>    
         </div>
@@ -180,6 +183,7 @@
                              
             </div>        
         </div>
+        @endif
         {{-- end --}}
         {{-- Collection --}}
         @if($collection != 0)
