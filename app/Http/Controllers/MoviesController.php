@@ -107,11 +107,9 @@ class MoviesController extends Controller
             $collection = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3//collection/'.$movie['belongs_to_collection']['id'].'?language=ru')
             ->json();
-            // dump($collection);
+            dump($collection);
         }
-
-          
-
+        
         $credits = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=credits&language=ru')
             ->json();
@@ -152,18 +150,33 @@ class MoviesController extends Controller
                     {
                         if($movie['imdb_id'] === $video['imdb_id'])
                         {
-                            return view('movies.show', [
-                                'collection' => $collection,
-                                'similar' => $similar,
-                                'recomend' => $recomend,
-                                'movie' => $movie,
-                                'credits' => $credits,
-                                'genres' => $genres,
-                                'countries' => $countries,
-                                'years' => $years,
-                                'sidebarFutureMovies' => $sidebarFutureMovies,               
-                                'videos' => $video
-                             ]);
+                            if(!empty($collection)){
+                                return view('movies.show', [
+                                    'collection' => $collection,
+                                    'similar' => $similar,
+                                    'recomend' => $recomend,
+                                    'movie' => $movie,
+                                    'credits' => $credits,
+                                    'genres' => $genres,
+                                    'countries' => $countries,
+                                    'years' => $years,
+                                    'sidebarFutureMovies' => $sidebarFutureMovies,               
+                                    'videos' => $video
+                                 ]);
+                            }else{
+                                return view('movies.show', [
+                                    'collection' => 'NO',
+                                    'similar' => $similar,
+                                    'recomend' => $recomend,
+                                    'movie' => $movie,
+                                    'credits' => $credits,
+                                    'genres' => $genres,
+                                    'countries' => $countries,
+                                    'years' => $years,
+                                    'sidebarFutureMovies' => $sidebarFutureMovies,               
+                                    'videos' => $video
+                                 ]);
+                            }                     
                         }             
                     }
                     else
