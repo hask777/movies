@@ -99,7 +99,18 @@ class MoviesController extends Controller
             ->get('https://api.themoviedb.org/3/movie/'. $id . '/recommendations?append_to_response=videos,images,credits&language=ru')
             ->json()['results'];
 
-        // dump($recomend);  
+        $similar = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/movie/'. $id . '/similar?append_to_response=videos,images,credits&language=ru')
+            ->json()['results'];
+        
+        if(!empty($movie['belongs_to_collection'])){
+            $collection = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3//collection/'.$movie['belongs_to_collection']['id'].'?language=ru')
+            ->json();
+            dump($collection);
+        }
+
+          
 
         $credits = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=credits&language=ru')
@@ -122,6 +133,8 @@ class MoviesController extends Controller
 
             if(!$videos){
                 return view('movies.show', [
+                    'collection' => $collection,
+                    'similar' => $similar,
                     'recomend' => $recomend,
                     'movie' => $movie,
                     'credits' => $credits,
@@ -140,6 +153,8 @@ class MoviesController extends Controller
                         if($movie['imdb_id'] === $video['imdb_id'])
                         {
                             return view('movies.show', [
+                                'collection' => $collection,
+                                'similar' => $similar,
                                 'recomend' => $recomend,
                                 'movie' => $movie,
                                 'credits' => $credits,
@@ -154,6 +169,8 @@ class MoviesController extends Controller
                     else
                     {
                         return view('movies.show', [
+                            'collection' => $collection,
+                            'similar' => $similar,
                             'recomend' => $recomend,
                             'movie' => $movie,
                             'credits' => $credits,
@@ -169,6 +186,8 @@ class MoviesController extends Controller
                 // dd($video);     
             }
             return view('movies.show', [
+                'collection' => $collection,
+                'similar' => $similar,
                 'recomend' => $recomend,
                 'movie' => $movie,
                 'credits' => $credits,
@@ -185,6 +204,8 @@ class MoviesController extends Controller
                     if($movie['imdb_id'] === $video['imdb_id'])
                     {
                         return view('movies.show', [
+                            'collection' => $collection,
+                            'similar' => $similar,
                             'recomend' => $recomend,
                             'movie' => $movie,
                             'credits' => $credits,
@@ -199,6 +220,8 @@ class MoviesController extends Controller
                 else
                 {
                     return view('movies.show', [
+                        'collection' => $collection,
+                        'similar' => $similar,
                         'recomend' => $recomend,
                         'movie' => $movie,
                         'credits' => $credits,
