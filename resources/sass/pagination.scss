@@ -19,7 +19,7 @@
                 vertical-align: auto;
                 background-color: #2D3748;
                 &.active{
-                    background-color: #ED8936;
+                    background-color: #a0aec0;
                     text-align: center;
                     color:#ffffff;
                     font-size: 24px;
@@ -28,13 +28,13 @@
                 &.disabled{
                     background-color: #2D3748;
                     text-align: center;
-                    color:#ED8936;
+                    color:#a0aec0;
                     font-size: 24px;
                     padding:10px;
                 }
                 a{  
                     text-align: center;
-                    color:#ED8936;
+                    color:#a0aec0;
                     font-size: 24px;
                     padding:10px;
                 }

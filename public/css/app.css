@@ -201,7 +201,7 @@ body {
 }
 
 .movie_page_pagination nav .pagination .page-item.active {
-  background-color: #ED8936;
+  background-color: #a0aec0;
   text-align: center;
   color: #ffffff;
   font-size: 24px;
@@ -211,14 +211,14 @@ body {
 .movie_page_pagination nav .pagination .page-item.disabled {
   background-color: #2D3748;
   text-align: center;
-  color: #ED8936;
+  color: #a0aec0;
   font-size: 24px;
   padding: 10px;
 }
 
 .movie_page_pagination nav .pagination .page-item a {
   text-align: center;
-  color: #ED8936;
+  color: #a0aec0;
   font-size: 24px;
   padding: 10px;
 }

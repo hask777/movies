@@ -23,29 +23,19 @@ jQuery(document).ready(function ($) {
 
 	// Show movie and trailer buttons
 
-	// $('.videocdn').hide();
-		// $('#play_movie').css('backgroundColor', 'blue');
 	$('#play_movie').on('click', function(e){
 		e.preventDefault();
-		// $('#play_movie').css('backgroundColor', '#ed8936');
-		// $('#play_trailer').css('backgroundColor', 'blue');
 		$('.youtube').hide();
 		$('.videocdn').show();
 	});
 	
-	
-	
 	$('#play_trailer').on('click', function(e){
 		e.preventDefault();
-			// $('#play_trailer').css('backgroundColor', '#ed8936');
-			// $('#play_movie').css('backgroundColor', 'blue');
 			$('.youtube').show();
 			$('.videocdn').hide();
 	});
 	
-
-	
-
+	// MOBILE
 
 	$('.filter_show_button').on('click', function(){
 		$('.filter_mobile_overlay').css('display', 'block');
@@ -57,6 +47,23 @@ jQuery(document).ready(function ($) {
 		$('.filter_mobile_overlay').css('display', 'none');
 		$('.mobile_sidebar_close_button').css('display', 'none');
 		$('.filter_show_button').css('display', 'block');
+	});
+
+	// FILTER
+
+	$('.movie_list').hide();
+	$('.genres_head').on('click', function(){
+		$('.movie_list').slideToggle();		
+	});
+
+	$('.countries_list').hide();
+	$('.country_head').on('click', function(){
+		$('.countries_list').slideToggle();		
+	});
+
+	$('.years_list').hide();
+	$('.years_head').on('click', function(){
+		$('.years_list').slideToggle();		
 	});
 
 	
