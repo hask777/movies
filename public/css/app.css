@@ -223,6 +223,10 @@ body {
   padding: 10px;
 }
 
+.movie_item {
+  position: relative;
+}
+
 .movie_item .movie_item_overlay {
   display: none;
 }
@@ -270,12 +274,10 @@ body {
 }
 
 .movie_item:hover .movie_item_overlay .watch {
-  position: obsalute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  margin-top: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .movie_item:hover .movie_item_overlay .watch span {

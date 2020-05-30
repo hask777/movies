@@ -1,4 +1,5 @@
 .movie_item{
+    position: relative;
     .movie_item_overlay{
         display: none;
     }
@@ -41,12 +42,10 @@
                 font-size: 12px;
             }
             .watch{
-                position: obsalute;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 10px;
-                margin-top: 10px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
                 span{
                     padding: 5px 15px;
                     // background-color: $second_blue;

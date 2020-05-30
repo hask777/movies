@@ -18,14 +18,14 @@
         
         <div class="popular_movies w-80%">
             <div class="flex movies_header justify-between items-center">
-            <h2 class='movies_header_title tracking-wider text-gray-500 text-2xl  text-center font-semibold'>Страна: {{$country_name}}</h2>
+            <h2 class='movies_header_title tracking-wider text-gray-500 text-2xl  text-center font-semibold'>Страна {{$country_name}}</h2>
             
             @include('partials.styles')
 
             </div>
 
             <div class="fflex mt-5 mb-5">
-                <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 row-gap-5">
                     @foreach($country_paginate as $movie)
                         <x-movie-card :movie="$movie" :genres="$genres"/>
                     @endforeach                  
