@@ -1,4 +1,7 @@
 <div class="movie_item relative">
+    {{-- <svg class="progress-ring" width="120" height="120">
+        <circle class="progress-ring__circle" stroke="white" stroke-width="4" fill="transparent" r="52" cx="60" cy="60"/>
+    </svg> --}}
     <a href="{{ route('movies.show', $movie['id']) }}">
         <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
         
@@ -52,5 +55,8 @@
         <h2 class="title">{{mb_strimwidth($movie['title'], 0, 18, "...")}}</h2>
         <span>{{\Carbon\Carbon::parse($movie['release_date'])->format('Y') }}</span>
     </div>
+    
 </div>
+
+{{-- {{$movie['vote_average']}} --}}
 

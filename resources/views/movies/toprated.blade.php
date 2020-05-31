@@ -16,7 +16,7 @@
                 
                 <h2 class='movies_header_title capitalize tracking-wider text-gray-500 text-2xl  text-center font-semibold'>
                     <a href="">
-                        По рэйтингу
+                        Топ рэйтинга
                     </a>    
                 </h2>
                 

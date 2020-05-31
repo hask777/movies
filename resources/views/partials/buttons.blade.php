@@ -10,7 +10,7 @@
 </h3>
 <h3 class="font-bold text-gray-500  mt-1">
     <a href="{{route('movies.toprated')}}">
-        По рейтингу
+        Топ рейтинга
     </a>
 </h3>
 <h3 class="font-bold text-gray-500  mt-1">

@@ -22,7 +22,6 @@ jQuery(document).ready(function ($) {
 	});
 
 	// Show movie and trailer buttons
-
 	$('#play_movie').on('click', function(e){
 		e.preventDefault();
 		$('.youtube').hide();
@@ -35,8 +34,7 @@ jQuery(document).ready(function ($) {
 			$('.videocdn').hide();
 	});
 	
-	// MOBILE
-
+	// Mobile filter show hide
 	$('.filter_show_button').on('click', function(){
 		$('.filter_mobile_overlay').css('display', 'block');
 		$('.mobile_sidebar_close_button').css('display', 'block');
@@ -49,8 +47,7 @@ jQuery(document).ready(function ($) {
 		$('.filter_show_button').css('display', 'block');
 	});
 
-	// FILTER
-
+	// Filter buttons
 	$('.movie_list').hide();
 	$('.genres_head').on('click', function(){
 		$('.movie_list').slideToggle();		
@@ -71,7 +68,7 @@ jQuery(document).ready(function ($) {
 		$('.raiting_list').slideToggle();		
 	});
 
-	// AVERAGE
+	// Average filter
 	$('#movie_raiting').change(function() {
 		$('#movie_raiting_value').text($(this).val());
 	});
