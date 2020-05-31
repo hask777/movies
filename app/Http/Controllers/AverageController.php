@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\LengthAwarePaginator;;
 
-class PopularController extends Controller
+class AverageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,20 +18,24 @@ class PopularController extends Controller
     public function index()
     {
         include 'inc/popular.php';
+        include 'inc/nowplaying.php';
+        include 'inc/top_rated.php';
+        include 'inc/upcoming.php';
+        include 'inc/latest.php';
         include 'inc/genres.php';
         include 'inc/years.php';
         include 'inc/countries.php';
         include 'inc/sidebar.php';
+        include 'inc/average.php';
         include 'inc/movies/popular_pagination.php';
-          
-        return view('movies.popular', [
-            'popularMovies' => $popularMovies,
+
+        return view('movies.raiting', [
+            'movie_raiting' => $movie_raiting,
+            'average' => $average,
             'genresArray' => $genresArray,
             'genres' => $genres,
             'countries' => $countries,
             'years' => $years,
-            'movie_raiting' => $movie_raiting,
-            'average' => $average,
             'sidebarFutureMovies' => $sidebarFutureMovies,
             'popular_paginate' => $popular_paginate
         ]);

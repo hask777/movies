@@ -21,13 +21,14 @@ class MoviesController extends Controller
         include 'inc/nowplaying.php';
         include 'inc/top_rated.php';
         include 'inc/upcoming.php';
+        include 'inc/latest.php';
         include 'inc/genres.php';
         include 'inc/years.php';
         include 'inc/countries.php';
         include 'inc/sidebar.php';
         include 'inc/movies/popular_pagination.php';
 
-        // dump($popularMovies);
+        dump($popularMovies);
             
         return view('movies.index', [
             'popularMovies' => $popularMovies,
@@ -94,7 +95,7 @@ class MoviesController extends Controller
         $movie = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=videos,images,credits&language=ru')
             ->json();
-            // dump($movie);
+            dump($movie);
 
         $recomend = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/'. $id . '/recommendations?append_to_response=videos,images,credits&language=ru')
@@ -107,18 +108,18 @@ class MoviesController extends Controller
         
         if(!empty($movie['belongs_to_collection'])){
             $collection = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3//collection/'.$movie['belongs_to_collection']['id'].'?language=ru')
+            ->get('https://api.themoviedb.org/3/collection/'.$movie['belongs_to_collection']['id'].'?language=ru')
             ->json();
             // dump($collection);
         }
 
         $reviews = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/'. $id . '/reviews?append_to_response=credits&language=ru')
+            ->get('https://api.themoviedb.org/3/movie/'. $id . '/reviews?append_to_response=language=ru')
             ->json()['results'];
         // dump($reviews);
         
         $credits = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=credits&language=ru')
+            ->get('https://api.themoviedb.org/3/movie/'. $id . '/credits?append_to_response=language=ru-RU')
             ->json();
             // dump($credits);
 

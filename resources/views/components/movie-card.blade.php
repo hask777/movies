@@ -53,3 +53,4 @@
         <span>{{\Carbon\Carbon::parse($movie['release_date'])->format('Y') }}</span>
     </div>
 </div>
+

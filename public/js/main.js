@@ -66,5 +66,14 @@ jQuery(document).ready(function ($) {
 		$('.years_list').slideToggle();		
 	});
 
-	
+	$('.raiting_list').hide();
+	$('.raiting_head').on('click', function(){
+		$('.raiting_list').slideToggle();		
+	});
+
+	// AVERAGE
+	$('#movie_raiting').change(function() {
+		$('#movie_raiting_value').text($(this).val());
+	});
+
 });

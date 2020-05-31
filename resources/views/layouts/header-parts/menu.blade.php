@@ -2,8 +2,7 @@
 pr-2">
                     
     <li class="main_menu_item  pr-3">
-        <a href="{{route('movies.index')}}" class="hover:text-gray-300">Фильмы
-            <i class="fa fa-sort-desc" aria-hidden="true"></i>        
+        <a href="{{route('movies.index')}}" class="hover:text-gray-300">Фильмы     
         </a>
         <ul class="sub_menu">
         <li><a href="{{route('popular.index')}}">Популярные</a></li>

@@ -1,7 +1,7 @@
 html,
 body {
   overflow-x: hidden;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .main_menu ul .main_menu_item:hover a,
@@ -425,11 +425,10 @@ body {
 }
 
 .swiper-slide .popular_movie_item:hover .movie_item_overlay .watch {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  margin-top: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .swiper-slide .popular_movie_item:hover .movie_item_overlay .watch span {
@@ -494,6 +493,10 @@ body {
   /* Track */
   /* Handle */
   /* Handle on hover */
+}
+
+.filter h3 {
+  cursor: pointer;
 }
 
 .filter ::-webkit-scrollbar {
