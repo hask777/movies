@@ -1,4 +1,19 @@
 <div class="popular_movie_item relative">
+    @php
+    $ave = $movie['vote_average']*10
+    @endphp                        
+    <div class="popular_percent" 
+        @php  if($ave < 25){echo 'style="border: 3px solid rgb(250, 45, 90)"';} @endphp
+        @php  if($ave < 50){echo 'style="border: 3px solid rgb(230, 211, 42)"';} @endphp
+        @php  if($ave < 75){echo 'style="border: 3px solid rgb(55, 192, 37)"';} @endphp
+        @php  if($ave < 85){echo 'style="border: 3px solid rgb(37, 161, 192)"';} @endphp
+        @php  if($ave < 100){echo 'style="border: 3px solid rgb(148, 37, 192)"';} @endphp
+    >
+    <div class="number">
+            <h2>{{$ave}}<span>%</span></h2>
+            
+    </div>
+    </div>
     <a href="{{ route('movies.show', $movie['id']) }}">
         <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
         <div class="movie_item_overlay">
@@ -11,4 +26,8 @@
             </div>     
         </div>
     </a>
+    <div class="flex justify-between px-2 py-2">
+        <h2 class="title">{{mb_strimwidth($movie['title'], 0, 18, "...")}}</h2>
+        <span>{{\Carbon\Carbon::parse($movie['release_date'])->format('Y') }}</span>
+    </div>
 </div>

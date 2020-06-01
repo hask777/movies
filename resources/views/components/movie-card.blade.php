@@ -70,45 +70,6 @@
         <span>{{\Carbon\Carbon::parse($movie['release_date'])->format('Y') }}</span>
     </div>
    
-    
-    
-    <style>
-       
-        .percent{
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            /* border: 3px solid #58c976; */
-            background: #222;
-            z-index: 1000;
-        }
-        .percent .number{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            z-index: 1200;
-        }
-        .percent .number h2{
-            color:rgb(207, 204, 204);
-            font-weight: 700;
-            font-size: 12px;
-
-        }
-        .percent .number h2 span{
-            font-size: 10px;
-            color: rgb(207, 204, 204);
-        }
-        
-    </style>
 </div>
 
 

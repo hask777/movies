@@ -292,6 +292,112 @@ body {
   display: none;
 }
 
+.percent {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* border: 3px solid #58c976; */
+  background: #222;
+  z-index: 9999;
+}
+
+.percent .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 1200;
+}
+
+.percent .number h2 {
+  color: #cfcccc;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.percent .number span {
+  font-size: 10px;
+  color: #cfcccc;
+}
+
+.show_movie_percent {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* border: 3px solid #58c976; */
+  background: #222;
+  z-index: 1000;
+}
+
+.show_movie_percent .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 1200;
+}
+
+.show_movie_percent .number h2 {
+  color: #cfcccc;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.show_movie_percent .number span {
+  font-size: 10px;
+  color: #cfcccc;
+}
+
+.popular_percent {
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* border: 3px solid #58c976; */
+  background: #222;
+  z-index: 9999;
+}
+
+.popular_percent .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 1200;
+}
+
+.popular_percent .number h2 {
+  color: #cfcccc;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.popular_percent .number span {
+  font-size: 10px;
+  color: #cfcccc;
+}
+
 .swiper-container,
 .swiper-container-mobile {
   width: 100%;
@@ -818,7 +924,7 @@ body {
 .country_active {
   display: block;
   width: 100%;
-  color: #ed8936;
+  color: #4299e1;
   font-size: 1rem;
   font-weight: bold;
   background-color: #1a202c;
