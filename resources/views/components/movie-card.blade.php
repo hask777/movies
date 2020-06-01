@@ -1,7 +1,21 @@
+
+@php
+    $ave = $movie['vote_average']*10
+@endphp
 <div class="movie_item relative">
-    {{-- <svg class="progress-ring" width="120" height="120">
-        <circle class="progress-ring__circle" stroke="white" stroke-width="4" fill="transparent" r="52" cx="60" cy="60"/>
-    </svg> --}}
+    
+    <div class="percent" 
+    @php  if($ave < 25){echo 'style="border: 3px solid rgb(250, 45, 90)"';} @endphp
+    @php  if($ave < 50){echo 'style="border: 3px solid rgb(230, 211, 42)"';} @endphp
+    @php  if($ave < 75){echo 'style="border: 3px solid rgb(55, 192, 37)"';} @endphp
+    @php  if($ave < 85){echo 'style="border: 3px solid rgb(37, 161, 192)"';} @endphp
+    @php  if($ave < 100){echo 'style="border: 3px solid rgb(148, 37, 192)"';} @endphp
+    >
+       <div class="number">
+            <h2>{{$ave}}<span>%</span></h2>
+            
+       </div>
+   </div>
     <a href="{{ route('movies.show', $movie['id']) }}">
         <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
         
@@ -55,8 +69,48 @@
         <h2 class="title">{{mb_strimwidth($movie['title'], 0, 18, "...")}}</h2>
         <span>{{\Carbon\Carbon::parse($movie['release_date'])->format('Y') }}</span>
     </div>
+   
     
+    
+    <style>
+       
+        .percent{
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            /* border: 3px solid #58c976; */
+            background: #222;
+            z-index: 1000;
+        }
+        .percent .number{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            z-index: 1200;
+        }
+        .percent .number h2{
+            color:rgb(207, 204, 204);
+            font-weight: 700;
+            font-size: 12px;
+
+        }
+        .percent .number h2 span{
+            font-size: 10px;
+            color: rgb(207, 204, 204);
+        }
+        
+    </style>
 </div>
 
-{{-- {{$movie['vote_average']}} --}}
+
+
 
