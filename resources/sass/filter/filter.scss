@@ -29,6 +29,7 @@
         max-height: 200px;
         margin-bottom: 40px;
         overflow-y: scroll;
+        overflow-x: hidden;
         background-color: $second_blue;
         padding: 0 10px;
         border: 1px solid $second_blue;
@@ -129,16 +130,16 @@
                
             }
         } 
-        .country_active{
+        .year_active{
             background-color: $second_blue;
         }  
     }
 }
 
-.genre_active, .country_active{
+.genre_active, .country_active .year_active{
     display: block;
     width: 100%;
-    color: $orange;
+    color: rgba(66, 153, 225);
     font-size: 1rem;
     font-weight: bold;
     background-color: $main_blue;

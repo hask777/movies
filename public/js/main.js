@@ -69,7 +69,7 @@ jQuery(document).ready(function ($) {
 	});
 
 	// Average filter
-	$('#movie_raiting').change(function() {
+	$('#movie_raiting').mousemove(function() {
 		$('#movie_raiting_value').text($(this).val());
 	});
 

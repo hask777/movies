@@ -523,6 +523,7 @@ body {
   max-height: 200px;
   margin-bottom: 40px;
   overflow-y: scroll;
+  overflow-x: hidden;
   background-color: #2d3748;
   padding: 0 10px;
   border: 1px solid #2d3748;
@@ -619,15 +620,15 @@ body {
   background-color: #1a202c;
 }
 
-.filter .years_list .country_active {
+.filter .years_list .year_active {
   background-color: #2d3748;
 }
 
 .genre_active,
-.country_active {
+.country_active .year_active {
   display: block;
   width: 100%;
-  color: #ed8936;
+  color: #4299e1;
   font-size: 1rem;
   font-weight: bold;
   background-color: #1a202c;
