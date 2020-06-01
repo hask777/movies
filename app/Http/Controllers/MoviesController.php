@@ -28,7 +28,7 @@ class MoviesController extends Controller
         include 'inc/sidebar.php';
         include 'inc/movies/popular_pagination.php';
 
-        dump($popularMovies);
+        // dump($popularMovies);
             
         return view('movies.index', [
             'popularMovies' => $popularMovies,
@@ -95,7 +95,7 @@ class MoviesController extends Controller
         $movie = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=videos,images,credits&language=ru')
             ->json();
-            dump($movie);
+            // dump($movie);
 
         $recomend = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/'. $id . '/recommendations?append_to_response=videos,images,credits&language=ru')
