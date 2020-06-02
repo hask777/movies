@@ -27,7 +27,7 @@ class AverageController extends Controller
         include 'inc/countries.php';
         include 'inc/sidebar.php';
         include 'inc/average.php';
-        include 'inc/movies/popular_pagination.php';
+        include 'inc/movies/average_pagination.php';
 
         return view('movies.raiting', [
             'movie_raiting' => $movie_raiting,
@@ -37,7 +37,7 @@ class AverageController extends Controller
             'countries' => $countries,
             'years' => $years,
             'sidebarFutureMovies' => $sidebarFutureMovies,
-            'popular_paginate' => $popular_paginate
+            'average_paginate' => $average_paginate
         ]);
     }
 

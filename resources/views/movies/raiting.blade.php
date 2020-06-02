@@ -19,14 +19,21 @@
 
             <div class="flex mt-5 mb-5">
                 <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 row-gap-5">
-                    @foreach($average as $movie)
+                    @foreach($average_paginate as $movie)
                         <x-movie-card :movie="$movie" :genres="$genres"/>
                     @endforeach              
                 </div>        
             </div>
 
             <div class="movie_page_pagination">
-                {{-- {{ $popular_paginate->links() }} --}}
+                @php
+                    if( !empty($_GET['movie_raiting'] )){         
+                        $movie_raiting = $_GET['movie_raiting'];        
+                    }
+
+                    $params = ['movie_raiting' => $movie_raiting];
+                @endphp
+                {{ $average_paginate->appends($params)->links() }}
             </div>
         </div>
     </div>

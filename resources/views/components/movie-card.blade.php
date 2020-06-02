@@ -17,7 +17,11 @@
        </div>
    </div>
     <a href="{{ route('movies.show', $movie['id']) }}">
-        <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
+        @if ($movie['poster_path'])
+            <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
+        @else
+            <img src="http://placehold.jp/2d3748/a0aec0/500x750.jpg?text=poster" alt="poster" class="hover:opacity-75 transition ease-in-out duration-150">
+        @endif
         
         <div class="movie_card">         
             <div class="movie_item_overlay">

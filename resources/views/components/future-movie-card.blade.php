@@ -1,6 +1,12 @@
 <div class="movie_item relative">
     <a href="{{ route('movies.show', $movie['id']) }}">
-        <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
+       
+        @if ($movie['poster_path'])
+            <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
+        @else
+            <img src="http://placehold.jp/2d3748/a0aec0/500x750.jpg?text=poster" alt="poster" class="hover:opacity-75 transition ease-in-out duration-150">
+        @endif
+
         <div class="movie_item_overlay">
 
             {{-- <h2 class="title">{{$movie['title']}}</h2> --}}
@@ -10,4 +16,8 @@
             </div>     
         </div>
     </a>
+    <div class="popular_heading flex justify-between px-2 py-2">
+        <h2 class="title">{{mb_strimwidth($movie['title'], 0, 18, "...")}}</h2>
+        <span>{{\Carbon\Carbon::parse($movie['release_date'])->format('Y') }}</span>
+    </div>
 </div>

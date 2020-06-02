@@ -223,6 +223,10 @@ body {
   padding: 10px;
 }
 
+.swiper-container-horizontal > .swiper-scrollbar {
+  display: none;
+}
+
 .movie_item {
   position: relative;
 }
