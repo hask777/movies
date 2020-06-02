@@ -597,6 +597,26 @@ body {
   height: 100%;
 }
 
+.show .raiting .show_movie_percent {
+  margin-left: 50px;
+}
+
+.show .date .date_content {
+  margin-left: 20px;
+}
+
+.show .genres .genres_content {
+  margin-left: 70px;
+}
+
+.show .overview .overview_content {
+  margin-left: 40px;
+}
+
+.show .casts .casts_content {
+  margin-left: 58px;
+}
+
 .filter {
   max-width: 224px;
   /* width */

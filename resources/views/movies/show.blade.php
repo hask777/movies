@@ -3,7 +3,7 @@
 @section('content')
 <div class="container flex mx-auto px-4 mt-6 mb-8">
     @include('partials.left-sidebar')
-    <div class="popular_movies w-100 md:w-80%">
+    <div class="popular_movies show w-100 md:w-80%">
         <div class="md:flex movies_header justify-between items-center">
             <h2 class='movies_header_title capitalize tracking-wider text-gray-500 text-2xl  text-center font-semibold'>{{ $movie['original_title'] }} | {{ $movie['title'] }}</h2>        
         </div>
@@ -23,6 +23,7 @@
                         @php
                             $ave = $movie['vote_average']*10
                         @endphp
+
                         <div class="raiting flex items-center">
                             <span class='text-white font-semibold text-gray-500'>Рэйтинг:</span>                        
                             <div class="show_movie_percent ml-3" 
@@ -40,15 +41,15 @@
                         </div>     
                         {{-- end raiting --}}
                         {{-- movie date --}}
-                        <div class="date mt-2">
-                            <span class='text-white font-semibold text-gray-500'>Дата релиза:</span>
-                            <span class="ml-4">{{ \Carbon\Carbon::parse($movie['release_date'])->format('M d, Y') }}</span>
+                        <div class="date mt-1">
+                            <span class='date_head text-white font-semibold text-gray-500'>Дата релиза:</span>
+                            <span class="date_content ml-4 text-white text-xs">{{ $movie['release_date'] }}</span>
                         </div>      
                         {{-- end movie date --}}
                         {{-- movie genres --}}
-                        <div class="genres mt-4">
-                            <span class='text-white font-semibold text-gray-500'>Жанр:</span>
-                                <span class="ml-4">
+                        <div class="genres mt-2">
+                            <span class='genres_head text-white font-semibold text-gray-500'>Жанр:</span>
+                                <span class="genres_content ml-4 text-xs font-medium text-white">
                                 @foreach ($movie['genres'] as $genre)
                                     {{ $genre['name'] }}
                                     @if (!$loop->last)
@@ -59,19 +60,10 @@
                         </div>     
                         {{-- end movie genres --}}
                     </div>
-                    {{-- movie overview --}}
-                    <div class="overview flex mt-4">
-                        <span class='text-white font-semibold text-gray-500'>Описание:</span>
-                        <p class="text-gray-300  text-sm ml-4">
-                            {{ $movie['overview'] }}
-                        </p>
-                    </div>
-                    
-                    {{-- end movie overview --}}
-                    {{-- casts --}}
-                    <div class="genres mt-4 flex">
-                        <span class="text-white font-semibold text-gray-500">В главных ролях:</span>
-                        <div class="ml-3 text-sm">
+                     {{-- casts --}}
+                     <div class="casts flex mt-2 text-sm">
+                        <span class="casts_head text-white font-semibold text-gray-500">В ролях:</span>
+                        <div class="casts_content ml-3 text-xs font-medium">
                             @foreach ($movie['credits']['cast'] as $cast)
                                 
                                     @if ($loop->index < 5)
@@ -82,6 +74,16 @@
                         </div>
                     </div>
                     {{-- end casts --}}
+                    {{-- movie overview --}}
+                    <div class="overview flex mt-2 text-sm">
+                        <span class='overview_head text-white font-semibold text-gray-500'>Описание:</span>
+                        <p class="overview_content text-gray-300  text-xs ml-4 font-medium">
+                            {{ $movie['overview'] }}
+                        </p>
+                    </div>
+                    
+                    {{-- end movie overview --}}
+                   
                     <div class="mt-12 pb-12">
 
                         @if(count($movie['videos']['results']) > 0 && $videos != 'NO')
