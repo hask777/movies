@@ -2,7 +2,7 @@ var swiper = new Swiper('.swiper-container', {
 	slidesPerView: 5,
 	spaceBetween: 20,
 	// slidesOffsetBefore: 50,
-	loop: true,
+	// loop: true,
 	loopFillGroupWithBlank: false,
 	navigation: {
 		nextEl: '.swiper-button-next',

@@ -73,4 +73,17 @@ jQuery(document).ready(function ($) {
 		$('#movie_raiting_value').text($(this).val());
 	});
 
+	// Show recomendations similar 
+
+	$('.similar_movies').hide();
+	$('.similar').on('click', function(){
+		$('.recomendations_movies').hide();
+		$('.similar_movies').show();
+	});
+
+	$('.recomendations').on('click', function(){
+		$('.recomendations_movies').show();
+		$('.similar_movies').hide();
+	});
+
 });

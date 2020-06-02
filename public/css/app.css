@@ -617,6 +617,11 @@ body {
   margin-left: 58px;
 }
 
+.recomendations,
+.similar {
+  cursor: pointer;
+}
+
 .filter {
   max-width: 224px;
   /* width */
