@@ -106,6 +106,11 @@ class TvController extends Controller
         $tvs = Http::get('https://videocdn.tv/api/tv-series?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_name'] .'&limit=10')
             ->json()['data'];
 
+
+        $bazon = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='.$movie['original_name'].'')->json()['results'];
+
+            dump($bazon);
+
         // dd($movie);
 
         foreach($tvs as $tv){

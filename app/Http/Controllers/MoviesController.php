@@ -124,24 +124,14 @@ class MoviesController extends Controller
             ->json();
             // dump($credits);
 
-        // Запрос к videocdn title=$title
-        // $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&field='.$movie['imdb_id'] .'&limit=10')
-        //     ->json()['data'];
-        //     dump($videos);
-        
-        $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_title'] .'&limit=10')
-            ->json()['data'];
-        // dump($videos);
+        include 'inc/movies/show/videocdn.php';
+        // include 'inc/movies/show/bazon.php';
 
-        if(empty($videos)){
-            $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['title'] .'&limit=10')
-                ->json()['data'];
-        }
-        // dump($videos);
-
+       
             if(!$videos){
                 if(!empty($collection)){
                     return view('movies.show', [
+                        // 'bazon' => $bazon,
                         'collection' => $collection,
                         'similar' => $similar,
                         'recomend' => $recomend,
@@ -155,6 +145,7 @@ class MoviesController extends Controller
                     ]);
                 }else{
                     return view('movies.show', [
+                        // 'bazon' => $bazon,
                         'collection' => 'NO',
                         'similar' => $similar,
                         'recomend' => $recomend,
@@ -177,6 +168,7 @@ class MoviesController extends Controller
                         {
                             if(!empty($collection)){
                                 return view('movies.show', [
+                                    // 'bazon' => $bazon,
                                     'collection' => $collection,
                                     'similar' => $similar,
                                     'recomend' => $recomend,
@@ -191,6 +183,7 @@ class MoviesController extends Controller
                             }else{
                                 return view('movies.show', [
                                     'collection' => 'NO',
+                                    // 'bazon' => $bazon,
                                     'similar' => $similar,
                                     'recomend' => $recomend,
                                     'movie' => $movie,
@@ -207,6 +200,7 @@ class MoviesController extends Controller
                     else
                     {
                         return view('movies.show', [
+                            // 'bazon' => $bazon,
                             'collection' => $collection,
                             'similar' => $similar,
                             'recomend' => $recomend,
@@ -225,6 +219,7 @@ class MoviesController extends Controller
             }
             if(!empty($collection)){
                 return view('movies.show', [
+                    // 'bazon' => $bazon,
                     'collection' => $collection,
                     'similar' => $similar,
                     'recomend' => $recomend,
@@ -238,6 +233,7 @@ class MoviesController extends Controller
                 ]); 
             }else{
                 return view('movies.show', [
+                    // 'bazon' => $bazon,
                     'collection' => 'NO',
                     'similar' => $similar,
                     'recomend' => $recomend,
@@ -256,6 +252,7 @@ class MoviesController extends Controller
                     if($movie['imdb_id'] === $video['imdb_id'])
                     {
                         return view('movies.show', [
+                            // 'bazon' => $bazon,
                             'collection' => $collection,
                             'similar' => $similar,
                             'recomend' => $recomend,
@@ -272,6 +269,7 @@ class MoviesController extends Controller
                 else
                 {
                     return view('movies.show', [
+                        // 'bazon' => $bazon,
                         'collection' => $collection,
                         'similar' => $similar,
                         'recomend' => $recomend,
