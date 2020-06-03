@@ -111,6 +111,7 @@ class MoviesController extends Controller
             ->get('https://api.themoviedb.org/3/collection/'.$movie['belongs_to_collection']['id'].'?language=ru')
             ->json();
             // dump($collection);
+            // dump(count($collection['parts']));
         }
 
         $reviews = Http::withToken(config('services.tmdb.token'))

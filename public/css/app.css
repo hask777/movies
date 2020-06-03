@@ -486,7 +486,7 @@ body {
 }
 
 .swiper-slide .popular_movie_item {
-  max-width: 300px;
+  max-width: 184px;
 }
 
 .swiper-slide .popular_movie_item .movie_item_overlay {
@@ -547,6 +547,10 @@ body {
   border-radius: 25px;
   font-weight: bold;
   border: 1px solid #4299e1;
+}
+
+.collection_slide {
+  margin-right: 20px;
 }
 
 .mobile_popular {

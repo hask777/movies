@@ -58,7 +58,8 @@
     display: flex;
     .popular_movie_item{
         // display: flex;
-        max-width: 300px;
+        max-width: 184px;
+       
         .movie_item_overlay{
             display: none;
         }
@@ -123,13 +124,13 @@
     }
 }
 
+.collection_slide{
+    margin-right: 20px;
+}
+
 .mobile_popular{
     display: none;
 }
-
-
-
- 
 
 // /* Small (sm) */
 @media (max-width: 640px) {

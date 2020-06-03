@@ -16,8 +16,8 @@
             </div>     
         </div>
     </a>
-    <div class="popular_heading flex justify-between px-2 py-2">
+    <div class="popular_heading flex px-2 py-2 text-xs">
         <h2 class="title">{{mb_strimwidth($movie['title'], 0, 18, "...")}}</h2>
-        <span>{{\Carbon\Carbon::parse($movie['release_date'])->format('Y') }}</span>
+        {{-- <span>{{\Carbon\Carbon::parse($movie['release_date'])->format('Y') }}</span> --}}
     </div>
 </div>

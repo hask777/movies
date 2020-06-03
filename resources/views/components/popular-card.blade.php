@@ -9,10 +9,10 @@
         @php  if($ave < 85){echo 'style="border: 3px solid rgb(37, 161, 192)"';} @endphp
         @php  if($ave < 100){echo 'style="border: 3px solid rgb(148, 37, 192)"';} @endphp
     >
-    <div class="number">
-            <h2>{{$ave}}<span>%</span></h2>
-            
-    </div>
+        <div class="number">
+                <h2>{{$ave}}<span>%</span></h2>
+                
+        </div>
     </div>
     <a href="{{ route('movies.show', $movie['id']) }}">
         
@@ -31,7 +31,7 @@
             </div>     
         </div>
     </a>
-    <div class="flex justify-between px-2 py-2">
+    <div class="flex justify-between px-2 py-2 text-sm">
         <h2 class="title">{{mb_strimwidth($movie['title'], 0, 18, "...")}}</h2>
         <span>{{\Carbon\Carbon::parse($movie['release_date'])->format('Y') }}</span>
     </div>
