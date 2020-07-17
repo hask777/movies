@@ -91,7 +91,7 @@
     
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
-        <livewire:scripts>
+        <livewire:scripts> 
 
        
         <script type="text/javascript" src="{{secure_asset('js/main.js')}}"></script>
